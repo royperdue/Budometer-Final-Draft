@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_help"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.HelpActivity">
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/helpViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="?attr/actionBarSize" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/pad1dp"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="?attr/actionBarSize"
+        android:background="?android:attr/listDivider" />
+
+    <FrameLayout
+        android:id="@+id/buttons_layout"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_gravity="bottom"
+        android:paddingStart="@dimen/pad16dp"
+        android:paddingLeft="@dimen/pad16dp"
+        android:paddingEnd="@dimen/pad16dp"
+        android:paddingRight="@dimen/pad16dp">
+
+        <ImageButton
+            android:id="@+id/backImageButton"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center"
+            android:src="@drawable/ic_navigate_before_white_36dp"
+            android:tint="@color/primaryText"
+            android:contentDescription="@string/content_description_previous_button_background" />
+
+        <LinearLayout
+            android:id="@+id/ll_indicators"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <com.app.budometer.views.CircleIndicatorView
+                android:id="@+id/circle_indicator_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/finishButton"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center"
+            android:text="@string/button_finish"
+            android:textAllCaps="true"
+            android:textColor="@color/primaryText"
+            android:visibility="gone" />
+
+        <ImageButton
+            android:id="@+id/nextImageButton"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center"
+            android:padding="@dimen/pad16dp"
+            android:src="@drawable/ic_navigate_next_white_36dp"
+            android:tint="@color/primaryText"
+            android:contentDescription="@string/content_description_next_button_background" />
+    </FrameLayout>
+
+    <com.melnykov.fab.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="@dimen/pad16dp"
+        android:src="@drawable/ic_arrow_forward_white_24dp"
+        android:visibility="gone" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

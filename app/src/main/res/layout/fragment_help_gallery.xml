@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:background="@color/white">
+
+    <LinearLayout
+        android:id="@+id/textLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/pad10dp">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/pad56dp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/pad5dp"
+            android:background="@color/button_red"
+            android:padding="@dimen/pad10dp">
+
+            <ImageView
+                android:id="@+id/galleryIconImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:background="@drawable/ic_photo_library_white_48dp"
+                android:contentDescription="@null"
+                android:scaleType="fitCenter"
+                app:layout_constraintRight_toLeftOf="@+id/galleryTitleTextView"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/galleryTitleTextView"
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/pad10dp"
+                android:textColor="@color/white"
+                app:layout_constraintLeft_toRightOf="@+id/galleryIconImageView"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="@string/help_section_title_image_gallery_button" />
+
+            <TextView
+                android:id="@+id/galleryDescriptionTextView"
+                style="@style/TextAppearance.AppCompat.Small"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pad8dp"
+                android:inputType="textMultiLine|text"
+                android:padding="@dimen/pad5dp"
+                android:paddingStart="@dimen/pad10dp"
+                android:textColor="@color/white"
+                app:layout_constraintLeft_toRightOf="@+id/galleryIconImageView"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/galleryTitleTextView" />
+
+            <ImageView
+                android:id="@+id/galleryFolderImageView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/gallery_page"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toTopOf="@+id/galleryGuideline"
+                app:layout_constraintDimensionRatio="H,1:1.8"
+                app:layout_constraintEnd_toStartOf="@+id/gallerySelectImageView"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/galleryDescriptionTextView" />
+
+            <TextView
+                android:id="@+id/galleryFolderLabelTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/pad5dp"
+                android:text="@string/folders_page"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/txt14sp"
+                app:layout_constraintLeft_toLeftOf="@+id/galleryFolderImageView"
+                app:layout_constraintRight_toRightOf="@+id/galleryFolderImageView"
+                app:layout_constraintTop_toBottomOf="@+id/galleryGuideline" />
+
+            <ImageView
+                android:id="@+id/gallerySelectImageView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/gallery_images_selected_menu_expanded"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toTopOf="@+id/galleryGuideline"
+                app:layout_constraintDimensionRatio="H,1:1.8"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@+id/galleryFolderImageView"
+                app:layout_constraintTop_toBottomOf="@+id/galleryDescriptionTextView" />
+
+            <TextView
+                android:id="@+id/gallerySelectLabelTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/pad5dp"
+                android:text="@string/folder_selected_page"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/txt14sp"
+                app:layout_constraintLeft_toLeftOf="@+id/gallerySelectImageView"
+                app:layout_constraintRight_toRightOf="@+id/gallerySelectImageView"
+                app:layout_constraintTop_toBottomOf="@+id/galleryGuideline" />
+
+            <TextView
+                android:id="@+id/galleryFolderTextView"
+                style="@style/TextAppearance.AppCompat.Small"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine|text"
+                android:padding="@dimen/pad5dp"
+                android:textAlignment="viewStart"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/gallerySelectLabelTextView" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/galleryGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="315dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/pad56dp" />
+    </LinearLayout>
+</ScrollView>

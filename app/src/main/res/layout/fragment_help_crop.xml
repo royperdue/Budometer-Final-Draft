@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:background="@color/white">
+
+    <LinearLayout
+        android:id="@+id/textLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top|center_horizontal"
+        android:background="@color/button_yellow"
+        android:minHeight="@dimen/pad150dp"
+        android:orientation="vertical"
+        android:padding="@dimen/pad10dp">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/pad56dp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/pad5dp"
+            android:background="@color/light_green_alpha_80"
+            android:padding="@dimen/pad10dp">
+
+            <ImageView
+                android:id="@+id/cropIconImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:background="@drawable/ic_crop_white_48dp"
+                android:contentDescription="@null"
+                android:scaleType="fitCenter"
+                app:layout_constraintRight_toLeftOf="@+id/cropTitleTextView"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/cropTitleTextView"
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/pad10dp"
+                android:textColor="@color/white"
+                app:layout_constraintLeft_toRightOf="@+id/cropIconImageView"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="@string/help_section_title_crop_button" />
+
+            <TextView
+                android:id="@+id/cropDescriptionTextView"
+                style="@style/TextAppearance.AppCompat.Small"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pad8dp"
+                android:inputType="textMultiLine|text"
+                android:textSize="@dimen/txt13sp"
+                android:padding="@dimen/pad5dp"
+                android:paddingStart="@dimen/pad10dp"
+                android:textColor="@color/white"
+                app:layout_constraintLeft_toRightOf="@+id/cropIconImageView"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cropTitleTextView" />
+
+            <ImageView
+                android:id="@+id/cropSelectImageView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/crop_gallery_page"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toTopOf="@+id/cropGuideline"
+                app:layout_constraintDimensionRatio="H,1:1.8"
+                app:layout_constraintEnd_toStartOf="@+id/cropPreviewImageView"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cropDescriptionTextView" />
+
+            <TextView
+                android:id="@+id/cropSelectLabelTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/pad5dp"
+                android:text="@string/gallery"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/txt12sp"
+                app:layout_constraintLeft_toLeftOf="@+id/cropSelectImageView"
+                app:layout_constraintRight_toRightOf="@+id/cropSelectImageView"
+                app:layout_constraintTop_toBottomOf="@+id/cropGuideline" />
+
+            <ImageView
+                android:id="@+id/cropPreviewImageView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/crop_page"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toTopOf="@+id/cropGuideline"
+                app:layout_constraintDimensionRatio="H,1:1.8"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@+id/cropSelectImageView"
+                app:layout_constraintTop_toBottomOf="@+id/cropDescriptionTextView" />
+
+            <TextView
+                android:id="@+id/cropPreviewLabelTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/pad5dp"
+                android:text="@string/cropping_tool"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/txt12sp"
+                app:layout_constraintLeft_toLeftOf="@+id/cropPreviewImageView"
+                app:layout_constraintRight_toRightOf="@+id/cropPreviewImageView"
+                app:layout_constraintTop_toBottomOf="@+id/cropGuideline" />
+
+
+            <TextView
+                android:id="@+id/cropSelectTextView1"
+                style="@style/TextAppearance.AppCompat.Small"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine|text"
+                android:padding="@dimen/pad5dp"
+                android:textAlignment="viewStart"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cropPreviewLabelTextView" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/cropGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="315dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/pad56dp" />
+    </LinearLayout>
+</ScrollView>

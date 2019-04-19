@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:background="@color/white">
+
+    <LinearLayout
+        android:id="@+id/textLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top|center_horizontal"
+        android:minHeight="@dimen/pad150dp"
+        android:orientation="vertical"
+        android:padding="@dimen/pad10dp">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/pad56dp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/button_blue"
+            android:padding="@dimen/pad10dp">
+
+            <ImageView
+                android:id="@+id/reviewIconImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:background="@drawable/ic_view_carousel_white_48dp"
+                android:contentDescription="@null"
+                android:scaleType="fitCenter"
+                app:layout_constraintRight_toLeftOf="@+id/reviewTitleTextView"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/reviewTitleTextView"
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/pad10dp"
+                android:textColor="@color/white"
+                app:layout_constraintLeft_toRightOf="@+id/reviewIconImageView"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="@string/help_section_title_carousel_button" />
+
+            <TextView
+                android:id="@+id/reviewDescriptionTextView"
+                style="@style/TextAppearance.AppCompat.Small"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pad8dp"
+                android:inputType="textMultiLine"
+                android:padding="@dimen/pad5dp"
+                android:paddingStart="@dimen/pad10dp"
+                android:textSize="@dimen/txt13sp"
+                android:textColor="@color/white"
+                app:layout_constraintLeft_toRightOf="@+id/reviewIconImageView"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/reviewTitleTextView" />
+
+            <ImageView
+                android:id="@+id/reviewListImageView0"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/pad28dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/review_vertical_scroll_cut"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toTopOf="@+id/reviewGuideline"
+                app:layout_constraintDimensionRatio="H,.8:1"
+                app:layout_constraintEnd_toStartOf="@+id/reviewDetailsImageView0"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/reviewDescriptionTextView" />
+
+            <TextView
+                android:id="@+id/reviewListLabelTextView0"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/pad5dp"
+                android:text="@string/plant_crop_readings"
+                android:textAlignment="viewStart"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/txt14sp"
+                app:layout_constraintLeft_toLeftOf="@+id/reviewListImageView0"
+                app:layout_constraintRight_toRightOf="@+id/reviewListImageView0"
+                app:layout_constraintTop_toBottomOf="@+id/reviewListImageView0" />
+
+            <ImageView
+                android:id="@+id/reviewDetailsImageView0"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/review_horizontal_swipe_cut"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toTopOf="@+id/reviewGuideline"
+                app:layout_constraintDimensionRatio="H,.8:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@+id/reviewListImageView0"
+                app:layout_constraintTop_toBottomOf="@+id/reviewDescriptionTextView" />
+
+            <TextView
+                android:id="@+id/reviewDetailsLabelTextView0"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/pad5dp"
+                android:text="@string/plants_crops"
+                android:textAlignment="viewStart"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/txt14sp"
+                app:layout_constraintLeft_toLeftOf="@+id/reviewDetailsImageView0"
+                app:layout_constraintRight_toRightOf="@+id/reviewDetailsImageView0"
+                app:layout_constraintTop_toBottomOf="@+id/reviewDetailsImageView0" />
+
+            <TextView
+                android:id="@+id/reviewListTextView0"
+                style="@style/TextAppearance.AppCompat.Small"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine|text"
+                android:padding="@dimen/pad5dp"
+                android:textAlignment="viewStart"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt13sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/reviewDetailsLabelTextView0" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/reviewGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="315dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/pad5dp"
+            android:background="@color/button_blue"
+            android:padding="@dimen/pad10dp">
+
+            <ImageView
+                android:id="@+id/reviewListImageView1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/txt14sp"
+                android:layout_marginEnd="@dimen/spot_size"
+                android:adjustViewBounds="true"
+                android:background="@drawable/review_chart"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toTopOf="@+id/reviewDetailsGuideline"
+                app:layout_constraintDimensionRatio="H,1:1.8"
+                app:layout_constraintEnd_toStartOf="@+id/reviewDetailsImageView1"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/reviewListLabelTextView1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/pad5dp"
+                android:text="@string/chart"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/txt14sp"
+                app:layout_constraintLeft_toLeftOf="@+id/reviewListImageView1"
+                app:layout_constraintRight_toRightOf="@+id/reviewListImageView1"
+                app:layout_constraintTop_toBottomOf="@+id/reviewDetailsGuideline" />
+
+            <ImageView
+                android:id="@+id/reviewDetailsImageView1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/spot_size"
+                android:layout_marginEnd="@dimen/pad14dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/review_chart_info"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toTopOf="@+id/reviewDetailsGuideline"
+                app:layout_constraintDimensionRatio="H,1:1.8"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@+id/reviewListImageView1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/reviewDetailsLabelTextView1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/pad5dp"
+                android:text="@string/saved_input"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/txt14sp"
+                app:layout_constraintLeft_toLeftOf="@+id/reviewDetailsImageView1"
+                app:layout_constraintRight_toRightOf="@+id/reviewDetailsImageView1"
+                app:layout_constraintTop_toBottomOf="@+id/reviewDetailsGuideline" />
+
+            <TextView
+                android:id="@+id/reviewListTextView1"
+                style="@style/TextAppearance.AppCompat.Small"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine|text"
+                android:padding="@dimen/pad5dp"
+                android:textAlignment="viewStart"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/reviewDetailsLabelTextView1" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/reviewDetailsGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="264dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/pad56dp" />
+    </LinearLayout>
+</ScrollView>

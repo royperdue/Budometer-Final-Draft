@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/backgroundImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/content_description_main_image"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/background_3" />
+
+    <LinearLayout
+        android:id="@+id/firstUseInstructionsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top|center_horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        android:minHeight="@dimen/pad150dp"
+        android:orientation="vertical"
+        android:padding="@dimen/pad10dp">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/pad10dp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/grey_alpha_80"
+            android:paddingStart="@dimen/pad10dp"
+            android:paddingTop="@dimen/pad10dp"
+            android:paddingEnd="@dimen/pad10dp">
+
+            <ImageView
+                android:id="@+id/helpImageViewMain"
+                android:layout_width="@dimen/pad48dp"
+                android:layout_height="@dimen/pad48dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/expanded_circle_buttons_main"
+                android:contentDescription="@null"
+                android:scaleType="fitCenter"
+                app:layout_constraintRight_toLeftOf="@+id/helpTitleTextViewMain"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/helpTitleTextViewMain"
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/pad10dp"
+                android:text="@string/help_section_title_expand_button"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toEndOf="@+id/helpImageViewMain"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/helpDescriptionTextViewMain"
+                style="@style/TextAppearance.AppCompat.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/pad10dp"
+                android:layout_marginTop="@dimen/pad8dp"
+                android:inputType="textMultiLine|text"
+                android:text="@string/help_section_description_expand_button"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt14sp"
+                app:layout_constraintStart_toEndOf="@+id/helpImageViewMain"
+                app:layout_constraintTop_toBottomOf="@+id/helpTitleTextViewMain" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/grey_alpha_80"
+            android:paddingTop="@dimen/pad10dp"
+            android:paddingStart="@dimen/pad10dp"
+            android:paddingEnd="@dimen/pad10dp">
+
+            <ImageView
+                android:id="@+id/helpImageViewGroup"
+                android:layout_width="@dimen/pad80dp"
+                android:layout_height="@dimen/pad80dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/expanded_circle_buttons_group1"
+                android:contentDescription="@null"
+                android:scaleType="fitCenter"
+                app:layout_constraintRight_toLeftOf="@+id/helpTitleTextViewGroup"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/helpTitleTextViewGroup"
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/pad10dp"
+                android:text="@string/help_section_title_navigation_menu"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toEndOf="@+id/helpImageViewGroup"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/helpDescriptionTextViewGroup"
+                style="@style/TextAppearance.AppCompat.Small"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pad8dp"
+                android:inputType="textMultiLine|text"
+                android:paddingEnd="@dimen/txt20sp"
+                android:text="@string/help_section_description_navigation_menu_first_use"
+                android:textAlignment="viewStart"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/helpTitleTextViewGroup"
+                app:layout_constraintTop_toBottomOf="@+id/helpTitleTextViewGroup" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayoutHelpButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/grey_alpha_80"
+            android:paddingTop="@dimen/pad10dp"
+            android:paddingStart="@dimen/pad10dp"
+            android:paddingEnd="@dimen/pad10dp">
+
+            <ImageView
+                android:id="@+id/helpImageViewHelpButton"
+                android:layout_width="@dimen/pad48dp"
+                android:layout_height="@dimen/pad48dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/help_button"
+                android:contentDescription="@null"
+                android:scaleType="fitCenter"
+                app:layout_constraintRight_toLeftOf="@+id/helpTitleTextViewHelpButton"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/helpTitleTextViewHelpButton"
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/pad10dp"
+                android:text="@string/help_button_image_title"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toEndOf="@+id/helpImageViewHelpButton"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/helpDescriptionTextViewHelpButton"
+                style="@style/TextAppearance.AppCompat.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/pad10dp"
+                android:layout_marginTop="@dimen/pad8dp"
+                android:paddingEnd="@dimen/txt20sp"
+                android:inputType="textMultiLine|text"
+                android:text="@string/help_section_description_help_button_first_use"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt14sp"
+                app:layout_constraintStart_toEndOf="@+id/helpImageViewHelpButton"
+                app:layout_constraintTop_toBottomOf="@+id/helpTitleTextViewHelpButton" />
+
+            <Button
+                android:id="@+id/gotItButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pad10dp"
+                android:paddingEnd="@dimen/txt20sp"
+                android:paddingBottom="@dimen/txt20sp"
+                android:background="@color/transparent"
+                android:text="@string/got_it"
+                android:textAllCaps="true"
+                android:textSize="@dimen/txt20sp"
+                android:textColor="@color/white"
+                android:textAlignment="viewEnd"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/helpDescriptionTextViewHelpButton" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/pad250dp"
+        android:background="@color/transparent"
+        android:gravity="bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="1.5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <com.app.budometer.views.CircleMenuView
+            android:id="@+id/circle_menu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom|center_horizontal"
+            app:button_colors="@array/colors_main_fragment"
+            app:button_icons="@array/icons_main_fragment" />
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

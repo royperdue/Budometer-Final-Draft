@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#388E3C</color>
+    <color name="colorPrimaryDark">#20630d</color>
+    <color name="colorAccent">#AA00FF</color>
+
+    <color name="header_green">#91A36A</color>
+    <color name="item_separator_color">#b0bec5</color>
+
+    <color name="primaryText">#424242</color>
+    <color name="secondaryText">#bdbdbd</color>
+    <color name="hintText">#14000000</color>
+
+    <color name="transparent">#00FFFFFF</color>
+    <color name="white">#FFFFFF</color>
+    <color name="white_alpha_50">#80FFFFFF</color>
+    <color name="white_alpha_25">#40FFFFFF</color>
+    <color name="white_alpha_10">#1AFFFFFF</color>
+    <color name="black_transparent">#14000000</color>
+    <color name="black_alpha_10">#1A000000</color>
+    <color name="black_alpha_50">#80000000</color>
+    <color name="black_alpha_25">#40000000</color>
+    <color name="black_alpha_aa">#AA000000</color>
+
+    <color name="light_green_alpha_35">#5991A36A</color>
+    <color name="light_green_alpha_50">#8091A36A</color>
+    <color name="light_green_alpha_80">#CCb3d577</color>
+    <color name="chart_background">#fffde0</color>
+
+    <color name="grey_alpha_80">#CC9e9e9e</color>
+    <color name="brown_alpha_80">#CC6d4c41</color>
+    <color name="red_alpha_80">#CCff1744</color>
+    <color name="purple_alpha_80">#CCaa00ff</color>
+    <color name="blue_alpha_80">#CC304ffe</color>
+    <color name="green_alpha_80">#CC00c853</color>
+    <color name="yellow_alpha_80">#CCfdd835</color>
+    <color name="orange_alpha_80">#CCff9100</color>
+
+    <!-- SnackBarView colors -->
+    <color name="grey_alpha_50">#809e9e9e</color>
+    <color name="red_alpha_50">#80ff1744</color>
+    <color name="purple_alpha_50">#80aa00ff</color>
+    <color name="blue_alpha_50">#80304ffe</color>
+    <color name="green_alpha_50">#8000c853</color>
+    <color name="yellow_alpha_50">#80ffea00</color>
+    <color name="orange_alpha_50">#80ff9100</color>
+
+    <!-- Circle menu button colors -->
+    <color name="button_red">#FF1744</color>
+    <color name="button_purple">#aa00ff</color>
+    <color name="button_blue">#304ffe</color>
+    <color name="button_green">#00c853</color>
+    <color name="button_yellow">#ffea00</color>
+    <color name="button_orange">#ff9100</color>
+
+    <!-- Image extraction colors -->
+    <color name="light_red">#dcbcb4</color>
+    <color name="medium_red">#cf878b</color>
+    <color name="red">#c9576a</color>
+    <color name="dark_red">#853745</color>
+
+    <color name="light_purple">#d6c6e6</color>
+    <color name="medium_purple">#c3ade4</color>
+    <color name="purple">#91809d</color>
+    <color name="dark_purple">#5e4b67</color>
+
+    <color name="light_green">#92a170</color>
+    <color name="medium_green">#99985e</color>
+    <color name="green">#93aa56</color>
+    <color name="dark_green">#4f583a</color>
+
+    <color name="light_orange">#e0b850</color>
+    <color name="medium_orange">#d0a840</color>
+    <color name="orange">#c8a038</color>
+    <color name="dark_orange">#c4761d</color>
+
+    <color name="light_brown">#a77840</color>
+    <color name="medium_brown">#a75c2d</color>
+    <color name="brown">#85502a</color>
+    <color name="dark_brown">#624527</color>
+
+    <color name="light_grey">#E8EDEA</color>
+    <color name="medium_grey">#F0F7CD</color>
+    <color name="grey">#E5EDB0</color>
+    <color name="dark_grey">#D5DD8A</color>
+
+
+
+    <!--
+    100% — FF
+95% — F2
+90% — E6
+85% — D9
+80% — CC
+75% — BF
+70% — B3
+65% — A6
+60% — 99
+55% — 8C
+50% — 80
+45% — 73
+40% — 66
+35% — 59
+30% — 4D
+25% — 40
+20% — 33
+15% — 26
+10% — 1A
+5% — 0D
+0% — 00
+    -->
+</resources>

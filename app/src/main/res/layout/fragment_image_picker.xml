@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/emptyImagesTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:padding="@dimen/pad16dp"
+        android:text="@string/msg_empty_images"
+        android:textSize="@dimen/txt16sp"
+        android:visibility="gone" />
+
+    <com.app.budometer.views.SnackBarView
+        android:id="@+id/snackBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/pad56dp"
+        android:layout_alignBottom="@+id/recyclerView"
+        android:layout_alignParentBottom="true"
+        android:background="@color/black_alpha_aa" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/pad250dp"
+        android:orientation="vertical"
+        android:background="@color/transparent"
+        android:layout_alignParentBottom="true">
+
+        <com.app.budometer.views.CircleMenuView
+            android:id="@+id/circle_menu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:button_colors="@array/colors_image_picker_fragment"
+            app:button_icons="@array/icons_image_picker_fragment"
+            android:layout_gravity="bottom|center_horizontal"/>
+    </LinearLayout>
+</RelativeLayout>

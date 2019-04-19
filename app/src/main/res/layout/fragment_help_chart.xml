@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:background="@color/white">
+
+    <LinearLayout
+        android:id="@+id/textLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top|center_horizontal"
+        android:minHeight="@dimen/pad150dp"
+        android:orientation="vertical"
+        android:padding="@dimen/pad10dp">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/pad56dp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/pad5dp"
+            android:background="@color/button_green"
+            android:padding="@dimen/pad10dp">
+
+            <ImageView
+                android:id="@+id/chartIconImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:background="@drawable/ic_pie_chart_white_48dp"
+                android:contentDescription="@null"
+                android:scaleType="fitCenter"
+                app:layout_constraintRight_toLeftOf="@+id/chartTitleTextView"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/chartTitleTextView"
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/pad10dp"
+                android:textColor="@color/white"
+                app:layout_constraintLeft_toRightOf="@+id/chartIconImageView"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="@string/help_section_title_chart_button" />
+
+            <TextView
+                android:id="@+id/chartDescriptionTextView"
+                style="@style/TextAppearance.AppCompat.Small"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pad8dp"
+                android:inputType="textMultiLine|text"
+                android:padding="@dimen/pad5dp"
+                android:paddingStart="@dimen/pad10dp"
+                android:textColor="@color/white"
+                app:layout_constraintLeft_toRightOf="@+id/chartIconImageView"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/chartTitleTextView" />
+
+            <ImageView
+                android:id="@+id/analysisChartImageView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/analysis_chart"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toTopOf="@+id/chartGuideline"
+                app:layout_constraintDimensionRatio="H,1:1.8"
+                app:layout_constraintEnd_toStartOf="@+id/chartInformationImageView"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/chartDescriptionTextView" />
+
+            <TextView
+                android:id="@+id/analysisChartLabelTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/pad5dp"
+                android:text="@string/chart"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/txt14sp"
+                app:layout_constraintLeft_toLeftOf="@+id/analysisChartImageView"
+                app:layout_constraintRight_toRightOf="@+id/analysisChartImageView"
+                app:layout_constraintTop_toBottomOf="@+id/chartGuideline" />
+
+            <ImageView
+                android:id="@+id/chartInformationImageView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/analysis_chart_info"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toTopOf="@+id/chartGuideline"
+                app:layout_constraintDimensionRatio="H,1:1.8"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@+id/analysisChartImageView"
+                app:layout_constraintTop_toBottomOf="@+id/chartDescriptionTextView" />
+
+            <TextView
+                android:id="@+id/chartInformationLabelTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/pad5dp"
+                android:text="@string/input"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/txt14sp"
+                app:layout_constraintLeft_toLeftOf="@+id/chartInformationImageView"
+                app:layout_constraintRight_toRightOf="@+id/chartInformationImageView"
+                app:layout_constraintTop_toBottomOf="@+id/chartGuideline" />
+
+
+            <TextView
+                android:id="@+id/chartTextView"
+                style="@style/TextAppearance.AppCompat.Small"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine|text"
+                android:padding="@dimen/pad5dp"
+                android:textAlignment="viewStart"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/chartInformationLabelTextView" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/chartGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="315dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/pad56dp" />
+    </LinearLayout>
+</ScrollView>

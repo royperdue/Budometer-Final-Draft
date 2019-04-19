@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="squarecamera__red">#F0001D</color>
+    <color name="squarecamera__pressed_red">#B3F0001D</color>
+    <color name="squarecamera__white">#FFFFFF</color>
+    <color name="squarecamera__pressed_white">#99FFFFFF</color>
+
+    <color name="squarecamera__colorPrimary">#388E3C</color>
+    <color name="squarecamera__colorPrimaryDark">#20630d</color>
+    <color name="squarecamera__colorAccent">#AA00FF</color>
+
+    <color name="squarecamera__header_green">#b3d577</color>
+    <color name="squarecamera__item_separator_color">#b0bec5</color>
+
+    <color name="squarecamera__primaryText">#424242</color>
+    <color name="squarecamera__secondaryText">#bdbdbd</color>
+    <color name="squarecamera__hintText">#14000000</color>
+
+    <color name="squarecamera__transparent">#00FFFFFF</color>
+    <color name="squarecamera__black_transparent">#14000000</color>
+    <color name="squarecamera__black_alpha_50">#80000000</color>
+    <color name="squarecamera__black_alpha_aa">#AA000000</color>
+    <color name="squarecamera__grey">#9E9E9E</color>
+
+    <color name="squarecamera__light_green_alpha_50">#80b3d577</color>
+    <color name="squarecamera__light_green_alpha_80">#CCb3d577</color>
+
+    <color name="squarecamera__grey_alpha_80">#CC9e9e9e</color>
+    <color name="squarecamera__brown_alpha_80">#CC6d4c41</color>
+    <color name="squarecamera__red_alpha_80">#CCff1744</color>
+    <color name="squarecamera__purple_alpha_80">#CCaa00ff</color>
+    <color name="squarecamera__blue_alpha_80">#CC304ffe</color>
+    <color name="squarecamera__green_alpha_80">#CC00c853</color>
+    <color name="squarecamera__yellow_alpha_80">#CCfdd835</color>
+    <color name="squarecamera__orange_alpha_80">#CCff9100</color>
+
+    <!-- SnackBarView colors -->
+    <color name="squarecamera__grey_alpha_50">#809e9e9e</color>
+    <color name="squarecamera__red_alpha_50">#80ff1744</color>
+    <color name="squarecamera__purple_alpha_50">#80aa00ff</color>
+    <color name="squarecamera__blue_alpha_50">#80304ffe</color>
+    <color name="squarecamera__green_alpha_50">#8000c853</color>
+    <color name="squarecamera__yellow_alpha_50">#80ffea00</color>
+    <color name="squarecamera__orange_alpha_50">#80ff9100</color>
+
+    <!-- Circle menu button colors -->
+    <color name="squarecamera__button_red">#ff1744</color>
+    <color name="squarecamera__button_purple">#aa00ff</color>
+    <color name="squarecamera__button_blue">#304ffe</color>
+    <color name="squarecamera__button_green">#00c853</color>
+    <color name="squarecamera__button_yellow">#ffea00</color>
+    <color name="squarecamera__button_orange">#ff9100</color>
+
+    <!-- Image extraction colors -->
+    <color name="squarecamera__light_red">#ef9a9a</color>
+    <color name="squarecamera__medium_red">#ef5350</color>
+    <color name="squarecamera__red_">#e53935</color>
+    <color name="squarecamera__dark_red">#c62828</color>
+
+    <color name="squarecamera__light_purple">#d1c4e9</color>
+    <color name="squarecamera__medium_purple">#7e57c2</color>
+    <color name="squarecamera__purple">#673ab7</color>
+    <color name="squarecamera__dark_purple">#4a148c</color>
+
+    <color name="squarecamera__light_green">#9ccc65</color>
+    <color name="squarecamera__medium_green">#689f38</color>
+    <color name="squarecamera__green">#2e7d32</color>
+    <color name="squarecamera__dark_green">#33691e</color>
+
+    <color name="squarecamera__light_orange">#d4e157</color>
+    <color name="squarecamera__medium_orange">#fdd835</color>
+    <color name="squarecamera__orange">#f57f17</color>
+    <color name="squarecamera__dark_orange">#e65100</color>
+
+    <color name="squarecamera__light_brown">#bcaaa4</color>
+    <color name="squarecamera__medium_brown">#8d6e63</color>
+    <color name="squarecamera__brown">#6d4c41</color>
+    <color name="squarecamera__dark_brown">#3e2723</color>
+
+    <color name="squarecamera__light_grey">#fafafa</color>
+    <color name="squarecamera__medium_grey">#e0e0e0</color>
+    <color name="squarecamera__grey_">#bdbdbd</color>
+    <color name="squarecamera__dark_grey">#9e9e9e</color>
+</resources>

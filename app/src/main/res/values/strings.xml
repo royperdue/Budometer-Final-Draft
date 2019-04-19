@@ -1,0 +1,367 @@
+<resources>
+    <string name="app_name">Budometer</string>
+    <string name="notes">Notes:</string>
+    <string name="crop_id">Crop id:</string>
+    <string name="strain">Strain:</string>
+    <string name="date">Date:</string>
+
+    <!--HELP UI PAGES - Image labels-->
+    <string name="chart">Chart</string>
+    <string name="input">Input</string>
+    <string name="week_7">Week 7</string>
+    <string name="maturing">Maturing</string>
+    <string name="under_50">Under 50%</string>
+    <string name="fully_wilted">Fully Wilted</string>
+    <string name="_50_70">50%-70%</string>
+    <string name="amber">Amber</string>
+    <string name="foggy">Foggy</string>
+    <string name="clear">Clear</string>
+    <string name="wilting_tips">Wilting Tips</string>
+    <string name="vigorous">Vigorous</string>
+    <string name="growing">Growing</string>
+    <string name="full_maturity">Full Maturity</string>
+    <string name="_90">90% +</string>
+    <string name="week_5">Week 5</string>
+    <string name="week_9">Week 9</string>
+    <string name="capture">Capture</string>
+    <string name="preview">Preview</string>
+    <string name="folders_page">Folders</string>
+    <string name="folder_selected_page">Folder Selected</string>
+
+    <!--HELP UI PAGES - Section titles-->
+    <string name="help_section_title_expand_button">Expanding Menu Button</string>
+    <string name="help_button_image_title">Help Button</string>
+    <string name="help_section_title_navigation_menu">Navigation Menu</string>
+    <string name="help_section_title_chart_button">Chart</string>
+    <string name="help_section_title_image_gallery_button">Gallery</string>
+    <string name="help_section_title_carousel_button">Archive</string>
+    <string name="help_section_title_help_button">Help</string>
+    <string name="help_section_title_camera_button">Camera</string>
+    <string name="help_section_title_crop_button">Image Cropping</string>
+
+    <string name="help_section_title_harvesting_marijuana">Harvesting marijuana</string>
+    <string name="help_section_title_pistil_color">Pistil Color:</string>
+    <string name="help_section_title_pistil_vigor">Pistil Curling:</string>
+    <string name="help_section_title_trichomes_color">Trichome Color:</string>
+    <string name="help_section_title_bud_density">Bud Density:</string>
+    <string name="help_section_title_leaf_color">Leaf Curling &amp; Coloration:</string>
+
+    <!--HELP UI PAGES - Help explanation messages-->
+    <string name="help_section_description_expand_button">Click to reveal/conceal the navigation menu.</string>
+
+    <string name="help_section_description_navigation_menu">The navigation menu contains an assortment of buttons used to navigate within the app. Instructions for the usage of each navigation button are
+       provided on the proceeding help pages.</string>
+
+    <string name="help_section_description_navigation_menu_first_use">The navigation menu contains an assortment of buttons used to navigate within the app.</string>
+
+    <string name="help_section_description_help_button_first_use">*IMPORTANT* Read the help pages \nbefore first use. Click the purple button to access the help pages. Instructions for \nthe usage of each \nnavigation button are provided on the help pages.</string>
+
+    <string name="help_section_description_camera_button_1">After installing the Budometer app you will need to take some pictures of the buds you want to analyze.</string>
+
+    <string name="help_section_description_camera_button_2">Budometer requires that photographs be taken from a close-up vantage point and in the manner described below.</string>
+
+    <string name="help_description_start_the_camera">Click the camera icon in the navigation menu to start the camera.</string>
+
+    <string name="help_description_camera_placement_photo_capture_1">(1) Position the camera close to the bud as indicated by the red outline.</string>
+
+    <string name="help_description_camera_placement_photo_capture_2">It\'s important that the photo contains bud only without background showing around the edges.</string>
+
+    <string name="help_description_click_capture">(3) Click the large center button to capture the image.</string>
+
+    <string name="help_description_camera_flash_setting">(4) Click to change the camera\'s flash setting.</string>
+
+    <string name="help_description_camera_front_rear">(2) Toggles between the front-facing and rear-facing cameras.</string>
+
+    <string name="help_description_camera_display_image_preview">The captured image will be displayed on the camera\'s image preview page.</string>
+
+    <string name="help_description_camera_save_image_1">(6) Click to save the image.</string>
+
+    <string name="help_description_camera_save_image_2">Saved images are saved to the folder labeled \'Budometer\' located inside the \'Pictures\' directory.</string>
+
+    <string name="help_description_camera_retake">(5) Click to discard the current image and take a new photo.</string>
+
+    <string name="help_description_gallery_main_1">Images captured using the camera are accessible through the image gallery.</string>
+
+    <string name="help_description_gallery_main_2">To run an analysis start by selecting four images from the gallery.</string>
+
+    <string name="help_description_gallery_open">Click the gallery menu button to open the gallery folder page.</string>
+
+    <string name="help_description_gallery_open_folder">To access images in a specific folder tap the folder icon.</string>
+
+    <string name="help_description_gallery_select_images">Select four images then click the green \'pie chart\' menu button to begin analyzing.</string>
+
+    <string name="help_description_gallery_results_displayed">Analysis of the images will take a few seconds before the results are displayed.</string>
+
+    <string name="help_description_chart_main">Information resulting from the completion of analysis is displayed for the user and conveys a variety of facts about the plants in the analyzed photographs. The diagrams below describe the results interface and the information displayed.</string>
+
+    <string name="help_description_chart_four_images_used">(1) Shows the four images used in this analysis.</string>
+
+    <string name="help_description_chart_pie_chart">(2) A pie chart displaying all colors and shades extracted from the images.</string>
+
+    <string name="help_description_chart_pie_chart_percentage_values">(3) Values indicating what percentage of the image each specific color shade represents.</string>
+
+    <string name="help_description_chart_color_bar_1">(4) A color bar that displays values indicating what percentage of the image each group of color shades represents.</string>
+
+    <string name="help_description_chart_color_bar_2">For example, all shades of purple combined make up 3.9% of the image color.</string>
+
+    <string name="help_description_chart_close_button">(5) Close button, when clicked exits the results page.</string>
+
+    <string name="help_description_chart_save_button">(6) Save button, when clicked saves the current analysis results for later viewing.</string>
+
+    <string name="help_description_chart_result_text_1">(7) Text indicating if plants are ready to harvest or if they are still growing as determined by machine learning algorithms.</string>
+
+    <string name="help_description_chart_result_text_2">This information is automatically displayed by the software at the conclusion of an analysis.</string>
+
+    <string name="help_description_chart_pistil_percent">(8) Text indicating the percentage of pistils that have turned orange/brown, wilted, and curled.</string>
+
+    <string name="help_description_chart_strain_1">(9) Text showing the strain of cannabis represented in the analyzed photos.</string>
+
+    <string name="help_description_chart_strain_2">This information is user input, entering the cannabis strain is optional.</string>
+
+    <string name="help_description_chart_crop_id_1">(10) Crop id, archived analysis readings are grouped according to the crop or plant from which they were taken and therefore each reading must have a crop/plant identifier.</string>
+
+    <string name="help_description_chart_crop_id_2">This information is user input, entering the crop id is required to save the reading.</string>
+
+    <string name="help_description_chart_date_1">(11) Text stating the date that the analysis was performed.</string>
+
+    <string name="help_description_chart_date_2">This information is automatically displayed by the software at the conclusion of an analysis.</string>
+
+    <string name="help_description_chart_notes">(12) A text view that allows users to enter notes for later reference.</string>
+
+    <string name="help_description_crop_main">Budometer\'s image cropping tool can be used
+       to trim off unwanted background colors along the image edges.</string>
+
+    <string name="help_description_crop_1">(1) Navigate to the gallery.</string>
+
+    <string name="help_description_crop_2">(2) Select the folder containing the image.</string>
+
+    <string name="help_description_crop_3">(3) Select an image.</string>
+
+    <string name="help_description_crop_4">(4) Click expanding menu button to reveal the navigation menu.</string>
+
+    <string name="help_description_crop_5">(5) Clicking the yellow crop image button opens the selected image in the image cropping tool.</string>
+
+    <string name="help_description_crop_6">(6) Resize and reposition the cropping guide so that the section of image inside the guide represents the image that you would like to keep.</string>
+
+    <string name="help_description_crop_7">(7) Clicking the crop image button crops the image, saves the edited version to the gallery, refreshes the gallery, and exits the cropping tool.</string>
+
+    <string name="gallery">Gallery</string>
+
+    <string name="cropping_tool">Cropping Tool</string>
+
+    <string name="help_description_carousel_main">Archived analysis readings are grouped according to the crop or plant from which they were taken. Each reading includes all information and user input from the original analysis and displays it in an organized and easy to navigate user interface.</string>
+
+    <string name="plant_crop_readings">Readings</string>
+
+    <string name="plants_crops">Plants/Crops</string>
+
+    <string name="saved_input">Saved Input</string>
+
+    <string name="help_description_vertical_scroll">All archived readings for a single crop or plant are displayed in a list that scrolls vertically as shown by the image labeled \'Plant/Crop Readings\'.</string>
+
+    <string name="help_description_carousel_list_header_1">(1) List header, the first entry in every collection of
+       previous reading is a header.</string>
+
+    <string name="help_description_carousel_close_button">(6) Close button, when clicked exits the results page.</string>
+
+    <string name="help_description_carousel_list_header_2">The list header displays the crop id for the specific crop from which the readings were taken.</string>
+
+    <string name="help_description_carousel_list_header_3">The strain of cannabis grown in that crop.</string>
+
+    <string name="help_description_carousel_list_header_4">The date the analysis was performed.</string>
+
+    <string name="help_description_carousel_horizontal_scroll">Scroll horizontally to navigate through multiple groupings each containing all of the readings for a previous crop or plant.</string>
+
+    <string name="help_description_carousel_click_list_elements_1">(2)Individual readings, all list elements below
+       the list header represents individual readings.</string>
+
+    <string name="help_description_carousel_click_list_elements_2">Click on a list element to display the details of that specific reading.</string>
+
+    <string name="help_description_carousel_display_archived_information_1">Clicking a list element displays the information for the archived reading stated on the list element.</string>
+
+    <string name="help_description_carousel_display_archived_information_2">The information is displayed as shown in the images labeled \'Chart\' and \'Saved Input\'.</string>
+
+
+    <string name="help_description_carousel_delete_button">(5) Delete button, when clicked it permanently deletes that specific archived reading and all associated images.</string>
+
+    <string name="help_description_carousel_input_displayed">(7) All information is displayed for the
+       particular archived analysis.</string>
+
+    <string name="help_section_description_main">
+       Budometer takes the guesswork out of determining the optimal point at which to harvest your crop. Using
+       revolutionary machine learning algorithms Budometer evaluates numerous factors such as bud density,
+       pistil coloration, pistil curling, trichome coloration, and leaf discoloration to determine the point
+       of peak bud maturity. Below is a brief explanation of how each of these factors is used in the determination
+       of bud maturity.</string>
+
+    <string name="help_section_description_bud_density">Cannabis flowers grow as clusters of calyxes developing at leaf nodes along the branches. As the buds mature they become larger and denser filling in space between them. Budometer\'s machine learning algorithms very precisely evaluate and compare changes in that spacing to determine increases in bud density.</string>
+
+    <string name="help_section_description_pistil_color">When the majority of the pistils on your plants are white
+       and robust, it is far too early to harvest, and you probably have to wait several more weeks. Peak maturity and the prime point to harvest is when 50% to 70% of the pistils have turned an orange/brown color and have begun to curl. Budometer analyzes, tracks, and graphs pistil coloration allowing you to monitor precise changes as your buds develop.</string>
+
+    <string name="help_section_description_pistil_vigor">During the early stages of flowering buds are covered in
+       bright white, robust pistils. As the plants approach peak maturity, their pistils begin wilting and curling inward as they change to an orange/brown color. Curling starts at the tips and progresses until the pistil has withered entirely and changed color completely. Budometer recognizes and incorporates the degree pistil curling when assessing a plants stage of maturity.</string>
+
+    <string name="help_section_description_trichomes_color">Trichomes are sticky resin-bearing glands that cover buds as they mature. Developing trichomes go through three consecutive color states beginning clear then turning cloudy and finishing amber. The best time to harvest your cannabis is when 30% of the trichomes are amber, and 70% are clear or cloudy. Trichome coloration is another factor Budometer uses when evaluating bud maturity.</string>
+
+
+    <string name="help_section_description_leaf_color">Another indicator of cannabis maturity that’s examined by
+       Budometer can be seen in the leaves surrounding the calyxes and even the larger fan leaves. When the plant is ripe, the leaves will turn yellowish, start curling up and becoming dark and brittle. This drying and curling of the leaves occurs because cannabis consumes less water as it nears its final phase of life.</string>
+
+    <string name="help_section_description_harvesting_marijuana">Budometer evaluates the following points to determine if a plant is ready to be harvested:</string>
+
+
+    <!--SpotsDialog messages-->
+    <string name="analyzing">Analyzing...</string>
+    <string name="loading">Loading...</string>
+
+    <!--AlertDialog messages-->
+    <string name="crop_id_required">A crop id is required when saving analysis results.</string>
+    <string name="confirm_deletion">Please confirm that you would like to delete this entry?</string>
+
+    <!--SnackBar messages-->
+    <string name="select_image_cropping">Select an image before cropping!</string>
+    <string name="select_four_images">Select four images before analyzing!</string>
+    <string name="save_successful">Information successfully saved!</string>
+    <string name="file_deleted">File successfully deleted!</string>
+    <string name="error_deleting_file">Error...delete unsuccessful.</string>
+
+    <!--BudometerSP Keys-->
+    <string name="easy_prefs_key_path_selected_image">Path_last_selected_image</string>
+    <string name="easy_prefs_key_selected_images_count">Selected_images_count</string>
+    <string name="easy_prefs_key_path_current_image_name">Path_last_current_image_name</string>
+    <string name="easy_prefs_analysis_id">Analysis_id</string>
+
+    <!--Content descriptions-->
+    <string name="content_description_main_image">Main image</string>
+    <string name="content_description_background_image">Background image</string>
+    <string name="content_description_result_image">Result image</string>
+    <string name="content_description_header_image">Header image</string>
+    <string name="content_description_crop_button_background">Crop button</string>
+    <string name="content_description_cancel_button_background">Cancel button</string>
+    <string name="content_description_save_button_background">Save button</string>
+    <string name="content_description_delete_button_background">Delete button</string>
+    <string name="content_description_close_button_background">Close button</string>
+    <string name="content_description_next_button_background">Next button</string>
+    <string name="content_description_previous_button_background">Back button</string>
+
+    <!--TensorFlow result messages-->
+    <string name="result_message_growing">Growing strong!</string>
+    <string name="result_message_close">Close to harvest!</string>
+    <string name="result_message_ready">Ready to harvest!</string>
+
+    <string name="ok">OK</string>
+    <string name="done">DONE</string>
+    <string name="camera">CAMERA</string>
+
+    <string name="title_folder">Folder</string>
+    <string name="title_select_image">Tap to select images</string>
+
+    <string name="selected">%d selected</string>
+    <string name="selected_with_limit">%1$d/%2$d selected</string>
+
+    <string name="error_create_image_file">Failed to create image file</string>
+    <string name="error_no_camera">No camera found</string>
+
+    <string name="msg_empty_images">No images found</string>
+    <string name="msg_no_write_external_permission">Please grant storage permission to select images</string>
+    <string name="msg_no_camera_permission">Please grant camera permission to capture image</string>
+    <string name="msg_limit_images">Image selection limit</string>
+
+    <!--Don't Translate-->
+    <string name="gif" translatable="false">GIF</string>
+    <string name="video" translatable="false">Video</string>
+    <string name="content_desc_folder" translatable="false">Folder</string>
+    <string name="content_desc_image" translatable="false">Image</string>
+
+    <!-- * Camera: 5, current = help.
+             * Crop: 1, current = crop.
+             * Carousel: 3, current = save.
+             * Chart: 2, current = carousel.
+             * Gallery: 0, current = camera.
+             * Help: 4, current = chart.-->
+
+    <array name="icons">
+        <item>@drawable/ic_photo_library_white_24dp</item>
+        <item>@drawable/ic_crop_white_24dp</item>
+        <item>@drawable/ic_pie_chart_white_24dp</item>
+        <item>@drawable/ic_view_carousel_white_24dp</item>
+        <item>@drawable/ic_help_outline_white_24dp</item>
+        <item>@drawable/ic_photo_camera_white_24dp</item>
+    </array>
+
+    <array name="icons_review_fragment">
+        <item>@drawable/ic_photo_library_white_24dp</item>
+        <item>@drawable/ic_help_outline_white_24dp</item>
+        <item>@drawable/ic_photo_camera_white_24dp</item>
+    </array>
+    <array name="colors_review_fragment">
+        <item>@color/button_red</item>
+        <item>@color/button_purple</item>
+        <item>@color/button_orange</item>
+    </array>
+
+    <array name="icons_results_fragment">
+        <item>@drawable/ic_photo_library_white_24dp</item>
+        <item>@drawable/ic_view_carousel_white_24dp</item>
+        <item>@drawable/ic_help_outline_white_24dp</item>
+        <item>@drawable/ic_photo_camera_white_24dp</item>
+    </array>
+    <array name="colors_results_fragment">
+        <item>@color/button_red</item>
+        <item>@color/button_blue</item>
+        <item>@color/button_purple</item>
+        <item>@color/button_orange</item>
+    </array>
+
+    <array name="icons_image_picker_fragment">
+        <item>@drawable/ic_pie_chart_white_24dp</item>
+        <item>@drawable/ic_view_carousel_white_24dp</item>
+        <item>@drawable/ic_help_outline_white_24dp</item>
+        <item>@drawable/ic_photo_camera_white_24dp</item>
+        <item>@drawable/ic_crop_white_24dp</item>
+    </array>
+    <array name="colors_image_picker_fragment">
+        <item>@color/button_green</item>
+        <item>@color/button_blue</item>
+        <item>@color/button_purple</item>
+        <item>@color/button_orange</item>
+        <item>@color/button_yellow</item>
+    </array>
+
+    <array name="icons_main_fragment">
+        <item>@drawable/ic_photo_library_white_24dp</item>
+        <item>@drawable/ic_view_carousel_white_24dp</item>
+        <item>@drawable/ic_help_outline_white_24dp</item>
+        <item>@drawable/ic_photo_camera_white_24dp</item>
+    </array>
+    <array name="colors_main_fragment">
+        <item>@color/button_red</item>
+        <item>@color/button_blue</item>
+        <item>@color/button_purple</item>
+        <item>@color/button_orange</item>
+    </array>
+
+    <string name="answer">ANSWER</string>
+    <string name="connect">CONNECT</string>
+
+    <string name="transition_avatar_border" translatable="false">avatar_border</string>
+    <string name="transition_card" translatable="false">card</string>
+    <string name="transition_background" translatable="false">background</string>
+
+    <string name="details_close">CLOSE</string>
+    <string name="details">DETAILS</string>
+    <string name="delete">DELETE</string>
+
+    <string name="button_finish">Finish</string>
+    <string name="button_skip">Skip</string>
+    <string name="analyzed">Analyzed:</string>
+    <string name="crop">CROP</string>
+    <string name="save">SAVE</string>
+    <string name="result">Result:</string>
+    <string name="_0_0">0.0%</string>
+    <string name="percentage_of_pistils_turned">Pistil curling %:</string>
+    <string name="got_it">Got it!</string>
+    <string name="message_error_bad_lighting">Error...bad lighting in one or more of the photos. Too much orange/red light!</string>
+    <string name="close">CLOSE</string>
+</resources>

@@ -1,0 +1,806 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimaryDark"
+    android:paddingEnd="@dimen/pad30dp"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:id="@+id/linearLayoutMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/pad20dp"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout0"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/white_alpha_10"
+            android:paddingStart="@dimen/pad10dp"
+            android:paddingTop="@dimen/pad10dp"
+            android:paddingEnd="@dimen/pad10dp"
+            android:paddingBottom="@dimen/pad10dp"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/helpTitleTextViewMain"
+                style="@style/TextAppearance.AppCompat.Headline"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/pad10dp"
+                android:paddingBottom="@dimen/pad10dp"
+                android:text="@string/help_section_title_harvesting_marijuana"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toTopOf="@+id/helpDescriptionTextViewMain"
+                app:layout_constraintEnd_toEndOf="@+id/constraintLayout0"
+                app:layout_constraintStart_toStartOf="@+id/constraintLayout0"
+                app:layout_constraintTop_toBottomOf="parent" />
+
+            <TextView
+                android:id="@+id/helpDescriptionTextViewMain"
+                style="@style/TextAppearance.AppCompat.Small"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/pad20dp"
+                android:inputType="textMultiLine|text"
+                android:padding="@dimen/pad2dp"
+                android:paddingEnd="@dimen/pad20dp"
+                android:text="@string/help_section_description_main"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt13sp"
+                app:layout_constraintBottom_toTopOf="@+id/constraintLayout0"
+                app:layout_constraintEnd_toEndOf="@+id/constraintLayout0"
+                app:layout_constraintStart_toStartOf="@+id/constraintLayout0"
+                app:layout_constraintTop_toBottomOf="@+id/helpTitleTextViewMain" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/white_alpha_10"
+            android:paddingStart="@dimen/pad10dp"
+            android:paddingTop="@dimen/pad10dp"
+            android:paddingEnd="@dimen/pad10dp"
+            android:paddingBottom="@dimen/pad10dp"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout0">
+
+            <TextView
+                android:id="@+id/budDensityTextView"
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:paddingTop="@dimen/pad10dp"
+                android:paddingBottom="@dimen/pad10dp"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="@string/help_section_title_bud_density" />
+
+            <ImageView
+                android:id="@+id/budDensityImageView0"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/pad4dp"
+                android:layout_marginEnd="@dimen/pad4dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                android:background="@drawable/week_5"
+                app:layout_constraintDimensionRatio="H,1:1"
+                app:layout_constraintEnd_toStartOf="@+id/budDensityImageView1"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/budDensityTextView" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pad5dp"
+                android:layout_marginBottom="@dimen/pad5dp"
+                android:padding="@dimen/pad5dp"
+                android:text="@string/week_5"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/txt16sp"
+                app:layout_constraintBottom_toTopOf="@+id/budDensityDescriptionTextView"
+                app:layout_constraintEnd_toEndOf="@+id/budDensityImageView0"
+                app:layout_constraintStart_toStartOf="@+id/budDensityImageView0"
+                app:layout_constraintTop_toBottomOf="@+id/budDensityImageView0" />
+
+            <ImageView
+                android:id="@+id/budDensityImageView1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/pad4dp"
+                android:layout_marginEnd="@dimen/pad4dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                android:background="@drawable/mid_maturity"
+                app:layout_constraintDimensionRatio="H,1:1"
+                app:layout_constraintEnd_toStartOf="@+id/budDensityImageView2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@+id/budDensityImageView0"
+                app:layout_constraintTop_toBottomOf="@+id/budDensityTextView" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pad5dp"
+                android:layout_marginBottom="@dimen/pad5dp"
+                android:padding="@dimen/pad5dp"
+                android:text="@string/week_7"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/txt16sp"
+                app:layout_constraintBottom_toTopOf="@+id/budDensityDescriptionTextView"
+                app:layout_constraintEnd_toEndOf="@+id/budDensityImageView1"
+                app:layout_constraintStart_toStartOf="@+id/budDensityImageView1"
+                app:layout_constraintTop_toBottomOf="@+id/budDensityImageView1" />
+
+            <ImageView
+                android:id="@+id/budDensityImageView2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/pad4dp"
+                android:layout_marginEnd="@dimen/pad4dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                android:background="@drawable/full_maturity"
+                app:layout_constraintDimensionRatio="H,1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@+id/budDensityImageView1"
+                app:layout_constraintTop_toBottomOf="@+id/budDensityTextView" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pad5dp"
+                android:layout_marginBottom="@dimen/pad5dp"
+                android:padding="@dimen/pad5dp"
+                android:text="@string/week_9"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/txt16sp"
+                app:layout_constraintBottom_toTopOf="@+id/budDensityDescriptionTextView"
+                app:layout_constraintEnd_toEndOf="@+id/budDensityImageView2"
+                app:layout_constraintStart_toStartOf="@+id/budDensityImageView2"
+                app:layout_constraintTop_toBottomOf="@+id/budDensityImageView2" />
+
+            <TextView
+                android:id="@+id/budDensityDescriptionTextView"
+                style="@style/TextAppearance.AppCompat.Small"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine|text"
+                android:padding="@dimen/pad2dp"
+                android:paddingEnd="@dimen/pad20dp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt13sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/budDensityImageView2"
+                app:layout_constraintStart_toStartOf="@+id/budDensityImageView0"
+                android:text="@string/help_section_description_bud_density" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/white_alpha_10"
+            android:paddingStart="@dimen/pad10dp"
+            android:paddingTop="@dimen/pad10dp"
+            android:paddingEnd="@dimen/pad10dp"
+            android:paddingBottom="@dimen/pad10dp"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
+            app:layout_constraintStart_toStartOf="@+id/constraintLayout1"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout1">
+
+            <TextView
+                android:id="@+id/pistilColorTitleTextView"
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:paddingTop="@dimen/pad10dp"
+                android:paddingBottom="@dimen/pad10dp"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="@string/help_section_title_pistil_color" />
+
+            <ImageView
+                android:id="@+id/pistilColorImageView0"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/pad4dp"
+                android:layout_marginEnd="@dimen/pad4dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                android:background="@drawable/pistil_color_0"
+                app:layout_constraintDimensionRatio="H,1:1"
+                app:layout_constraintEnd_toStartOf="@+id/pistilColorImageView1"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pistilColorTitleTextView" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pad5dp"
+                android:layout_marginBottom="@dimen/pad5dp"
+                android:padding="@dimen/pad5dp"
+                android:text="@string/_0_0"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/txt12sp"
+                app:layout_constraintBottom_toTopOf="@+id/pistilColorDescriptionTextView"
+                app:layout_constraintEnd_toEndOf="@+id/pistilColorImageView0"
+                app:layout_constraintStart_toStartOf="@+id/pistilColorImageView0"
+                app:layout_constraintTop_toBottomOf="@+id/pistilColorImageView0" />
+
+            <ImageView
+                android:id="@+id/pistilColorImageView1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/pad4dp"
+                android:layout_marginEnd="@dimen/pad4dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                android:background="@drawable/pistil_color_under_50"
+                app:layout_constraintDimensionRatio="H,1:1"
+                app:layout_constraintEnd_toStartOf="@+id/pistilColorImageView2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@+id/pistilColorImageView0"
+                app:layout_constraintTop_toBottomOf="@+id/pistilColorTitleTextView" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pad5dp"
+                android:layout_marginBottom="@dimen/pad5dp"
+                android:padding="@dimen/pad5dp"
+                android:text="@string/under_50"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/txt12sp"
+                app:layout_constraintBottom_toTopOf="@+id/pistilColorDescriptionTextView"
+                app:layout_constraintEnd_toEndOf="@+id/pistilColorImageView1"
+                app:layout_constraintStart_toStartOf="@+id/pistilColorImageView1"
+                app:layout_constraintTop_toBottomOf="@+id/pistilColorImageView1" />
+
+            <ImageView
+                android:id="@+id/pistilColorImageView2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/pad4dp"
+                android:layout_marginEnd="@dimen/pad4dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                android:background="@drawable/pistil_color_50_to_70"
+                app:layout_constraintDimensionRatio="H,1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/pistilColorImageView3"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@+id/pistilColorImageView1"
+                app:layout_constraintTop_toBottomOf="@+id/pistilColorTitleTextView" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pad5dp"
+                android:layout_marginBottom="@dimen/pad5dp"
+                android:padding="@dimen/pad5dp"
+                android:text="@string/_50_70"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/txt12sp"
+                app:layout_constraintBottom_toTopOf="@+id/pistilColorDescriptionTextView"
+                app:layout_constraintEnd_toEndOf="@+id/pistilColorImageView2"
+                app:layout_constraintStart_toStartOf="@+id/pistilColorImageView2"
+                app:layout_constraintTop_toBottomOf="@+id/pistilColorImageView2" />
+
+            <ImageView
+                android:id="@+id/pistilColorImageView3"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/pad4dp"
+                android:layout_marginEnd="@dimen/pad4dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                android:background="@drawable/pistil_color_90_plus"
+                app:layout_constraintDimensionRatio="H,1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@+id/pistilColorImageView2"
+                app:layout_constraintTop_toBottomOf="@+id/pistilColorTitleTextView" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pad5dp"
+                android:layout_marginBottom="@dimen/pad5dp"
+                android:padding="@dimen/pad5dp"
+                android:text="@string/_90"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/txt12sp"
+                app:layout_constraintBottom_toTopOf="@+id/pistilColorDescriptionTextView"
+                app:layout_constraintEnd_toEndOf="@+id/pistilColorImageView3"
+                app:layout_constraintStart_toStartOf="@+id/pistilColorImageView3"
+                app:layout_constraintTop_toBottomOf="@+id/pistilColorImageView3" />
+
+
+            <TextView
+                android:id="@+id/pistilColorDescriptionTextView"
+                style="@style/TextAppearance.AppCompat.Small"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:padding="@dimen/pad2dp"
+                android:paddingEnd="@dimen/pad20dp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt13sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/pistilColorImageView3"
+                app:layout_constraintStart_toStartOf="@+id/pistilColorImageView0"
+                android:text="@string/help_section_description_pistil_color" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/white_alpha_10"
+            android:paddingStart="@dimen/pad10dp"
+            android:paddingTop="@dimen/pad10dp"
+            android:paddingEnd="@dimen/pad10dp"
+            android:paddingBottom="@dimen/pad10dp"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout4"
+            app:layout_constraintStart_toStartOf="@+id/constraintLayout2"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
+
+            <TextView
+                android:id="@+id/pistilVigorTitleTextView"
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:paddingTop="@dimen/pad10dp"
+                android:paddingBottom="@dimen/pad10dp"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="@string/help_section_title_pistil_vigor" />
+
+            <ImageView
+                android:id="@+id/pistilVigorImageView0"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/pad4dp"
+                android:layout_marginEnd="@dimen/pad4dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                android:background="@drawable/healthy_pistils"
+                app:layout_constraintDimensionRatio="H,1:1"
+                app:layout_constraintEnd_toStartOf="@+id/pistilVigorImageView1"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pistilVigorTitleTextView" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pad5dp"
+                android:layout_marginBottom="@dimen/pad5dp"
+                android:padding="@dimen/pad5dp"
+                android:text="@string/vigorous"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/txt14sp"
+                app:layout_constraintBottom_toTopOf="@+id/pistilVigorDescriptionTextView"
+                app:layout_constraintEnd_toEndOf="@+id/pistilVigorImageView0"
+                app:layout_constraintStart_toStartOf="@+id/pistilVigorImageView0"
+                app:layout_constraintTop_toBottomOf="@+id/pistilVigorImageView0" />
+
+            <ImageView
+                android:id="@+id/pistilVigorImageView1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/pad4dp"
+                android:layout_marginEnd="@dimen/pad4dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                android:background="@drawable/wilting_pistils"
+                app:layout_constraintDimensionRatio="H,1:1"
+                app:layout_constraintEnd_toStartOf="@+id/pistilVigorImageView2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@+id/pistilVigorImageView0"
+                app:layout_constraintTop_toBottomOf="@+id/pistilVigorTitleTextView" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pad5dp"
+                android:layout_marginBottom="@dimen/pad5dp"
+                android:padding="@dimen/pad5dp"
+                android:text="@string/wilting_tips"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/txt14sp"
+                app:layout_constraintBottom_toTopOf="@+id/pistilVigorDescriptionTextView"
+                app:layout_constraintEnd_toEndOf="@+id/pistilVigorImageView1"
+                app:layout_constraintStart_toStartOf="@+id/pistilVigorImageView1"
+                app:layout_constraintTop_toBottomOf="@+id/pistilVigorImageView1" />
+
+            <ImageView
+                android:id="@+id/pistilVigorImageView2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/pad4dp"
+                android:layout_marginEnd="@dimen/pad4dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                android:background="@drawable/fully_wilted_pistils"
+                app:layout_constraintDimensionRatio="H,1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@+id/pistilVigorImageView1"
+                app:layout_constraintTop_toBottomOf="@+id/pistilVigorTitleTextView" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pad5dp"
+                android:layout_marginBottom="@dimen/pad5dp"
+                android:padding="@dimen/pad5dp"
+                android:text="@string/fully_wilted"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/txt14sp"
+                app:layout_constraintBottom_toTopOf="@+id/pistilVigorDescriptionTextView"
+                app:layout_constraintEnd_toEndOf="@+id/pistilVigorImageView2"
+                app:layout_constraintStart_toStartOf="@+id/pistilVigorImageView2"
+                app:layout_constraintTop_toBottomOf="@+id/pistilVigorImageView2" />
+
+            <TextView
+                android:id="@+id/pistilVigorDescriptionTextView"
+                style="@style/TextAppearance.AppCompat.Small"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:padding="@dimen/pad2dp"
+                android:paddingEnd="@dimen/pad20dp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt13sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/pistilVigorImageView2"
+                app:layout_constraintStart_toStartOf="@+id/pistilVigorImageView0"
+                android:text="@string/help_section_description_pistil_vigor" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/white_alpha_10"
+            android:paddingStart="@dimen/pad10dp"
+            android:paddingTop="@dimen/pad10dp"
+            android:paddingEnd="@dimen/pad10dp"
+            android:paddingBottom="@dimen/pad10dp"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout5"
+            app:layout_constraintStart_toStartOf="@+id/constraintLayout3"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
+
+            <TextView
+                android:id="@+id/trichromeTitleTextView"
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:paddingTop="@dimen/pad10dp"
+                android:paddingBottom="@dimen/pad10dp"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="@string/help_section_title_trichomes_color" />
+
+            <ImageView
+                android:id="@+id/trichromeImageView0"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/pad4dp"
+                android:layout_marginEnd="@dimen/pad4dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                android:background="@drawable/clear_trichromes"
+                app:layout_constraintDimensionRatio="H,1:1"
+                app:layout_constraintEnd_toStartOf="@+id/trichromeImageView1"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/trichromeTitleTextView" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pad5dp"
+                android:layout_marginBottom="@dimen/pad5dp"
+                android:padding="@dimen/pad5dp"
+                android:text="@string/clear"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/txt16sp"
+                app:layout_constraintBottom_toTopOf="@+id/trichromeDescriptionTextView"
+                app:layout_constraintEnd_toEndOf="@+id/trichromeImageView0"
+                app:layout_constraintStart_toStartOf="@+id/trichromeImageView0"
+                app:layout_constraintTop_toBottomOf="@+id/trichromeImageView0" />
+
+            <ImageView
+                android:id="@+id/trichromeImageView1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/pad4dp"
+                android:layout_marginEnd="@dimen/pad4dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                android:background="@drawable/cloudy_trichomes"
+                app:layout_constraintDimensionRatio="H,1:1"
+                app:layout_constraintEnd_toStartOf="@+id/trichromeImageView2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@+id/trichromeImageView0"
+                app:layout_constraintTop_toBottomOf="@+id/trichromeTitleTextView" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pad5dp"
+                android:layout_marginBottom="@dimen/pad5dp"
+                android:padding="@dimen/pad5dp"
+                android:text="@string/foggy"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/txt16sp"
+                app:layout_constraintBottom_toTopOf="@+id/trichromeDescriptionTextView"
+                app:layout_constraintEnd_toEndOf="@+id/trichromeImageView1"
+                app:layout_constraintStart_toStartOf="@+id/trichromeImageView1"
+                app:layout_constraintTop_toBottomOf="@+id/trichromeImageView1" />
+
+            <ImageView
+                android:id="@+id/trichromeImageView2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/pad4dp"
+                android:layout_marginEnd="@dimen/pad4dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                android:background="@drawable/amber_trichromes"
+                app:layout_constraintDimensionRatio="H,1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@+id/trichromeImageView1"
+                app:layout_constraintTop_toBottomOf="@+id/trichromeTitleTextView" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pad5dp"
+                android:layout_marginBottom="@dimen/pad5dp"
+                android:padding="@dimen/pad5dp"
+                android:text="@string/amber"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/txt16sp"
+                app:layout_constraintBottom_toTopOf="@+id/trichromeDescriptionTextView"
+                app:layout_constraintEnd_toEndOf="@+id/trichromeImageView2"
+                app:layout_constraintStart_toStartOf="@+id/trichromeImageView2"
+                app:layout_constraintTop_toBottomOf="@+id/trichromeImageView2" />
+
+            <TextView
+                android:id="@+id/trichromeDescriptionTextView"
+                style="@style/TextAppearance.AppCompat.Small"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:padding="@dimen/pad2dp"
+                android:paddingEnd="@dimen/pad20dp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt13sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/trichromeImageView2"
+                app:layout_constraintStart_toStartOf="@+id/trichromeImageView0"
+                android:text="@string/help_section_description_trichomes_color" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/white_alpha_10"
+            android:paddingStart="@dimen/pad10dp"
+            android:paddingTop="@dimen/pad10dp"
+            android:paddingEnd="@dimen/pad10dp"
+            android:paddingBottom="@dimen/pad10dp"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout6"
+            app:layout_constraintStart_toStartOf="@+id/constraintLayout4"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
+
+            <TextView
+                android:id="@+id/leafHealthTitleTextView"
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:paddingTop="@dimen/pad10dp"
+                android:paddingBottom="@dimen/pad10dp"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="@string/help_section_title_leaf_color" />
+
+            <ImageView
+                android:id="@+id/leafHealthImageView0"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/pad4dp"
+                android:layout_marginEnd="@dimen/pad4dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                android:background="@drawable/leaves_healthy"
+                app:layout_constraintDimensionRatio="H,1:1"
+                app:layout_constraintEnd_toStartOf="@+id/leafHealthImageView1"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/leafHealthTitleTextView" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pad5dp"
+                android:layout_marginBottom="@dimen/pad5dp"
+                android:padding="@dimen/pad5dp"
+                android:text="@string/growing"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/txt14sp"
+                app:layout_constraintBottom_toTopOf="@+id/leafHealthDescriptionTextView"
+                app:layout_constraintEnd_toEndOf="@+id/leafHealthImageView0"
+                app:layout_constraintStart_toStartOf="@+id/leafHealthImageView0"
+                app:layout_constraintTop_toBottomOf="@+id/leafHealthImageView0" />
+
+            <ImageView
+                android:id="@+id/leafHealthImageView1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/pad4dp"
+                android:layout_marginEnd="@dimen/pad4dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                android:background="@drawable/leaves_partially_yellow"
+                app:layout_constraintDimensionRatio="H,1:1"
+                app:layout_constraintEnd_toStartOf="@+id/leafHealthImageView2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@+id/leafHealthImageView0"
+                app:layout_constraintTop_toBottomOf="@+id/leafHealthTitleTextView" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pad5dp"
+                android:layout_marginBottom="@dimen/pad5dp"
+                android:padding="@dimen/pad5dp"
+                android:text="@string/maturing"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/txt14sp"
+                app:layout_constraintBottom_toTopOf="@+id/leafHealthDescriptionTextView"
+                app:layout_constraintEnd_toEndOf="@+id/leafHealthImageView1"
+                app:layout_constraintStart_toStartOf="@+id/leafHealthImageView1"
+                app:layout_constraintTop_toBottomOf="@+id/leafHealthImageView1" />
+
+            <ImageView
+                android:id="@+id/leafHealthImageView2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/pad4dp"
+                android:layout_marginEnd="@dimen/pad4dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                android:background="@drawable/leaves_fully_yellow"
+                app:layout_constraintDimensionRatio="H,1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@+id/leafHealthImageView1"
+                app:layout_constraintTop_toBottomOf="@+id/leafHealthTitleTextView" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pad5dp"
+                android:layout_marginBottom="@dimen/pad5dp"
+                android:padding="@dimen/pad5dp"
+                android:text="@string/full_maturity"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/txt14sp"
+                app:layout_constraintBottom_toTopOf="@+id/leafHealthDescriptionTextView"
+                app:layout_constraintEnd_toEndOf="@+id/leafHealthImageView2"
+                app:layout_constraintStart_toStartOf="@+id/leafHealthImageView2"
+                app:layout_constraintTop_toBottomOf="@+id/leafHealthImageView2" />
+
+            <TextView
+                android:id="@+id/leafHealthDescriptionTextView"
+                style="@style/TextAppearance.AppCompat.Small"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:padding="@dimen/pad2dp"
+                android:paddingEnd="@dimen/pad20dp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt13sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/leafHealthImageView2"
+                app:layout_constraintStart_toStartOf="@+id/leafHealthImageView0"
+                android:text="@string/help_section_description_leaf_color" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</ScrollView>

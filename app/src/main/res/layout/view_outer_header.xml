@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/header_middle"
+            android:layout_width="@dimen/pad0dp"
+            android:layout_height="@dimen/pad120dp"
+            android:layout_marginLeft="@dimen/pad0dp"
+            android:layout_marginTop="@dimen/pad0dp"
+            android:layout_marginRight="@dimen/pad0dp"
+            android:background="@drawable/green_corners_top"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/header_text_1"
+            android:layout_width="@dimen/pad0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pad16dp"
+            android:layout_marginTop="@dimen/pad16dp"
+            android:layout_marginEnd="@dimen/pad16dp"
+            android:ellipsize="end"
+            android:gravity="start"
+            android:maxLines="1"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/txt22sp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="@+id/header_middle"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/header_middle" />
+
+        <TextView
+            android:id="@+id/header_text_2"
+            android:layout_width="@dimen/pad0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pad16dp"
+            android:layout_marginTop="@dimen/pad16dp"
+            android:layout_marginEnd="@dimen/pad16dp"
+            android:alpha="0"
+            android:textColor="@color/white"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="@+id/header_middle"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/header_middle" />
+
+        <FrameLayout
+            android:id="@+id/avatar_border"
+            android:layout_width="@dimen/pad45dp"
+            android:layout_height="@dimen/pad45dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/pad16dp"
+            android:layout_marginBottom="@dimen/pad8dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/header_footer"
+            app:layout_constraintLeft_toLeftOf="@+id/header_middle"
+            app:layout_constraintTop_toTopOf="@+id/header_middle">
+
+            <ImageView
+                android:id="@+id/avatar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/pad1dp"
+                android:scaleType="centerCrop"
+                android:visibility="invisible"
+                android:contentDescription="@string/content_description_header_image" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="@dimen/pad0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/pad8dp"
+            android:layout_marginEnd="@dimen/pad0dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/avatar_border"
+            app:layout_constraintLeft_toRightOf="@+id/avatar_border"
+            app:layout_constraintRight_toRightOf="@+id/header_text_2"
+            app:layout_constraintTop_toTopOf="@+id/avatar_border">
+
+            <TextView
+                android:id="@+id/tv_strain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.8"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/txt17sp" />
+
+            <TextView
+                android:id="@+id/tv_crop_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.5"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/txt14sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/header_middle_answer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pad16dp"
+            android:layout_marginBottom="@dimen/pad8dp"
+            android:alpha="0"
+            android:text="@string/answer"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/txt13sp"
+            app:layout_constraintBottom_toTopOf="@+id/header_footer"
+            app:layout_constraintLeft_toLeftOf="@+id/header_middle" />
+
+        <FrameLayout
+            android:id="@+id/header_footer"
+            android:layout_width="@dimen/pad0dp"
+            android:layout_height="@dimen/pad50dp"
+            android:layout_marginStart="@dimen/pad0dp"
+            android:layout_marginTop="@dimen/pad0dp"
+            android:layout_marginEnd="@dimen/pad0dp"
+            android:background="@drawable/white_corners_bottom"
+            app:layout_constraintLeft_toLeftOf="@+id/header_middle"
+            app:layout_constraintRight_toRightOf="@+id/header_middle"
+            app:layout_constraintTop_toBottomOf="@+id/header_middle"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
