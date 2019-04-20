@@ -16,6 +16,8 @@ import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.app.budometer.R;
 import com.app.budometer.util.BudometerUtils;
@@ -28,6 +30,7 @@ import java.lang.ref.WeakReference;
 
 
 public class CameraPreviewFragment extends BaseFragment {
+    public static final String TAG = CameraPreviewFragment.class.getSimpleName();
     private static CameraPreviewFragment fragment = null;
     private static WeakReference<PictureResult> image;
 
@@ -77,21 +80,20 @@ public class CameraPreviewFragment extends BaseFragment {
         closeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onBackPressed();
+                clearBackStack();
             }
         });
 
         PictureResult result = image == null ? null : image.get();
-        if (result == null) {
-            getActivity().finish();
-        }
 
-        result.toBitmap(1000, 1000, new BitmapCallback() {
-            @Override
-            public void onBitmapReady(Bitmap bitmap) {
-                imageView.setImageBitmap(bitmap);
-            }
-        });
+        if (result != null) {
+            result.toBitmap(1000, 1000, new BitmapCallback() {
+                @Override
+                public void onBitmapReady(Bitmap bitmap) {
+                    imageView.setImageBitmap(bitmap);
+                }
+            });
+        }
     }
 
     private void saveImage(Bitmap finalBitmap) {
@@ -123,10 +125,11 @@ public class CameraPreviewFragment extends BaseFragment {
     }
 
     private void restoreCamera() {
-        getFragmentManager()
-                .beginTransaction()
-                .replace(R.id.fragment_container, CameraFragment.newInstance(), CameraFragment.TAG)
-                .commit();
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit);
+        transaction.replace(R.id.fragment_container, CameraFragment.newInstance())
+                .addToBackStack(CameraFragment.TAG).commit();
     }
 
     @Override

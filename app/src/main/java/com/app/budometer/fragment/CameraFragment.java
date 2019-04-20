@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.app.budometer.R;
 import com.app.budometer.features.camera.Control;
@@ -30,7 +32,6 @@ public class CameraFragment extends BaseFragment implements View.OnClickListener
     private CameraFragment.OnCameraFragmentInteractionListener mListener;
     private CameraView camera;
     private ViewGroup controlPanel;
-    private long mCaptureTime;
 
     public interface OnCameraFragmentInteractionListener {
         void onCameraFragmentInteraction();
@@ -121,20 +122,13 @@ public class CameraFragment extends BaseFragment implements View.OnClickListener
         public void onPictureTaken(@NonNull PictureResult result) {
             super.onPictureTaken(result);
 
-            long callbackTime = System.currentTimeMillis();
-            if (mCaptureTime == 0) mCaptureTime = callbackTime - 300;
             CameraPreviewFragment.setPictureResult(result);
 
-            Bundle bundle = new Bundle();
-            bundle.putLong("delay", callbackTime - mCaptureTime);
-            CameraPreviewFragment cameraPreviewFragment = (CameraPreviewFragment) CameraPreviewFragment.newInstance();
-            cameraPreviewFragment.setArguments(bundle);
-
-            getFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.fragment_container, cameraPreviewFragment, CameraFragment.TAG)
-                    .commit();
-            mCaptureTime = 0;
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            transaction.setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit);
+            transaction.replace(R.id.fragment_container, CameraPreviewFragment.newInstance())
+                    .addToBackStack(CameraPreviewFragment.TAG).commit();
         }
     }
 
@@ -144,18 +138,18 @@ public class CameraFragment extends BaseFragment implements View.OnClickListener
             case R.id.editImageButton: edit(); break;
             case R.id.captureImageButton: capturePicture(); break;
             case R.id.toggleCameraImageButton: toggleCamera(); break;
-            case R.id.cancel: onBackPressed(); break;
+            case R.id.cancel: closeBottomSheet(); break;
         }
     }
 
-    @Override
-    public void onBackPressed() {
-        BottomSheetBehavior b = BottomSheetBehavior.from(controlPanel);
-        if (b.getState() != BottomSheetBehavior.STATE_HIDDEN) {
-            b.setState(BottomSheetBehavior.STATE_HIDDEN);
+    private void closeBottomSheet() {
+        BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.from(controlPanel);
+        if (bottomSheetBehavior.getState() != BottomSheetBehavior.STATE_HIDDEN) {
+            bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
             return;
         }
-        super.onBackPressed();
+
+        clearBackStack();
     }
 
     private void edit() {
@@ -165,7 +159,6 @@ public class CameraFragment extends BaseFragment implements View.OnClickListener
 
     private void capturePicture() {
         if (camera.isTakingPicture()) return;
-        mCaptureTime = System.currentTimeMillis();
         message("Capturing picture...", false);
         camera.takePicture();
     }

@@ -34,6 +34,9 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 
 public class BaseFragment extends Fragment implements OnBackPressedListener {
     protected IpLogger logger = IpLogger.getInstance();
@@ -233,9 +236,28 @@ public class BaseFragment extends Fragment implements OnBackPressedListener {
     }
 
     public void onBackPressed() {
-        if (getActivity().getSupportFragmentManager().getBackStackEntryCount() == 1)
-            getActivity().finish();
-        else
+        if (getActivity().getSupportFragmentManager().getBackStackEntryCount() > 0)
             getActivity().getSupportFragmentManager().popBackStack();
+        else
+            setMainFragment();
+    }
+
+    public void clearBackStack() {
+        int backStackCount = getActivity().getSupportFragmentManager().getBackStackEntryCount();
+
+        for (int i = backStackCount; i > 0; i--) {
+            getActivity().getSupportFragmentManager().popBackStack();
+
+            if (i == 1)
+                setMainFragment();
+        }
+    }
+
+    private void setMainFragment() {
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit);
+        transaction.replace(R.id.fragment_container, MainFragment.newInstance())
+                .addToBackStack(MainFragment.TAG).commit();
     }
 }
