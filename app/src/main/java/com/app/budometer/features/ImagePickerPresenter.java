@@ -10,8 +10,6 @@ import android.widget.Toast;
 
 
 import com.app.budometer.R;
-import com.app.budometer.activity.MainActivity;
-import com.app.budometer.features.camera.DefaultCameraModule;
 import com.app.budometer.features.common.BaseConfig;
 import com.app.budometer.features.common.BasePresenter;
 import com.app.budometer.listener.ImageLoaderListener;
@@ -28,23 +26,10 @@ import java.util.List;
 
 public class ImagePickerPresenter extends BasePresenter<ImagePickerView> {
     private ImageFileLoader imageLoader;
-    private DefaultCameraModule cameraModule;
     private Handler main = new Handler(Looper.getMainLooper());
 
     public ImagePickerPresenter(ImageFileLoader imageLoader) {
         this.imageLoader = imageLoader;
-    }
-
-    public DefaultCameraModule getCameraModule() {
-        if (cameraModule == null) {
-            cameraModule = new DefaultCameraModule();
-        }
-        return cameraModule;
-    }
-
-    // Set the camera module in onRestoreInstance.
-    public void setCameraModule(DefaultCameraModule cameraModule) {
-        this.cameraModule = cameraModule;
     }
 
     public void abortLoad() {
@@ -98,31 +83,6 @@ public class ImagePickerPresenter extends BasePresenter<ImagePickerView> {
             }
             getView().finishPickImages(selectedImages);
         }
-    }
-
-    public void captureImage(Fragment fragment, BaseConfig config, int requestCode) {
-        Context context = fragment.getActivity().getApplicationContext();
-        Intent intent = getCameraModule().getCameraIntent(fragment.getActivity(), config);
-        if (intent == null) {
-            Toast.makeText(context, context.getString(R.string.error_create_image_file), Toast.LENGTH_LONG).show();
-            return;
-        }
-        fragment.startActivityForResult(intent, requestCode);
-        Animatoo.animateSplit(fragment.getActivity());
-    }
-
-    public void finishCaptureImage(Context context, Intent data, final BaseConfig config) {
-        getCameraModule().getImage(context, data, images -> {
-            if (BudometerUtils.shouldReturn(config, true)) {
-                getView().finishPickImages(images);
-            } else {
-                getView().showCapturedImage();
-            }
-        });
-    }
-
-    public void abortCaptureImage() {
-        getCameraModule().removeImage();
     }
 
     private void runOnUiIfAvailable(Runnable runnable) {

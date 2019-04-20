@@ -276,7 +276,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:scaleType="fitXY"
-            android:src="@drawable/squarecamera__close_white_48dp"
+            android:src="@drawable/ic_close_white_48dp"
             android:contentDescription="@string/content_description_cancel_button_background" />
 
         <TextView

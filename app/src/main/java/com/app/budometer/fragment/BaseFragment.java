@@ -209,7 +209,7 @@ public class BaseFragment extends Fragment implements OnBackPressedListener {
         if (!CameraHelper.checkCameraAvailability(getActivity())) {
             return;
         }
-        presenter.captureImage(this, config, BudometerConfig.RC_CAPTURE);
+        //presenter.captureImage(this, config, BudometerConfig.RC_CAPTURE);
     }
 
     /**

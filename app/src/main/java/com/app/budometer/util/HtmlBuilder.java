@@ -67,7 +67,6 @@ import androidx.annotation.RequiresApi;
  * </ul>
  */
 public class HtmlBuilder {
-
     private final StringBuilder html = new StringBuilder();
 
     private final LinkedList<String> tags = new LinkedList<>();

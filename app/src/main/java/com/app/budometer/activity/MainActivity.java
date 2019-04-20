@@ -15,6 +15,7 @@ import android.view.WindowManager;
 import com.app.budometer.R;
 import com.app.budometer.features.ImagePicker;
 import com.app.budometer.fragment.BaseFragment;
+import com.app.budometer.fragment.CameraFragment;
 import com.app.budometer.fragment.CropFragment;
 import com.app.budometer.fragment.DetailsFragment;
 import com.app.budometer.fragment.ImagePickerFragment;
@@ -63,7 +64,8 @@ import dmax.dialog.SpotsDialog;
 public class MainActivity extends AppCompatActivity implements MainFragment.OnMainFragmentInteractionListener,
         ResultFragment.OnResultFragmentInteractionListener, ReviewFragment.OnReviewFragmentInteractionListener,
         DetailsFragment.OnDetailsFragmentInteractionListener, ImagePickerFragment.OnImagePickerInteractionListener,
-        ImagePickerView, ReviewFragment.OnReviewButtonClickListener, CropFragment.OnCropFragmentInteractionListener {
+        ImagePickerView, ReviewFragment.OnReviewButtonClickListener, CropFragment.OnCropFragmentInteractionListener,
+        CameraFragment.OnCameraFragmentInteractionListener {
     private Classifier classifier;
     private SpotsDialog progressDialog;
     private SnackBarView snackBarView;
@@ -111,7 +113,7 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnMa
                 BudometerConfig.INPUT_NAME,
                 BudometerConfig.OUTPUT_NAME);
 
-        launchFragment(0, null);
+        launchFragment(0);
     }
 
     @Override
@@ -125,7 +127,7 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnMa
         snackBarView.show(message, hideSnackBarListener);
     }
 
-    private void launchFragment(int position, ResultData resultData) {
+    private void launchFragment(int position) {
         if (position == 0) {
             title = "Home";
             fragment = MainFragment.newInstance();
@@ -135,13 +137,16 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnMa
             ((ImagePickerFragment) fragment).setInteractionListener(this);
         } else if (position == 2) {
             title = "Result";
-            fragment = ResultFragment.newInstance(resultData);
+            fragment = ResultFragment.newInstance();
         } else if (position == 3) {
             title = "Review";
             fragment = ReviewFragment.newInstance();
         } else if (position == 4) {
             title = "Crop";
             fragment = CropFragment.newInstance();
+        }  else if (position == 5) {
+            title = "Camera";
+            fragment = CameraFragment.newInstance();
         }
 
         if (fragment != null) {
@@ -173,12 +178,14 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnMa
     @Override
     public void onMainFragmentInteraction(int index) {
         if (index == 0) {
-            launchFragment(1, null);
+            launchFragment(1);
         } else if (index == 1) {
-            launchFragment(3, null);
+            launchFragment(3);
         } else if (index == 2) {
             startActivity(new Intent(MainActivity.this, IntroActivity.class));
             Animatoo.animateSplit(MainActivity.this);
+        }  else if (index == 3) {
+            launchFragment(5);
         }
     }
 
@@ -192,15 +199,15 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnMa
                     showSnackBar(R.string.select_four_images, R.drawable.warning_background);
             }
         } else if (index == 1) {
-            launchFragment(3, null);
+            launchFragment(3);
         } else if (index == 2) {
             startActivity(new Intent(MainActivity.this, IntroActivity.class));
             Animatoo.animateSplit(MainActivity.this);
         } else if (index == 3) {
-            //launchFragment(1, null, true);
+            launchFragment(5);
         } else if (index == 4) {
             if (BudometerSP.init(MainActivity.this).getInt(R.string.easy_prefs_key_selected_images_count) >= 1) {
-                launchFragment(4, null);
+                launchFragment(4);
             } else
                 showSnackBar(R.string.select_image_cropping, R.drawable.warning_background);
         }
@@ -228,17 +235,23 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnMa
 
     @Override
     public void onCropFragmentInteraction() {
-        launchFragment(1, null);
+        launchFragment(1);
     }
 
     @Override
     public void onReviewButtonClick(int index) {
         if (index == 0) {
-            launchFragment(1, null);
+            launchFragment(1);
         } else if (index == 1) {
             startActivity(new Intent(MainActivity.this, IntroActivity.class));
             Animatoo.animateSplit(MainActivity.this);
+        }  else if (index == 2) {
+            launchFragment(5);
         }
+    }
+
+    @Override
+    public void onCameraFragmentInteraction() {
     }
 
     /* --------------------------------------------------- */
@@ -328,7 +341,7 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnMa
                 percentTotals.add(calculatePercentTotal());
 
                 if (percentTotals.size() == 4) {
-                    if (percentTotals.get(0) < 70.0 && percentTotals.get(1) < 70.0 && percentTotals.get(2) < 70.0 && percentTotals.get(3) < 70.0) {
+                    if (percentTotals.get(0) < 100.0 && percentTotals.get(1) < 100.0 && percentTotals.get(2) < 100.0 && percentTotals.get(3) < 100.0) {
                         percentTotals.clear();
                         runOnUiThread(new Runnable() {
                             @Override
@@ -457,7 +470,7 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnMa
         protected void onPostExecute(ResultData resultData) {
             super.onPostExecute(resultData);
             progressDialog.dismiss();
-            launchFragment(2, resultData);
+            launchFragment(2);
         }
     }
 

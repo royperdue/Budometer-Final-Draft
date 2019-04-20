@@ -20,7 +20,6 @@ import com.app.budometer.R;
 import com.app.budometer.features.ImagePickerConfig;
 import com.app.budometer.listener.ImagePickerView;
 import com.app.budometer.features.IpCons;
-import com.app.budometer.features.camera.DefaultCameraModule;
 import com.app.budometer.features.common.BaseConfig;
 import com.app.budometer.features.recyclers.RecyclerViewManager;
 import com.app.budometer.helper.IpCrasher;
@@ -100,10 +99,6 @@ public class ImagePickerFragment extends BaseFragment implements ImagePickerView
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setupComponents();
 
-        if (savedInstanceState != null) {
-            presenter.setCameraModule((DefaultCameraModule) savedInstanceState.getSerializable(BudometerConfig.STATE_KEY_CAMERA_MODULE));
-        }
-
         if (isCameraOnly) {
             if (savedInstanceState == null) {
                 captureImageWithPermission();
@@ -156,7 +151,7 @@ public class ImagePickerFragment extends BaseFragment implements ImagePickerView
                     } else if (index == 2) {
                         mListener.onPickerFragmentInteraction(index);
                     } else if (index == 3) {
-                        captureImageWithPermission();
+                        mListener.onPickerFragmentInteraction(index);
                     } else if (index == 4) {
                         mListener.onPickerFragmentInteraction(index);
                     }
@@ -193,7 +188,6 @@ public class ImagePickerFragment extends BaseFragment implements ImagePickerView
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putSerializable(BudometerConfig.STATE_KEY_CAMERA_MODULE, presenter.getCameraModule());
 
         if (!isCameraOnly) {
             outState.putParcelable(BudometerConfig.STATE_KEY_RECYCLER, recyclerViewManager.getRecyclerState());

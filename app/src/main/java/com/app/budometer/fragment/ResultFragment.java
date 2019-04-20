@@ -141,23 +141,10 @@ public class ResultFragment extends BaseFragment {
     public ResultFragment() {
     }
 
-    public static ResultFragment newInstance(ResultData resultData) {
+    public static ResultFragment newInstance() {
         if (fragment == null)
             fragment = new ResultFragment();
 
-        Bundle bundle = new Bundle();
-
-        if (resultData.getTensorFlowTitleGrowing() != null) {
-            bundle.putString(BudometerConfig.ARG_TF_TITLE_GROWING, resultData.getTensorFlowTitleGrowing());
-            bundle.putFloat(BudometerConfig.ARG_TF_CONFIDENCE_GROWING, resultData.getTensorFlowConfidenceGrowing());
-        }
-
-        if (resultData.getTensorFlowTitleReady() != null) {
-            bundle.putString(BudometerConfig.ARG_TF_TITLE_READY, resultData.getTensorFlowTitleReady());
-            bundle.putFloat(BudometerConfig.ARG_TF_CONFIDENCE_READY, resultData.getTensorFlowConfidenceReady());
-        }
-
-        fragment.setArguments(bundle);
         return fragment;
     }
 

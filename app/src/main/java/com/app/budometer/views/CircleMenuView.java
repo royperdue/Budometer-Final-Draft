@@ -212,7 +212,7 @@ public class CircleMenuView extends FrameLayout {
             }
 
             mIconMenu = a.getResourceId(R.styleable.CircleMenuView_icon_menu, R.drawable.ic_expand);
-            mIconClose = a.getResourceId(R.styleable.CircleMenuView_icon_close, R.drawable.squarecamera__close_white_48dp);
+            mIconClose = a.getResourceId(R.styleable.CircleMenuView_icon_close, R.drawable.ic_close_white_48dp);
 
             mDurationRing = a.getInteger(R.styleable.CircleMenuView_duration_ring, getResources().getInteger(android.R.integer.config_mediumAnimTime));
             mLongClickDurationRing = a.getInteger(R.styleable.CircleMenuView_long_click_duration_ring, getResources().getInteger(android.R.integer.config_longAnimTime));
@@ -246,7 +246,7 @@ public class CircleMenuView extends FrameLayout {
         final float defaultDistance = BudometerConfig.DEFAULT_DISTANCE * density;
 
         mIconMenu = R.drawable.ic_expand;
-        mIconClose = R.drawable.squarecamera__close_white_48dp;
+        mIconClose = R.drawable.ic_close_white_48dp;
 
         mDurationRing = getResources().getInteger(android.R.integer.config_mediumAnimTime);
         mLongClickDurationRing = getResources().getInteger(android.R.integer.config_longAnimTime);

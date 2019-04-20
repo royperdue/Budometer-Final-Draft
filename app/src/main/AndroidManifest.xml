@@ -34,9 +34,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.desmond.squarecamera.CameraActivity"
-            android:screenOrientation="portrait"/>
-
         <activity android:name="com.app.budometer.activity.IntroActivity"
             android:screenOrientation="portrait"/>
 

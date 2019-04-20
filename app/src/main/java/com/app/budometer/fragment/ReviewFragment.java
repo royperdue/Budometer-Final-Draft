@@ -104,7 +104,7 @@ public class ReviewFragment extends BaseFragment {
                 } else if (index == 1) {
                     mButtonListener.onReviewButtonClick(index);
                 } else if (index == 2) {
-                    captureImageWithPermission();
+                    mButtonListener.onReviewButtonClick(index);
                 }
             }
 

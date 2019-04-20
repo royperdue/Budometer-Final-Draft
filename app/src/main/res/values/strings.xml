@@ -364,4 +364,7 @@
     <string name="got_it">Got it!</string>
     <string name="message_error_bad_lighting">Error...bad lighting in one or more of the photos. Too much orange/red light!</string>
     <string name="close">CLOSE</string>
+
+    <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
+    <string name="snap">SNAP</string>
 </resources>

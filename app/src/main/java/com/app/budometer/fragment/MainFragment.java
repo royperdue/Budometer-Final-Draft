@@ -114,7 +114,7 @@ public class MainFragment extends BaseFragment {
                 } else if (index == 2) {
                     mListener.onMainFragmentInteraction(index);
                 } else if (index == 3) {
-                    captureImageWithPermission();
+                    mListener.onMainFragmentInteraction(index);
                 }
             }
 
@@ -143,23 +143,6 @@ public class MainFragment extends BaseFragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-    }
-
-    /**
-     * Check if the captured image is stored successfully
-     * Then reload data
-     */
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == BudometerConfig.RC_CAPTURE) {
-            if (resultCode == RESULT_OK) {
-                presenter.finishCaptureImage(getActivity(), data, config);
-            } else if (resultCode == RESULT_CANCELED && isCameraOnly) {
-                presenter.abortCaptureImage();
-                //mListener.cancel();
-            }
-        }
     }
 
     @Override
