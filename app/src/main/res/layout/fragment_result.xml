@@ -107,7 +107,6 @@
                 android:layout_height="wrap_content"
                 android:padding="@dimen/pad5dp"
                 android:background="@color/chart_background"
-                android:weightSum="4"
                 android:orientation="horizontal">
 
                 <TextView
@@ -168,7 +167,6 @@
                 android:layout_height="wrap_content"
                 android:padding="@dimen/pad5dp"
                 android:background="@color/chart_background"
-                android:weightSum="3"
                 android:orientation="horizontal">
 
                 <TextView
