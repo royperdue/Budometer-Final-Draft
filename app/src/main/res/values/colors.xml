@@ -54,36 +54,74 @@
     <color name="button_orange">#ff9100</color>
 
     <!-- Image extraction colors -->
-    <color name="light_red">#dcbcb4</color>
-    <color name="medium_red">#cf878b</color>
-    <color name="red">#c9576a</color>
-    <color name="dark_red">#853745</color>
 
-    <color name="light_purple">#d6c6e6</color>
-    <color name="medium_purple">#c3ade4</color>
-    <color name="purple">#91809d</color>
-    <color name="dark_purple">#5e4b67</color>
+    <string-array name="image_extraction_colors">
+        <item>#f2e0ee</item>
+        <item>#f9b8ce</item>
+        <item>#cb6396</item>
+        <item>#a1485c</item>
+        <item>#ac87b0</item>
+        <item>#894580</item>
+        <item>#663c60</item>
+        <item>#492a54</item>
+        <item>#b3d577</item>
+        <item>#91A36A</item>
+        <item>#667e34</item>
+        <item>#306024</item>
+        <item>#f0d043</item>
+        <item>#ffcf00</item>
+        <item>#ffa900</item>
+        <item>#df8109</item>
+        <item>#b9973a</item>
+        <item>#c58425</item>
+        <item>#a26208</item>
+        <item>#723f16</item>
+        <item>#eff76c</item>
+        <item>#ede970</item>
+        <item>#d5da53</item>
+        <item>#dcd775</item>
+        <item>#fdfbfd</item>
+        <item>#E8EDEA</item>
+        <item>#dddcdb</item>
+        <item>#d2d5c9</item>
+    </string-array>
 
-    <color name="light_green">#92a170</color>
-    <color name="medium_green">#99985e</color>
-    <color name="green">#93aa56</color>
-    <color name="dark_green">#4f583a</color>
 
-    <color name="light_orange">#e0b850</color>
-    <color name="medium_orange">#d0a840</color>
-    <color name="orange">#c8a038</color>
-    <color name="dark_orange">#c4761d</color>
+    <color name="red_1"> #f2e0ee</color>
+    <color name="red_2"> #f9b8ce</color>
+    <color name="red_3"> #cb6396</color>
+    <color name="red_4"> #a1485c</color>
 
-    <color name="light_brown">#a77840</color>
-    <color name="medium_brown">#a75c2d</color>
-    <color name="brown">#85502a</color>
-    <color name="dark_brown">#624527</color>
+    <color name="purple_1"> #ac87b0</color>
+    <color name="purple_2"> #894580</color>
+    <color name="purple_3"> #663c60</color>
+    <color name="purple_4"> #492a54</color>
 
-    <color name="light_grey">#E8EDEA</color>
-    <color name="medium_grey">#F0F7CD</color>
-    <color name="grey">#E5EDB0</color>
-    <color name="dark_grey">#D5DD8A</color>
+    <color name="green_1"> #b3d577</color>
+    <color name="green_2"> #91A36A</color>
+    <color name="green_3"> #667e34</color>
+    <color name="green_4"> #306024</color>
 
+    <color name="orange_1"> #f0d043</color>
+    <color name="orange_2"> #ffcf00</color>
+    <color name="orange_3"> #ffa900</color>
+    <color name="orange_4"> #df8109</color>
+
+    <color name="brown_1">#b9973a</color>
+    <color name="brown_2">#c58425</color>
+    <color name="brown_3">#a26208</color>
+    <color name="brown_4">#723f16</color>
+
+    <color name="yellow_1"> #eff76c</color>
+    <color name="yellow_2"> #ede970</color>
+    <color name="yellow_3"> #d5da53</color>
+    <color name="yellow_4"> #dcd775</color>
+
+    <color name="grey_1"> #fdfbfd</color>
+    <color name="grey_2"> #E8EDEA</color>
+    <color name="grey_3"> #dddcdb</color>
+    <color name="grey_4"> #d2d5c9</color>
+    
 
 
     <!--

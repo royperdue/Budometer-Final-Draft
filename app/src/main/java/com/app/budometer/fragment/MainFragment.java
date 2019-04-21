@@ -41,7 +41,6 @@ public class MainFragment extends BaseFragment {
     private OnMainFragmentInteractionListener mListener;
     private LinearLayout firstUseInstructionsLayout;
     private Button gotItButton;
-    private CircleMenuView circleMenuView;
 
     public interface OnMainFragmentInteractionListener {
         void onMainFragmentInteraction(int index);
@@ -72,6 +71,8 @@ public class MainFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
 
+        System.out.println("MAIN-FRAGMENT-LAUNCHED:");
+
         firstUseInstructionsLayout = view.findViewById(R.id.firstUseInstructionsLayout);
 
         gotItButton = view.findViewById(R.id.gotItButton);
@@ -86,7 +87,7 @@ public class MainFragment extends BaseFragment {
         if (BudometerSP.init(getActivity()).getBoolean(BudometerConfig.GOT_IT))
             firstUseInstructionsLayout.setVisibility(View.GONE);
 
-        circleMenuView = view.findViewById(R.id.circle_menu);
+        CircleMenuView circleMenuView = view.findViewById(R.id.circle_menu);
         circleMenuView.setEventListener(new CircleMenuView.EventListener() {
             @Override
             public void onMenuOpenAnimationStart(@NonNull CircleMenuView view) {
@@ -144,6 +145,8 @@ public class MainFragment extends BaseFragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        checkAndRequestPermissions();
     }
 
     @Override

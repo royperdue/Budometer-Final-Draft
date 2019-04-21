@@ -3,19 +3,15 @@ package com.app.budometer.util;
 
 import android.graphics.Color;
 
+import com.app.budometer.R;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 
 public class BudometerPalette {
-    private static String[] BUD_COLORS = {
-            "#dcbcb4", "#cf878b", "#c9576a", "#853745",
-            "#d6c6e6", "#c3ade4", "#91809d", "#5e4b67",
-            "#92a170", "#99985e", "#93aa56", "#4f583a",
-            "#e0b850", "#d0a840", "#c8a038", "#c4761d",
-            "#a77840", "#a75c2d", "#85502a", "#624527",
-            "#fafbfa", "#e6e5e1", "#b5b0a1", "#a1ae9e"};
+    static String[] BUD_COLORS = BudometerApp.getAppContext().getResources().getStringArray(R.array.image_extraction_colors);
 
     public static void generate(int colorInt, OnColorRoundingDone onColorRoundingDone) {
         onColorRoundingDone.onDone(Color.parseColor(getSimilarColor(String.format("#%06X", (0xFFFFFF & colorInt)), BUD_COLORS)));
@@ -49,15 +45,6 @@ public class BudometerPalette {
         }
 
         String hexColor = baseColors[difference.indexOf(Collections.min(difference))];
-
-        if (hexColor.equals("#a77840"))
-            hexColor = "#e0b850";
-        else if (hexColor.equals("#a75c2d"))
-            hexColor = "#d0a840";
-        else if (hexColor.equals("#85502a"))
-            hexColor = "#c8a038";
-        else if (hexColor.equals("#624527"))
-            hexColor = "#c4761d";
 
         return hexColor;
     }

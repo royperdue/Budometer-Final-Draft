@@ -29,15 +29,14 @@ public final class BudometerConfig {
     public static final String STATE_KEY_RECYCLER = "Key.Recycler";
     public static final String STATE_KEY_SELECTED_IMAGES = "Key.SelectedImages";
 
-    public static final int RC_PERMISSION_REQUEST_WRITE_EXTERNAL_STORAGE = 23;
-    public static final int RC_PERMISSION_REQUEST_CAMERA = 24;
-
     public static final int DEFAULT_BUTTON_SIZE = 42;
     public static final float DEFAULT_DISTANCE = DEFAULT_BUTTON_SIZE * 1.5f;
     public static final float DEFAULT_RING_SCALE_RATIO = 1.1f;
     public static final float DEFAULT_CLOSE_ICON_ALPHA = 0.3f;
 
     public static final int STEP_DEGREE = 5;
+
+    public static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 1000;
 
     public static final int ANIM_DURATION = 200;
     public static final Interpolator INTERPOLATOR = new FastOutLinearInInterpolator();

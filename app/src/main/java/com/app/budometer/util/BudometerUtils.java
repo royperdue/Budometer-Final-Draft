@@ -203,46 +203,64 @@ public class BudometerUtils {
     public static GradientDrawable getRedColor(final Context context) {
         return new GradientDrawable(
                 GradientDrawable.Orientation.LEFT_RIGHT,
-                new int[]{ContextCompat.getColor(context, R.color.light_red),
-                        ContextCompat.getColor(context, R.color.medium_red),
-                        ContextCompat.getColor(context, R.color.red),
-                        ContextCompat.getColor(context, R.color.dark_red)});
+                new int[]{ContextCompat.getColor(context, R.color.red_1),
+                        ContextCompat.getColor(context, R.color.red_2),
+                        ContextCompat.getColor(context, R.color.red_3),
+                        ContextCompat.getColor(context, R.color.red_4)});
     }
 
     public static GradientDrawable getPurpleColor(final Context context) {
         return new GradientDrawable(
                 GradientDrawable.Orientation.LEFT_RIGHT,
-                new int[]{ContextCompat.getColor(context, R.color.light_purple),
-                        ContextCompat.getColor(context, R.color.medium_purple),
-                        ContextCompat.getColor(context, R.color.purple),
-                        ContextCompat.getColor(context, R.color.dark_purple)});
+                new int[]{ContextCompat.getColor(context, R.color.purple_1),
+                        ContextCompat.getColor(context, R.color.purple_2),
+                        ContextCompat.getColor(context, R.color.purple_3),
+                        ContextCompat.getColor(context, R.color.purple_4)});
     }
 
     public static GradientDrawable getGreenColor(final Context context) {
         return new GradientDrawable(
                 GradientDrawable.Orientation.LEFT_RIGHT,
-                new int[]{ContextCompat.getColor(context, R.color.light_green),
-                        ContextCompat.getColor(context, R.color.medium_green),
-                        ContextCompat.getColor(context, R.color.green),
-                        ContextCompat.getColor(context, R.color.dark_green)});
+                new int[]{ContextCompat.getColor(context, R.color.green_1),
+                        ContextCompat.getColor(context, R.color.green_2),
+                        ContextCompat.getColor(context, R.color.green_3),
+                        ContextCompat.getColor(context, R.color.green_4)});
+    }
+
+    public static GradientDrawable getYellowColor(final Context context) {
+        return new GradientDrawable(
+                GradientDrawable.Orientation.LEFT_RIGHT,
+                new int[]{ContextCompat.getColor(context, R.color.yellow_1),
+                        ContextCompat.getColor(context, R.color.yellow_2),
+                        ContextCompat.getColor(context, R.color.yellow_3),
+                        ContextCompat.getColor(context, R.color.yellow_4)});
     }
 
     public static GradientDrawable getOrangeColor(final Context context) {
         return new GradientDrawable(
                 GradientDrawable.Orientation.LEFT_RIGHT,
-                new int[]{ContextCompat.getColor(context, R.color.light_orange),
-                        ContextCompat.getColor(context, R.color.medium_orange),
-                        ContextCompat.getColor(context, R.color.orange),
-                        ContextCompat.getColor(context, R.color.dark_orange)});
+                new int[]{ContextCompat.getColor(context, R.color.orange_1),
+                        ContextCompat.getColor(context, R.color.orange_2),
+                        ContextCompat.getColor(context, R.color.orange_3),
+                        ContextCompat.getColor(context, R.color.orange_4)});
+    }
+
+    public static GradientDrawable getBrownColor(final Context context) {
+        return new GradientDrawable(
+                GradientDrawable.Orientation.LEFT_RIGHT,
+                new int[]{ContextCompat.getColor(context, R.color.brown_1),
+                        ContextCompat.getColor(context, R.color.brown_2),
+                        ContextCompat.getColor(context, R.color.brown_3),
+                        ContextCompat.getColor(context, R.color.brown_4)});
     }
 
     public static GradientDrawable getGreyColor(final Context context) {
         return new GradientDrawable(
                 GradientDrawable.Orientation.LEFT_RIGHT,
-                new int[]{ContextCompat.getColor(context, R.color.light_grey),
-                        ContextCompat.getColor(context, R.color.medium_grey),
-                        ContextCompat.getColor(context, R.color.grey),
-                        ContextCompat.getColor(context, R.color.dark_grey)});
+                new int[]{ContextCompat.getColor(context, R.color.grey_1),
+                        ContextCompat.getColor(context, R.color.grey_2),
+                        ContextCompat.getColor(context, R.color.grey_3),
+                        ContextCompat.getColor(context, R.color.grey_4)});
     }
 
     public static String createFileName() {

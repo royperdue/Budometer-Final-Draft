@@ -1,11 +1,14 @@
 package com.app.budometer.util;
 
 
+import android.content.Context;
 import android.graphics.Color;
 import android.util.TimingLogger;
 
 import androidx.annotation.Nullable;
 import androidx.core.graphics.ColorUtils;
+
+import com.app.budometer.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -151,51 +154,69 @@ final class ColorCutQuantizer {
     }
 
     private void countColors() {
+        String[] BUD_COLORS = BudometerApp.getAppContext().getResources().getStringArray(R.array.image_extraction_colors);
+
         for (int i = 0; i < mQuantizedColors.size(); i++) {
             String hexColor = String.format("#%02x%02x%02x",
                     (mQuantizedColors.get(i).getRgb() >> 16) & 0xFF,
                     (mQuantizedColors.get(i).getRgb() >> 8) & 0xFF,
                     mQuantizedColors.get(i).getRgb() & 0xFF);
 
-            if (hexColor.equals("#dcbcb4")) {
+            if (hexColor.equals(BUD_COLORS[0])) {
                 mQuantizedColors.get(i).setColorName("redLight");
-            } else if (hexColor.equals("#cf878b")) {
+            } else if (hexColor.equals(BUD_COLORS[1])) {
                 mQuantizedColors.get(i).setColorName("redMedium");
-            } else if (hexColor.equals("#c9576a")) {
+            } else if (hexColor.equals(BUD_COLORS[2])) {
                 mQuantizedColors.get(i).setColorName("red");
-            } else if (hexColor.equals("#853745")) {
+            } else if (hexColor.equals(BUD_COLORS[3])) {
                 mQuantizedColors.get(i).setColorName("redDark");
-            } else if (hexColor.equals("#d6c6e6")) {
+            } else if (hexColor.equals(BUD_COLORS[4])) {
                 mQuantizedColors.get(i).setColorName("purpleLight");
-            } else if (hexColor.equals("#c3ade4")) {
+            } else if (hexColor.equals(BUD_COLORS[5])) {
                 mQuantizedColors.get(i).setColorName("purpleMedium");
-            } else if (hexColor.equals("#91809d")) {
+            } else if (hexColor.equals(BUD_COLORS[6])) {
                 mQuantizedColors.get(i).setColorName("purple");
-            } else if (hexColor.equals("#5e4b67")) {
+            } else if (hexColor.equals(BUD_COLORS[7])) {
                 mQuantizedColors.get(i).setColorName("purpleDark");
-            } else if (hexColor.equals("#92a170")) {
+            } else if (hexColor.equals(BUD_COLORS[8])) {
                 mQuantizedColors.get(i).setColorName("greenLight");
-            } else if (hexColor.equals("#99985e")) {
+            } else if (hexColor.equals(BUD_COLORS[9])) {
                 mQuantizedColors.get(i).setColorName("greenMedium");
-            } else if (hexColor.equals("#93aa56")) {
+            } else if (hexColor.equals(BUD_COLORS[10])) {
                 mQuantizedColors.get(i).setColorName("green");
-            } else if (hexColor.equals("#4f583a")) {
+            } else if (hexColor.equals(BUD_COLORS[11])) {
                 mQuantizedColors.get(i).setColorName("greenDark");
-            } else if (hexColor.equals("#e0b850")) {
+            } else if (hexColor.equals(BUD_COLORS[12])) {
+                mQuantizedColors.get(i).setColorName("yellowLight");
+            } else if (hexColor.equals(BUD_COLORS[13])) {
+                mQuantizedColors.get(i).setColorName("yellowMedium");
+            } else if (hexColor.equals(BUD_COLORS[14])) {
+                mQuantizedColors.get(i).setColorName("yellow");
+            } else if (hexColor.equals(BUD_COLORS[15])) {
+                mQuantizedColors.get(i).setColorName("yellowDark");
+            } else if (hexColor.equals(BUD_COLORS[16])) {
                 mQuantizedColors.get(i).setColorName("orangeLight");
-            } else if (hexColor.equals("#d0a840")) {
+            } else if (hexColor.equals(BUD_COLORS[17])) {
                 mQuantizedColors.get(i).setColorName("orangeMedium");
-            } else if (hexColor.equals("#c8a038")) {
+            } else if (hexColor.equals(BUD_COLORS[18])) {
                 mQuantizedColors.get(i).setColorName("orange");
-            } else if (hexColor.equals("#c4761d")) {
+            } else if (hexColor.equals(BUD_COLORS[19])) {
                 mQuantizedColors.get(i).setColorName("orangeDark");
-            } else if (hexColor.equals("#fafbfa")) {
+            } else if (hexColor.equals(BUD_COLORS[20])) {
+                mQuantizedColors.get(i).setColorName("brownLight");
+            } else if (hexColor.equals(BUD_COLORS[21])) {
+                mQuantizedColors.get(i).setColorName("brownMedium");
+            } else if (hexColor.equals(BUD_COLORS[22])) {
+                mQuantizedColors.get(i).setColorName("brown");
+            } else if (hexColor.equals(BUD_COLORS[23])) {
+                mQuantizedColors.get(i).setColorName("brownDark");
+            } else if (hexColor.equals(BUD_COLORS[24])) {
                 mQuantizedColors.get(i).setColorName("greyLight");
-            } else if (hexColor.equals("#e6e5e1")) {
+            } else if (hexColor.equals(BUD_COLORS[25])) {
                 mQuantizedColors.get(i).setColorName("greyMedium");
-            } else if (hexColor.equals("#b5b0a1")) {
+            } else if (hexColor.equals(BUD_COLORS[26])) {
                 mQuantizedColors.get(i).setColorName("grey");
-            } else if (hexColor.equals("#a1ae9e")) {
+            } else if (hexColor.equals(BUD_COLORS[27])) {
                 mQuantizedColors.get(i).setColorName("greyDark");
             }
         }

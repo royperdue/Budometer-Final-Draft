@@ -37,6 +37,7 @@
         android:layout_height="0dp"
         android:layout_gravity="center"
         android:keepScreenOn="true"
+        app:cameraPictureSizeAspectRatio="1:1"
         app:cameraExperimental="true"
         app:cameraFlash="off"
         app:cameraGestureLongTap="none"
@@ -73,7 +74,7 @@
             android:layout_height="wrap_content"
             android:background="@color/transparent"
             android:layout_weight="1"
-            android:src="@drawable/ic_switch_camera_white_36dp" />
+            android:src="@drawable/ic_switch_camera_white_48dp" />
 
         <ImageButton
             android:id="@+id/captureImageButton"
@@ -108,7 +109,8 @@
             android:background="@android:color/white"
             app:behavior_hideable="true"
             app:behavior_peekHeight="300dp"
-            app:behavior_skipCollapsed="false">
+            app:behavior_skipCollapsed="false"
+            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"

@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/pad8dp"
-            android:textColor="@color/grey"
+            android:textColor="@color/grey_4"
             android:textSize="@dimen/txt18_4sp" />
 
         <View

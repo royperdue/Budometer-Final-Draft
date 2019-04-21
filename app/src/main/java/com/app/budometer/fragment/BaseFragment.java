@@ -2,6 +2,7 @@ package com.app.budometer.fragment;
 
 
 import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
@@ -9,6 +10,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,13 +31,19 @@ import com.app.budometer.util.BudometerSP;
 import com.app.budometer.views.SnackBarView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+
+import static com.app.budometer.util.BudometerConfig.REQUEST_ID_MULTIPLE_PERMISSIONS;
 
 
 public class BaseFragment extends Fragment implements OnBackPressedListener {
@@ -43,7 +51,6 @@ public class BaseFragment extends Fragment implements OnBackPressedListener {
     protected ImagePicker.ImagePickerWithActivity imagePickerWithActivity;
     protected ImagePickerPresenter presenter;
     protected ImagePickerConfig config;
-    protected SnackBarView snackBarView;
     protected boolean isCameraOnly;
 
     @Override
@@ -75,135 +82,91 @@ public class BaseFragment extends Fragment implements OnBackPressedListener {
     }
 
 
-    /**
-     * Request for camera permission
-     */
-    public void captureImageWithPermission() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            final boolean isCameraGranted = ActivityCompat
-                    .checkSelfPermission(getActivity(), Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED;
-            final boolean isWriteGranted = ActivityCompat
-                    .checkSelfPermission(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
-            if (isCameraGranted && isWriteGranted) {
-                captureImage();
-            } else {
-                logger.w("Camera permission is not granted. Requesting permission");
-                requestCameraPermissions();
-            }
-        } else {
-            captureImage();
+    protected boolean checkAndRequestPermissions() {
+        int camera = ContextCompat.checkSelfPermission(getActivity(),
+                Manifest.permission.CAMERA);
+        int wtite = ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        int read = ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.READ_EXTERNAL_STORAGE);
+        List<String> listPermissionsNeeded = new ArrayList<>();
+        if (wtite != PackageManager.PERMISSION_GRANTED) {
+            listPermissionsNeeded.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
         }
+        if (camera != PackageManager.PERMISSION_GRANTED) {
+            listPermissionsNeeded.add(Manifest.permission.CAMERA);
+        }
+        if (read != PackageManager.PERMISSION_GRANTED) {
+            listPermissionsNeeded.add(Manifest.permission.READ_EXTERNAL_STORAGE);
+        }
+        if (!listPermissionsNeeded.isEmpty()) {
+            ActivityCompat.requestPermissions(getActivity(), listPermissionsNeeded.toArray(new String[listPermissionsNeeded.size()]), REQUEST_ID_MULTIPLE_PERMISSIONS);
+            return false;
+        }
+        return true;
     }
 
-    /**
-     * Request for permission
-     * If permission denied or app is first launched, request for permission
-     * If permission denied and item_analysis choose 'Never Ask Again', show snackbar with an action that navigate to app settings
-     */
-    protected void requestWriteExternalPermission() {
-        logger.w("Write External permission is not granted. Requesting permission");
 
-        final String[] permissions = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
-
-        if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-            requestPermissions(permissions, BudometerConfig.RC_PERMISSION_REQUEST_WRITE_EXTERNAL_STORAGE);
-        } else {
-            final String permission = BudometerSP.PREF_WRITE_EXTERNAL_STORAGE_REQUESTED;
-            if (!BudometerSP.init(getActivity()).isPermissionRequested(permission)) {
-                BudometerSP.init(getActivity()).setPermissionRequested(permission);
-                requestPermissions(permissions, BudometerConfig.RC_PERMISSION_REQUEST_WRITE_EXTERNAL_STORAGE);
-            } else {
-                ((MainActivity) getActivity()).getSnackBarView().show(R.string.msg_no_write_external_permission, v -> openAppSettings());
-            }
-        }
-    }
-
-    protected void requestCameraPermissions() {
-        logger.w("Write External permission is not granted. Requesting permission");
-
-        ArrayList<String> permissions = new ArrayList<>(2);
-
-        if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-            permissions.add(Manifest.permission.CAMERA);
-        }
-        if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            permissions.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
-        }
-
-        if (checkForRationale(permissions)) {
-            requestPermissions(permissions.toArray(new String[permissions.size()]), BudometerConfig.RC_PERMISSION_REQUEST_CAMERA);
-        } else {
-            final String permission = BudometerSP.PREF_CAMERA_REQUESTED;
-            if (!BudometerSP.init(getActivity()).isPermissionRequested(permission)) {
-                BudometerSP.init(getActivity()).setPermissionRequested(permission);
-                requestPermissions(permissions.toArray(new String[permissions.size()]), BudometerConfig.RC_PERMISSION_REQUEST_CAMERA);
-            } else {
-                if (isCameraOnly) {
-                    Toast.makeText(getActivity().getApplicationContext(),
-                            getString(R.string.msg_no_camera_permission), Toast.LENGTH_SHORT).show();
-                    //mListener.cancel();
-                } else {
-                    ((MainActivity) getActivity()).getSnackBarView().show(R.string.msg_no_camera_permission, v -> openAppSettings());
-                }
-            }
-        }
-    }
-
-    protected boolean checkForRationale(List<String> permissions) {
-        for (int i = 0, size = permissions.size(); i < size; i++) {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(), permissions.get(i))) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     * Handle permission results
-     */
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
         switch (requestCode) {
-            case BudometerConfig.RC_PERMISSION_REQUEST_WRITE_EXTERNAL_STORAGE: {
-                if (grantResults.length != 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    logger.d("Write External permission granted");
-                    getData();
-                    return;
+            case REQUEST_ID_MULTIPLE_PERMISSIONS: {
+                Map<String, Integer> perms = new HashMap<>();
+                // Initialize the map with both permissions
+                perms.put(Manifest.permission.WRITE_EXTERNAL_STORAGE, PackageManager.PERMISSION_GRANTED);
+                perms.put(Manifest.permission.CAMERA, PackageManager.PERMISSION_GRANTED);
+                perms.put(Manifest.permission.READ_EXTERNAL_STORAGE, PackageManager.PERMISSION_GRANTED);
+                // Fill with actual results from user
+                if (grantResults.length > 0) {
+                    for (int i = 0; i < permissions.length; i++)
+                        perms.put(permissions[i], grantResults[i]);
+                    // Check for both permissions
+                    if (perms.get(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
+                            && perms.get(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED && perms.get(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+                        Log.d("in fragment on request", "CAMERA & WRITE_EXTERNAL_STORAGE READ_EXTERNAL_STORAGE permission granted");
+                        // process the normal flow
+                        //else any one or both the permissions are not granted
+                    } else {
+                        Log.d("in fragment on request", "Some permissions are not granted ask again ");
+                        //permission is denied (this is the first time, when "never ask again" is not checked) so ask again explaining the usage of permission
+                        //                        // shouldShowRequestPermissionRationale will return true
+                        //show the dialog or snackbar saying its necessary and try again otherwise proceed with setup.
+                        if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE) || ActivityCompat.shouldShowRequestPermissionRationale(getActivity(), Manifest.permission.CAMERA) || ActivityCompat.shouldShowRequestPermissionRationale(getActivity(), Manifest.permission.READ_EXTERNAL_STORAGE)) {
+                            showDialogOK("Camera and Storage Permission required for this app",
+                                    new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            switch (which) {
+                                                case DialogInterface.BUTTON_POSITIVE:
+                                                    checkAndRequestPermissions();
+                                                    break;
+                                                case DialogInterface.BUTTON_NEGATIVE:
+                                                    // proceed with logic by disabling the related features or quit the app.
+                                                    break;
+                                            }
+                                        }
+                                    });
+                        }
+                        //permission is denied (and never ask again is  checked)
+                        //shouldShowRequestPermissionRationale will return false
+                        else {
+                            Toast.makeText(getActivity(), "Go to settings and enable permissions", Toast.LENGTH_LONG)
+                                    .show();
+                            //                            //proceed with logic by disabling the related features or quit the app.
+                        }
+                    }
                 }
-                logger.e("Permission not granted: results len = " + grantResults.length +
-                        " Result code = " + (grantResults.length > 0 ? grantResults[0] : "(empty)"));
-                //mListener.cancel();
-            }
-            break;
-            case BudometerConfig.RC_PERMISSION_REQUEST_CAMERA: {
-                if (grantResults.length != 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    logger.d("Camera permission granted");
-                    captureImage();
-                    return;
-                }
-                logger.e("Permission not granted: results len = " + grantResults.length +
-                        " Result code = " + (grantResults.length > 0 ? grantResults[0] : "(empty)"));
-                //mListener.cancel();
-                break;
-            }
-            default: {
-                logger.d("Got unexpected permission result: " + requestCode);
-                super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-                break;
             }
         }
+
     }
 
-    /**
-     * Open app settings screen
-     */
-    protected void openAppSettings() {
-        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
-                Uri.fromParts("package", getActivity().getPackageName(), null));
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
+    private void showDialogOK(String message, DialogInterface.OnClickListener okListener) {
+        new AlertDialog.Builder(getActivity())
+                .setMessage(message)
+                .setPositiveButton("OK", okListener)
+                .setNegativeButton("Cancel", okListener)
+                .create()
+                .show();
     }
-
     /**
      * Start camera intent
      * Create a temporary file and pass file Uri to camera intent
@@ -215,15 +178,12 @@ public class BaseFragment extends Fragment implements OnBackPressedListener {
         //presenter.captureImage(this, config, BudometerConfig.RC_CAPTURE);
     }
 
-    /**
-     * Check permission
-     */
     protected void getDataWithPermission() {
         int rc = ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE);
         if (rc == PackageManager.PERMISSION_GRANTED) {
             getData();
         } else {
-            requestWriteExternalPermission();
+            checkAndRequestPermissions();
         }
     }
 
@@ -236,17 +196,12 @@ public class BaseFragment extends Fragment implements OnBackPressedListener {
     }
 
     public void onBackPressed() {
-        if (getActivity().getSupportFragmentManager().getBackStackEntryCount() > 0)
-            getActivity().getSupportFragmentManager().popBackStack();
-        else
-            setMainFragment();
+        clearBackStack();
     }
 
     public void clearBackStack() {
-        int backStackCount = getActivity().getSupportFragmentManager().getBackStackEntryCount();
-
-        for (int i = backStackCount; i > 0; i--) {
-            getActivity().getSupportFragmentManager().popBackStack();
+        while (getFragmentManager().getBackStackEntryCount() > 0) {
+            getFragmentManager().popBackStackImmediate();
         }
 
         setMainFragment();

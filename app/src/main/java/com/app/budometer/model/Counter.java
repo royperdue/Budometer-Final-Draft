@@ -5,49 +5,65 @@ public class Counter {
     private int lightRedPixelCount = 0;
     private int lightPurplePixelCount = 0;
     private int lightGreenPixelCount = 0;
+    private int lightYellowPixelCount = 0;
     private int lightOrangePixelCount = 0;
+    private int lightBrownPixelCount = 0;
     private int lightGreyPixelCount = 0;
 
     private int mediumRedPixelCount = 0;
     private int mediumPurplePixelCount = 0;
     private int mediumGreenPixelCount = 0;
+    private int mediumYellowPixelCount = 0;
     private int mediumOrangePixelCount = 0;
+    private int mediumBrownPixelCount = 0;
     private int mediumGreyPixelCount = 0;
 
     private int redPixelCount = 0;
     private int purplePixelCount = 0;
     private int greenPixelCount = 0;
+    private int yellowPixelCount = 0;
     private int orangePixelCount = 0;
+    private int brownPixelCount = 0;
     private int greyPixelCount = 0;
 
     private int darkRedPixelCount = 0;
     private int darkPurplePixelCount = 0;
     private int darkGreenPixelCount = 0;
+    private int darkYellowPixelCount = 0;
     private int darkOrangePixelCount = 0;
+    private int darkBrownPixelCount = 0;
     private int darkGreyPixelCount = 0;
 
     private int lightRed = 0;
     private int lightPurple = 0;
     private int lightGreen = 0;
+    private int lightYellow = 0;
     private int lightOrange = 0;
+    private int lightBrown = 0;
     private int lightGrey = 0;
 
     private int mediumRed = 0;
     private int mediumPurple = 0;
     private int mediumGreen = 0;
+    private int mediumYellow = 0;
     private int mediumOrange = 0;
+    private int mediumBrown = 0;
     private int mediumGrey = 0;
 
     private int red = 0;
     private int purple = 0;
     private int green = 0;
+    private int yellow = 0;
     private int orange = 0;
+    private int brown = 0;
     private int grey = 0;
 
     private int darkRed = 0;
     private int darkPurple = 0;
     private int darkGreen = 0;
+    private int darkYellow = 0;
     private int darkOrange = 0;
+    private int darkBrown = 0;
     private int darkGrey = 0;
 
     public Counter() {
@@ -77,12 +93,28 @@ public class Counter {
         this.lightGreenPixelCount = lightGreenPixelCount;
     }
 
+    public int getLightYellowPixelCount() {
+        return lightYellowPixelCount;
+    }
+
+    public void setLightYellowPixelCount(int lightYellowPixelCount) {
+        this.lightYellowPixelCount = lightYellowPixelCount;
+    }
+
     public int getLightOrangePixelCount() {
         return lightOrangePixelCount;
     }
 
     public void setLightOrangePixelCount(int lightOrangePixelCount) {
         this.lightOrangePixelCount = lightOrangePixelCount;
+    }
+
+    public int getLightBrownPixelCount() {
+        return lightBrownPixelCount;
+    }
+
+    public void setLightBrownPixelCount(int lightBrownPixelCount) {
+        this.lightBrownPixelCount = lightBrownPixelCount;
     }
 
     public int getLightGreyPixelCount() {
@@ -117,12 +149,28 @@ public class Counter {
         this.mediumGreenPixelCount = mediumGreenPixelCount;
     }
 
+    public int getMediumYellowPixelCount() {
+        return mediumYellowPixelCount;
+    }
+
+    public void setMediumYellowPixelCount(int mediumYellowPixelCount) {
+        this.mediumYellowPixelCount = mediumYellowPixelCount;
+    }
+
     public int getMediumOrangePixelCount() {
         return mediumOrangePixelCount;
     }
 
     public void setMediumOrangePixelCount(int mediumOrangePixelCount) {
         this.mediumOrangePixelCount = mediumOrangePixelCount;
+    }
+
+    public int getMediumBrownPixelCount() {
+        return mediumBrownPixelCount;
+    }
+
+    public void setMediumBrownPixelCount(int mediumBrownPixelCount) {
+        this.mediumBrownPixelCount = mediumBrownPixelCount;
     }
 
     public int getMediumGreyPixelCount() {
@@ -157,12 +205,28 @@ public class Counter {
         this.greenPixelCount = greenPixelCount;
     }
 
+    public int getYellowPixelCount() {
+        return yellowPixelCount;
+    }
+
+    public void setYellowPixelCount(int yellowPixelCount) {
+        this.yellowPixelCount = yellowPixelCount;
+    }
+
     public int getOrangePixelCount() {
         return orangePixelCount;
     }
 
     public void setOrangePixelCount(int orangePixelCount) {
         this.orangePixelCount = orangePixelCount;
+    }
+
+    public int getBrownPixelCount() {
+        return brownPixelCount;
+    }
+
+    public void setBrownPixelCount(int brownPixelCount) {
+        this.brownPixelCount = brownPixelCount;
     }
 
     public int getGreyPixelCount() {
@@ -197,12 +261,28 @@ public class Counter {
         this.darkGreenPixelCount = darkGreenPixelCount;
     }
 
+    public int getDarkYellowPixelCount() {
+        return darkYellowPixelCount;
+    }
+
+    public void setDarkYellowPixelCount(int darkYellowPixelCount) {
+        this.darkYellowPixelCount = darkYellowPixelCount;
+    }
+
     public int getDarkOrangePixelCount() {
         return darkOrangePixelCount;
     }
 
     public void setDarkOrangePixelCount(int darkOrangePixelCount) {
         this.darkOrangePixelCount = darkOrangePixelCount;
+    }
+
+    public int getDarkBrownPixelCount() {
+        return darkBrownPixelCount;
+    }
+
+    public void setDarkBrownPixelCount(int darkBrownPixelCount) {
+        this.darkBrownPixelCount = darkBrownPixelCount;
     }
 
     public int getDarkGreyPixelCount() {
@@ -237,12 +317,28 @@ public class Counter {
         this.lightGreen = lightGreen;
     }
 
+    public int getLightYellow() {
+        return lightYellow;
+    }
+
+    public void setLightYellow(int lightYellow) {
+        this.lightYellow = lightYellow;
+    }
+
     public int getLightOrange() {
         return lightOrange;
     }
 
     public void setLightOrange(int lightOrange) {
         this.lightOrange = lightOrange;
+    }
+
+    public int getLightBrown() {
+        return lightBrown;
+    }
+
+    public void setLightBrown(int lightBrown) {
+        this.lightBrown = lightBrown;
     }
 
     public int getLightGrey() {
@@ -277,12 +373,28 @@ public class Counter {
         this.mediumGreen = mediumGreen;
     }
 
+    public int getMediumYellow() {
+        return mediumYellow;
+    }
+
+    public void setMediumYellow(int mediumYellow) {
+        this.mediumYellow = mediumYellow;
+    }
+
     public int getMediumOrange() {
         return mediumOrange;
     }
 
     public void setMediumOrange(int mediumOrange) {
         this.mediumOrange = mediumOrange;
+    }
+
+    public int getMediumBrown() {
+        return mediumBrown;
+    }
+
+    public void setMediumBrown(int mediumBrown) {
+        this.mediumBrown = mediumBrown;
     }
 
     public int getMediumGrey() {
@@ -317,12 +429,28 @@ public class Counter {
         this.green = green;
     }
 
+    public int getYellow() {
+        return yellow;
+    }
+
+    public void setYellow(int yellow) {
+        this.yellow = yellow;
+    }
+
     public int getOrange() {
         return orange;
     }
 
     public void setOrange(int orange) {
         this.orange = orange;
+    }
+
+    public int getBrown() {
+        return brown;
+    }
+
+    public void setBrown(int brown) {
+        this.brown = brown;
     }
 
     public int getGrey() {
@@ -357,12 +485,28 @@ public class Counter {
         this.darkGreen = darkGreen;
     }
 
+    public int getDarkYellow() {
+        return darkYellow;
+    }
+
+    public void setDarkYellow(int darkYellow) {
+        this.darkYellow = darkYellow;
+    }
+
     public int getDarkOrange() {
         return darkOrange;
     }
 
     public void setDarkOrange(int darkOrange) {
         this.darkOrange = darkOrange;
+    }
+
+    public int getDarkBrown() {
+        return darkBrown;
+    }
+
+    public void setDarkBrown(int darkBrown) {
+        this.darkBrown = darkBrown;
     }
 
     public int getDarkGrey() {

@@ -42,7 +42,9 @@ public class DetailsFragment extends BaseFragment {
     private TextView redTextView;
     private TextView purpleTextView;
     private TextView greenTextView;
+    private TextView yellowTextView;
     private TextView orangeTextView;
+    private TextView brownTextView;
     private TextView greyTextView;
     private TextView turnedTextView;
     private TextView resultTextView;
@@ -98,7 +100,9 @@ public class DetailsFragment extends BaseFragment {
         redTextView = view.findViewById(R.id.redTextView);
         purpleTextView = view.findViewById(R.id.purpleTextView);
         greenTextView = view.findViewById(R.id.greenTextView);
+        yellowTextView = view.findViewById(R.id.yellowTextView);
         orangeTextView = view.findViewById(R.id.orangeTextView);
+        brownTextView = view.findViewById(R.id.brownTextView);
         greyTextView = view.findViewById(R.id.greyTextView);
         turnedTextView = view.findViewById(R.id.turnedTextView);
         resultTextView = view.findViewById(R.id.resultTextView);
@@ -174,6 +178,14 @@ public class DetailsFragment extends BaseFragment {
             pieChartView.addItemType(new PieChartView.ItemType("", analysis.getGreenPixelCount(), analysis.getGreen()));
         if (analysis.getDarkGreenPixelCount() > 0)
             pieChartView.addItemType(new PieChartView.ItemType("", analysis.getDarkGreenPixelCount(), analysis.getDarkGreen()));
+        if (analysis.getLightYellowPixelCount() > 0)
+            pieChartView.addItemType(new PieChartView.ItemType("", analysis.getLightYellowPixelCount(), analysis.getLightYellow()));
+        if (analysis.getMediumYellowPixelCount() > 0)
+            pieChartView.addItemType(new PieChartView.ItemType("", analysis.getMediumYellowPixelCount(), analysis.getMediumYellow()));
+        if (analysis.getYellowPixelCount() > 0)
+            pieChartView.addItemType(new PieChartView.ItemType("", analysis.getYellowPixelCount(), analysis.getYellow()));
+        if (analysis.getDarkYellowPixelCount() > 0)
+            pieChartView.addItemType(new PieChartView.ItemType("", analysis.getDarkYellowPixelCount(), analysis.getDarkYellow()));
         if (analysis.getLightOrangePixelCount() > 0)
             pieChartView.addItemType(new PieChartView.ItemType("", analysis.getLightOrangePixelCount(), analysis.getLightOrange()));
         if (analysis.getMediumOrangePixelCount() > 0)
@@ -182,6 +194,14 @@ public class DetailsFragment extends BaseFragment {
             pieChartView.addItemType(new PieChartView.ItemType("", analysis.getOrangePixelCount(), analysis.getOrange()));
         if (analysis.getDarkOrangePixelCount() > 0)
             pieChartView.addItemType(new PieChartView.ItemType("", analysis.getDarkOrangePixelCount(), analysis.getDarkOrange()));
+        if (analysis.getLightBrownPixelCount() > 0)
+            pieChartView.addItemType(new PieChartView.ItemType("", analysis.getLightBrownPixelCount(), analysis.getLightBrown()));
+        if (analysis.getMediumBrownPixelCount() > 0)
+            pieChartView.addItemType(new PieChartView.ItemType("", analysis.getMediumBrownPixelCount(), analysis.getMediumBrown()));
+        if (analysis.getBrownPixelCount() > 0)
+            pieChartView.addItemType(new PieChartView.ItemType("", analysis.getBrownPixelCount(), analysis.getBrown()));
+        if (analysis.getDarkBrownPixelCount() > 0)
+            pieChartView.addItemType(new PieChartView.ItemType("", analysis.getDarkBrownPixelCount(), analysis.getDarkBrown()));
         if (analysis.getLightGreyPixelCount() > 0)
             pieChartView.addItemType(new PieChartView.ItemType("", analysis.getLightGreyPixelCount(), analysis.getLightGrey()));
         if (analysis.getMediumGreyPixelCount() > 0)
@@ -195,21 +215,50 @@ public class DetailsFragment extends BaseFragment {
         redTextView.setText(toPercentage((redPixelTotal * 100.0f) / analysis.getTotalPixelCount()));
         redTextView.setBackground(BudometerUtils.getRedColor(getActivity()));
 
+        if (redPixelTotal == 0)
+            redTextView.setVisibility(View.GONE);
+
         int purplePixelTotal = analysis.getLightPurplePixelCount() + analysis.getMediumPurplePixelCount() + analysis.getPurplePixelCount() + analysis.getDarkPurplePixelCount();
         purpleTextView.setText(toPercentage((purplePixelTotal * 100.0f) / analysis.getTotalPixelCount()));
         purpleTextView.setBackground(BudometerUtils.getPurpleColor(getActivity()));
+
+        if (purplePixelTotal == 0)
+            purpleTextView.setVisibility(View.GONE);
 
         int greenPixelTotal = analysis.getLightGreenPixelCount() + analysis.getMediumGreenPixelCount() + analysis.getGreenPixelCount() + analysis.getDarkGreenPixelCount();
         greenTextView.setText(toPercentage((greenPixelTotal * 100.0f) / analysis.getTotalPixelCount()));
         greenTextView.setBackground(BudometerUtils.getGreenColor(getActivity()));
 
+        if (greenPixelTotal == 0)
+            greenTextView.setVisibility(View.GONE);
+
+        int yellowPixelTotal = analysis.getLightYellowPixelCount() + analysis.getMediumYellowPixelCount() + analysis.getYellowPixelCount() + analysis.getDarkYellowPixelCount();
+        yellowTextView.setText(toPercentage((yellowPixelTotal * 100.0f) / analysis.getTotalPixelCount()));
+        yellowTextView.setBackground(BudometerUtils.getYellowColor(getActivity()));
+
+        if (yellowPixelTotal == 0)
+            yellowTextView.setVisibility(View.GONE);
+
         int orangePixelTotal = analysis.getLightOrangePixelCount() + analysis.getMediumOrangePixelCount() + analysis.getOrangePixelCount() + analysis.getDarkOrangePixelCount();
         orangeTextView.setText(toPercentage((orangePixelTotal * 100.0f) / analysis.getTotalPixelCount()));
         orangeTextView.setBackground(BudometerUtils.getOrangeColor(getActivity()));
 
+        if (orangePixelTotal == 0)
+            orangeTextView.setVisibility(View.GONE);
+
+        int brownPixelTotal = analysis.getLightBrownPixelCount() + analysis.getMediumBrownPixelCount() + analysis.getBrownPixelCount() + analysis.getDarkBrownPixelCount();
+        brownTextView.setText(toPercentage((brownPixelTotal * 100.0f) / analysis.getTotalPixelCount()));
+        brownTextView.setBackground(BudometerUtils.getBrownColor(getActivity()));
+
+        if (brownPixelTotal == 0)
+            brownTextView.setVisibility(View.GONE);
+
         int greyPixelTotal = analysis.getLightGreyPixelCount() + analysis.getMediumGreyPixelCount() + analysis.getGreyPixelCount() + analysis.getDarkGreyPixelCount();
         greyTextView.setText(toPercentage((greyPixelTotal * 100.0f) / analysis.getTotalPixelCount()));
         greyTextView.setBackground(BudometerUtils.getGreyColor(getActivity()));
+
+        if (greyPixelTotal == 0)
+            greyTextView.setVisibility(View.GONE);
 
         turnedTextView.setText(analysis.getPercentageTurnedPistils());
         resultTextView.setText(analysis.getTensorFlowResult());

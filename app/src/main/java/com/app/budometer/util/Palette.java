@@ -21,12 +21,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+
 public final class Palette {
 
-    /**
-     * Listener to be used with {@link #generateAsync(Bitmap, PaletteAsyncListener)} or
-     * {@link #generateAsync(Bitmap, int, PaletteAsyncListener)}
-     */
     public interface PaletteAsyncListener {
 
         /**
@@ -86,8 +83,7 @@ public final class Palette {
      */
     @NonNull
     @Deprecated
-    public static AsyncTask<Bitmap, Void, Palette> generateAsync(
-            @NonNull Bitmap bitmap, @NonNull PaletteAsyncListener listener) {
+    public static AsyncTask<Bitmap, Void, Palette> generateAsync(@NonNull Bitmap bitmap, @NonNull PaletteAsyncListener listener) {
         return from(bitmap).generate(listener);
     }
 
@@ -107,7 +103,8 @@ public final class Palette {
     private final Map<Target, Swatch> mSelectedSwatches;
     private final SparseBooleanArray mUsedColors;
 
-    @Nullable private final Swatch mDominantSwatch;
+    @Nullable
+    private final Swatch mDominantSwatch;
 
     Palette(List<Swatch> swatches, List<Target> targets) {
         mSwatches = swatches;
@@ -138,7 +135,6 @@ public final class Palette {
 
     /**
      * Returns the selected color for the given target from the palette as an RGB packed int.
-     *
      * @param defaultColor value to return if the swatch isn't available
      */
     @ColorInt
@@ -160,7 +156,6 @@ public final class Palette {
 
     /**
      * Returns the color of the dominant swatch from the palette, as an RGB packed int.
-     *
      * @param defaultColor value to return if the swatch isn't available
      * @see #getDominantSwatch()
      */
@@ -272,7 +267,8 @@ public final class Palette {
 
         private String colorName;
 
-        @Nullable private float[] mHsl;
+        @Nullable
+        private float[] mHsl;
 
         public Swatch(@ColorInt int color, int population) {
             mRed = Color.red(color);
@@ -292,9 +288,9 @@ public final class Palette {
 
         /**
          * Return this swatch's HSL values.
-         *     hsv[0] is Hue [0 .. 360)
-         *     hsv[1] is Saturation [0...1]
-         *     hsv[2] is Lightness [0...1]
+         * hsv[0] is Hue [0 .. 360)
+         * hsv[1] is Saturation [0...1]
+         * hsv[2] is Lightness [0...1]
          */
         @NonNull
         public float[] getHsl() {
@@ -340,7 +336,7 @@ public final class Palette {
             this.mTotalPixelCount = mTotalPixelCount;
         }
 
-        
+
         public String getColorName() {
             return colorName;
         }
@@ -427,8 +423,10 @@ public final class Palette {
      * Builder class for generating {@link Palette} instances.
      */
     public static final class Builder {
-        @Nullable private final List<Swatch> mSwatches;
-        @Nullable private final Bitmap mBitmap;
+        @Nullable
+        private final List<Swatch> mSwatches;
+        @Nullable
+        private final Bitmap mBitmap;
 
         private final List<Target> mTargets = new ArrayList<>();
 
@@ -437,7 +435,8 @@ public final class Palette {
         private int mResizeMaxDimension = -1;
 
         private final List<Filter> mFilters = new ArrayList<>();
-        @Nullable private Rect mRegion;
+        @Nullable
+        private Rect mRegion;
 
         /**
          * Construct a new {@link Builder} using a source {@link Bitmap}
@@ -491,12 +490,10 @@ public final class Palette {
          * If the bitmap's largest dimension is greater than the value specified, then the bitmap
          * will be resized so that its largest dimension matches {@code maxDimension}. If the
          * bitmap is smaller or equal, the original is used as-is.
-         *
-         * @deprecated Using {@link #resizeBitmapArea(int)} is preferred since it can handle
-         * abnormal aspect ratios more gracefully.
-         *
          * @param maxDimension the number of pixels that the max dimension should be scaled down to,
          *                     or any value <= 0 to disable resizing.
+         * @deprecated Using {@link #resizeBitmapArea(int)} is preferred since it can handle
+         * abnormal aspect ratios more gracefully.
          */
         @NonNull
         @Deprecated
@@ -515,7 +512,6 @@ public final class Palette {
          * This value has a large effect on the processing time. The larger the resized image is,
          * the greater time it will take to generate the palette. The smaller the image is, the
          * more detail is lost in the resulting image and thus less precision for color selection.
-         *
          * @param area the number of pixels that the intermediary scaled down Bitmap should cover,
          *             or any value <= 0 to disable resizing.
          */
@@ -539,7 +535,6 @@ public final class Palette {
         /**
          * Add a filter to be able to have fine grained control over which colors are
          * allowed in the resulting palette.
-         *
          * @param filter filter to add.
          */
         @NonNull
@@ -553,10 +548,9 @@ public final class Palette {
         /**
          * Set a region of the bitmap to be used exclusively when calculating the palette.
          * <p>This only works when the original input is a {@link Bitmap}.</p>
-         *
-         * @param left The left side of the rectangle used for the region.
-         * @param top The top of the rectangle used for the region.
-         * @param right The right side of the rectangle used for the region.
+         * @param left   The left side of the rectangle used for the region.
+         * @param top    The top of the rectangle used for the region.
+         * @param right  The right side of the rectangle used for the region.
          * @param bottom The bottom of the rectangle used for the region.
          */
         @NonNull
@@ -643,9 +637,7 @@ public final class Palette {
                 }
 
                 // Now generate a quantizer from the Bitmap
-                final ColorCutQuantizer quantizer = new ColorCutQuantizer(
-                        getPixelsFromBitmap(bitmap),
-                        mMaxColors,
+                final ColorCutQuantizer quantizer = new ColorCutQuantizer(getPixelsFromBitmap(bitmap), mMaxColors,
                         mFilters.isEmpty() ? null : mFilters.toArray(new Filter[mFilters.size()]));
 
                 // If created a new bitmap, recycle it
@@ -685,8 +677,7 @@ public final class Palette {
          * generated.
          */
         @NonNull
-        public AsyncTask<Bitmap, Void, Palette> generate(
-                @NonNull final PaletteAsyncListener listener) {
+        public AsyncTask<Bitmap, Void, Palette> generate(@NonNull final PaletteAsyncListener listener) {
             if (listener == null) {
                 throw new IllegalArgumentException("listener can not be null");
             }
@@ -772,12 +763,9 @@ public final class Palette {
     public interface Filter {
         /**
          * Hook to allow clients to be able filter colors from resulting palette.
-         *
          * @param rgb the color in RGB888.
          * @param hsl HSL representation of the color.
-         *
          * @return true if the color is allowed, false if not.
-         *
          * @see Builder#addFilter(Filter)
          */
         boolean isAllowed(@ColorInt int rgb, @NonNull float[] hsl);

@@ -91,6 +91,18 @@ public class Analysis {
 
     @Property(nameInDb = "darkGreenPixelCount")
     private int darkGreenPixelCount;
+    
+    @Property(nameInDb = "lightYellowPixelCount")
+    private int lightYellowPixelCount;
+
+    @Property(nameInDb = "mediumYellowPixelCount")
+    private int mediumYellowPixelCount;
+
+    @Property(nameInDb = "yellowPixelCount")
+    private int yellowPixelCount;
+
+    @Property(nameInDb = "darkYellowPixelCount")
+    private int darkYellowPixelCount;
 
     @Property(nameInDb = "lightOrangePixelCount")
     private int lightOrangePixelCount;
@@ -103,6 +115,18 @@ public class Analysis {
 
     @Property(nameInDb = "darkOrangePixelCount")
     private int darkOrangePixelCount;
+
+    @Property(nameInDb = "lightBrownPixelCount")
+    private int lightBrownPixelCount;
+
+    @Property(nameInDb = "mediumBrownPixelCount")
+    private int mediumBrownPixelCount;
+
+    @Property(nameInDb = "brownPixelCount")
+    private int brownPixelCount;
+
+    @Property(nameInDb = "darkBrownPixelCount")
+    private int darkBrownPixelCount;
 
     @Property(nameInDb = "lightGreyPixelCount")
     private int lightGreyPixelCount;
@@ -125,8 +149,14 @@ public class Analysis {
     @Property(nameInDb = "lightGreen")
     private int lightGreen;
 
+    @Property(nameInDb = "lightYellow")
+    private int lightYellow;
+
     @Property(nameInDb = "lightOrange")
     private int lightOrange;
+
+    @Property(nameInDb = "lightBrown")
+    private int lightBrown;
 
     @Property(nameInDb = "lightGrey")
     private int lightGrey;
@@ -140,8 +170,14 @@ public class Analysis {
     @Property(nameInDb = "mediumGreen")
     private int mediumGreen;
 
+    @Property(nameInDb = "mediumYellow")
+    private int mediumYellow;
+
     @Property(nameInDb = "mediumOrange")
     private int mediumOrange;
+
+    @Property(nameInDb = "mediumBrown")
+    private int mediumBrown;
 
     @Property(nameInDb = "mediumGrey")
     private int mediumGrey;
@@ -155,8 +191,14 @@ public class Analysis {
     @Property(nameInDb = "green")
     private int green;
 
+    @Property(nameInDb = "yellow")
+    private int yellow;
+
     @Property(nameInDb = "orange")
     private int orange;
+
+    @Property(nameInDb = "brown")
+    private int brown;
 
     @Property(nameInDb = "grey")
     private int grey;
@@ -170,8 +212,14 @@ public class Analysis {
     @Property(nameInDb = "darkGreen")
     private int darkGreen;
 
+    @Property(nameInDb = "darkYellow")
+    private int darkYellow;
+
     @Property(nameInDb = "darkOrange")
     private int darkOrange;
+
+    @Property(nameInDb = "darkBrown")
+    private int darkBrown;
 
     @Property(nameInDb = "darkGrey")
     private int darkGrey;
@@ -194,7 +242,7 @@ public class Analysis {
     @Property(nameInDb = "totalPixelCount")
     private int totalPixelCount;
 
-    @Generated(hash = 829480248)
+    @Generated(hash = 1945748955)
     public Analysis(Long analysisId, boolean saved, String imagePath1,
             String imagePath2, String imagePath3, String imagePath4,
             String combinedImagePath, String combinedImageName,
@@ -204,15 +252,20 @@ public class Analysis {
             int lightPurplePixelCount, int mediumPurplePixelCount,
             int purplePixelCount, int darkPurplePixelCount,
             int lightGreenPixelCount, int mediumGreenPixelCount,
-            int greenPixelCount, int darkGreenPixelCount, int lightOrangePixelCount,
+            int greenPixelCount, int darkGreenPixelCount, int lightYellowPixelCount,
+            int mediumYellowPixelCount, int yellowPixelCount,
+            int darkYellowPixelCount, int lightOrangePixelCount,
             int mediumOrangePixelCount, int orangePixelCount,
-            int darkOrangePixelCount, int lightGreyPixelCount,
-            int mediumGreyPixelCount, int greyPixelCount, int darkGreyPixelCount,
-            int lightRed, int lightPurple, int lightGreen, int lightOrange,
-            int lightGrey, int mediumRed, int mediumPurple, int mediumGreen,
-            int mediumOrange, int mediumGrey, int red, int purple, int green,
-            int orange, int grey, int darkRed, int darkPurple, int darkGreen,
-            int darkOrange, int darkGrey, String tensorFlowTitleGrowing,
+            int darkOrangePixelCount, int lightBrownPixelCount,
+            int mediumBrownPixelCount, int brownPixelCount, int darkBrownPixelCount,
+            int lightGreyPixelCount, int mediumGreyPixelCount, int greyPixelCount,
+            int darkGreyPixelCount, int lightRed, int lightPurple, int lightGreen,
+            int lightYellow, int lightOrange, int lightBrown, int lightGrey,
+            int mediumRed, int mediumPurple, int mediumGreen, int mediumYellow,
+            int mediumOrange, int mediumBrown, int mediumGrey, int red, int purple,
+            int green, int yellow, int orange, int brown, int grey, int darkRed,
+            int darkPurple, int darkGreen, int darkYellow, int darkOrange,
+            int darkBrown, int darkGrey, String tensorFlowTitleGrowing,
             float tensorFlowConfidenceGrowing, String tensorFlowTitleReady,
             float tensorFlowConfidenceReady, String tensorFlowResult,
             int totalPixelCount) {
@@ -242,10 +295,18 @@ public class Analysis {
         this.mediumGreenPixelCount = mediumGreenPixelCount;
         this.greenPixelCount = greenPixelCount;
         this.darkGreenPixelCount = darkGreenPixelCount;
+        this.lightYellowPixelCount = lightYellowPixelCount;
+        this.mediumYellowPixelCount = mediumYellowPixelCount;
+        this.yellowPixelCount = yellowPixelCount;
+        this.darkYellowPixelCount = darkYellowPixelCount;
         this.lightOrangePixelCount = lightOrangePixelCount;
         this.mediumOrangePixelCount = mediumOrangePixelCount;
         this.orangePixelCount = orangePixelCount;
         this.darkOrangePixelCount = darkOrangePixelCount;
+        this.lightBrownPixelCount = lightBrownPixelCount;
+        this.mediumBrownPixelCount = mediumBrownPixelCount;
+        this.brownPixelCount = brownPixelCount;
+        this.darkBrownPixelCount = darkBrownPixelCount;
         this.lightGreyPixelCount = lightGreyPixelCount;
         this.mediumGreyPixelCount = mediumGreyPixelCount;
         this.greyPixelCount = greyPixelCount;
@@ -253,22 +314,30 @@ public class Analysis {
         this.lightRed = lightRed;
         this.lightPurple = lightPurple;
         this.lightGreen = lightGreen;
+        this.lightYellow = lightYellow;
         this.lightOrange = lightOrange;
+        this.lightBrown = lightBrown;
         this.lightGrey = lightGrey;
         this.mediumRed = mediumRed;
         this.mediumPurple = mediumPurple;
         this.mediumGreen = mediumGreen;
+        this.mediumYellow = mediumYellow;
         this.mediumOrange = mediumOrange;
+        this.mediumBrown = mediumBrown;
         this.mediumGrey = mediumGrey;
         this.red = red;
         this.purple = purple;
         this.green = green;
+        this.yellow = yellow;
         this.orange = orange;
+        this.brown = brown;
         this.grey = grey;
         this.darkRed = darkRed;
         this.darkPurple = darkPurple;
         this.darkGreen = darkGreen;
+        this.darkYellow = darkYellow;
         this.darkOrange = darkOrange;
+        this.darkBrown = darkBrown;
         this.darkGrey = darkGrey;
         this.tensorFlowTitleGrowing = tensorFlowTitleGrowing;
         this.tensorFlowConfidenceGrowing = tensorFlowConfidenceGrowing;
@@ -328,6 +397,22 @@ public class Analysis {
 
     public void setImagePath4(String imagePath4) {
         this.imagePath4 = imagePath4;
+    }
+
+    public String getCombinedImagePath() {
+        return this.combinedImagePath;
+    }
+
+    public void setCombinedImagePath(String combinedImagePath) {
+        this.combinedImagePath = combinedImagePath;
+    }
+
+    public String getCombinedImageName() {
+        return this.combinedImageName;
+    }
+
+    public void setCombinedImageName(String combinedImageName) {
+        this.combinedImageName = combinedImageName;
     }
 
     public String getPercentageTurnedPistils() {
@@ -474,6 +559,38 @@ public class Analysis {
         this.darkGreenPixelCount = darkGreenPixelCount;
     }
 
+    public int getLightYellowPixelCount() {
+        return this.lightYellowPixelCount;
+    }
+
+    public void setLightYellowPixelCount(int lightYellowPixelCount) {
+        this.lightYellowPixelCount = lightYellowPixelCount;
+    }
+
+    public int getMediumYellowPixelCount() {
+        return this.mediumYellowPixelCount;
+    }
+
+    public void setMediumYellowPixelCount(int mediumYellowPixelCount) {
+        this.mediumYellowPixelCount = mediumYellowPixelCount;
+    }
+
+    public int getYellowPixelCount() {
+        return this.yellowPixelCount;
+    }
+
+    public void setYellowPixelCount(int yellowPixelCount) {
+        this.yellowPixelCount = yellowPixelCount;
+    }
+
+    public int getDarkYellowPixelCount() {
+        return this.darkYellowPixelCount;
+    }
+
+    public void setDarkYellowPixelCount(int darkYellowPixelCount) {
+        this.darkYellowPixelCount = darkYellowPixelCount;
+    }
+
     public int getLightOrangePixelCount() {
         return this.lightOrangePixelCount;
     }
@@ -504,6 +621,38 @@ public class Analysis {
 
     public void setDarkOrangePixelCount(int darkOrangePixelCount) {
         this.darkOrangePixelCount = darkOrangePixelCount;
+    }
+
+    public int getLightBrownPixelCount() {
+        return this.lightBrownPixelCount;
+    }
+
+    public void setLightBrownPixelCount(int lightBrownPixelCount) {
+        this.lightBrownPixelCount = lightBrownPixelCount;
+    }
+
+    public int getMediumBrownPixelCount() {
+        return this.mediumBrownPixelCount;
+    }
+
+    public void setMediumBrownPixelCount(int mediumBrownPixelCount) {
+        this.mediumBrownPixelCount = mediumBrownPixelCount;
+    }
+
+    public int getBrownPixelCount() {
+        return this.brownPixelCount;
+    }
+
+    public void setBrownPixelCount(int brownPixelCount) {
+        this.brownPixelCount = brownPixelCount;
+    }
+
+    public int getDarkBrownPixelCount() {
+        return this.darkBrownPixelCount;
+    }
+
+    public void setDarkBrownPixelCount(int darkBrownPixelCount) {
+        this.darkBrownPixelCount = darkBrownPixelCount;
     }
 
     public int getLightGreyPixelCount() {
@@ -562,12 +711,28 @@ public class Analysis {
         this.lightGreen = lightGreen;
     }
 
+    public int getLightYellow() {
+        return this.lightYellow;
+    }
+
+    public void setLightYellow(int lightYellow) {
+        this.lightYellow = lightYellow;
+    }
+
     public int getLightOrange() {
         return this.lightOrange;
     }
 
     public void setLightOrange(int lightOrange) {
         this.lightOrange = lightOrange;
+    }
+
+    public int getLightBrown() {
+        return this.lightBrown;
+    }
+
+    public void setLightBrown(int lightBrown) {
+        this.lightBrown = lightBrown;
     }
 
     public int getLightGrey() {
@@ -602,12 +767,28 @@ public class Analysis {
         this.mediumGreen = mediumGreen;
     }
 
+    public int getMediumYellow() {
+        return this.mediumYellow;
+    }
+
+    public void setMediumYellow(int mediumYellow) {
+        this.mediumYellow = mediumYellow;
+    }
+
     public int getMediumOrange() {
         return this.mediumOrange;
     }
 
     public void setMediumOrange(int mediumOrange) {
         this.mediumOrange = mediumOrange;
+    }
+
+    public int getMediumBrown() {
+        return this.mediumBrown;
+    }
+
+    public void setMediumBrown(int mediumBrown) {
+        this.mediumBrown = mediumBrown;
     }
 
     public int getMediumGrey() {
@@ -642,12 +823,28 @@ public class Analysis {
         this.green = green;
     }
 
+    public int getYellow() {
+        return this.yellow;
+    }
+
+    public void setYellow(int yellow) {
+        this.yellow = yellow;
+    }
+
     public int getOrange() {
         return this.orange;
     }
 
     public void setOrange(int orange) {
         this.orange = orange;
+    }
+
+    public int getBrown() {
+        return this.brown;
+    }
+
+    public void setBrown(int brown) {
+        this.brown = brown;
     }
 
     public int getGrey() {
@@ -682,12 +879,28 @@ public class Analysis {
         this.darkGreen = darkGreen;
     }
 
+    public int getDarkYellow() {
+        return this.darkYellow;
+    }
+
+    public void setDarkYellow(int darkYellow) {
+        this.darkYellow = darkYellow;
+    }
+
     public int getDarkOrange() {
         return this.darkOrange;
     }
 
     public void setDarkOrange(int darkOrange) {
         this.darkOrange = darkOrange;
+    }
+
+    public int getDarkBrown() {
+        return this.darkBrown;
+    }
+
+    public void setDarkBrown(int darkBrown) {
+        this.darkBrown = darkBrown;
     }
 
     public int getDarkGrey() {
@@ -744,21 +957,5 @@ public class Analysis {
 
     public void setTotalPixelCount(int totalPixelCount) {
         this.totalPixelCount = totalPixelCount;
-    }
-
-    public String getCombinedImagePath() {
-        return this.combinedImagePath;
-    }
-
-    public void setCombinedImagePath(String combinedImagePath) {
-        this.combinedImagePath = combinedImagePath;
-    }
-
-    public String getCombinedImageName() {
-        return this.combinedImageName;
-    }
-
-    public void setCombinedImageName(String combinedImageName) {
-        this.combinedImageName = combinedImageName;
     }
 }

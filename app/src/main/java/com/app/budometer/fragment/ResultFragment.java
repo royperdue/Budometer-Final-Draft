@@ -56,6 +56,7 @@ import java.util.Map;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.view.ContextThemeWrapper;
 import androidx.constraintlayout.widget.ConstraintLayout;
+
 import dmax.dialog.SpotsDialog;
 
 
@@ -77,7 +78,9 @@ public class ResultFragment extends BaseFragment {
     private TextView redTextView;
     private TextView purpleTextView;
     private TextView greenTextView;
+    private TextView yellowTextView;
     private TextView orangeTextView;
+    private TextView brownTextView;
     private TextView greyTextView;
     private LinearLayout saveButton;
     private List<Palette.Swatch> swatches = null;
@@ -173,7 +176,9 @@ public class ResultFragment extends BaseFragment {
         redTextView = view.findViewById(R.id.redTextView);
         purpleTextView = view.findViewById(R.id.purpleTextView);
         greenTextView = view.findViewById(R.id.greenTextView);
+        yellowTextView = view.findViewById(R.id.yellowTextView);
         orangeTextView = view.findViewById(R.id.orangeTextView);
+        brownTextView = view.findViewById(R.id.brownTextView);
         greyTextView = view.findViewById(R.id.greyTextView);
 
         return view;
@@ -334,6 +339,18 @@ public class ResultFragment extends BaseFragment {
                         } else if (swatch.getColorName().equals("greenDark")) {
                             counter.setDarkGreenPixelCount(counter.getDarkGreenPixelCount() + swatch.getPopulation());
                             counter.setDarkGreen(color);
+                        } else if (swatch.getColorName().equals("yellowLight")) {
+                            counter.setLightYellowPixelCount(counter.getLightYellowPixelCount() + swatch.getPopulation());
+                            counter.setLightYellow(color);
+                        } else if (swatch.getColorName().equals("yellowMedium")) {
+                            counter.setMediumYellowPixelCount(counter.getMediumYellowPixelCount() + swatch.getPopulation());
+                            counter.setMediumYellow(color);
+                        } else if (swatch.getColorName().equals("yellow")) {
+                            counter.setYellowPixelCount(counter.getYellowPixelCount() + swatch.getPopulation());
+                            counter.setYellow(color);
+                        } else if (swatch.getColorName().equals("yellowDark")) {
+                            counter.setDarkYellowPixelCount(counter.getDarkYellowPixelCount() + swatch.getPopulation());
+                            counter.setDarkYellow(color);
                         } else if (swatch.getColorName().equals("orangeLight")) {
                             counter.setLightOrangePixelCount(counter.getLightOrangePixelCount() + swatch.getPopulation());
                             counter.setLightOrange(color);
@@ -346,6 +363,18 @@ public class ResultFragment extends BaseFragment {
                         } else if (swatch.getColorName().equals("orangeDark")) {
                             counter.setDarkOrangePixelCount(counter.getDarkOrangePixelCount() + swatch.getPopulation());
                             counter.setDarkOrange(color);
+                        } else if (swatch.getColorName().equals("brownLight")) {
+                            counter.setLightBrownPixelCount(counter.getLightBrownPixelCount() + swatch.getPopulation());
+                            counter.setLightBrown(color);
+                        } else if (swatch.getColorName().equals("brownMedium")) {
+                            counter.setMediumBrownPixelCount(counter.getMediumBrownPixelCount() + swatch.getPopulation());
+                            counter.setMediumBrown(color);
+                        } else if (swatch.getColorName().equals("brown")) {
+                            counter.setBrownPixelCount(counter.getBrownPixelCount() + swatch.getPopulation());
+                            counter.setBrown(color);
+                        } else if (swatch.getColorName().equals("brownDark")) {
+                            counter.setDarkBrownPixelCount(counter.getDarkBrownPixelCount() + swatch.getPopulation());
+                            counter.setDarkBrown(color);
                         } else if (swatch.getColorName().equals("greyLight")) {
                             counter.setLightGreyPixelCount(counter.getLightGreyPixelCount() + swatch.getPopulation());
                             counter.setLightGrey(color);
@@ -407,6 +436,14 @@ public class ResultFragment extends BaseFragment {
             pieChartView.addItemType(new PieChartView.ItemType("", analysis.getGreenPixelCount(), analysis.getGreen()));
         if (analysis.getDarkGreenPixelCount() > 0)
             pieChartView.addItemType(new PieChartView.ItemType("", analysis.getDarkGreenPixelCount(), analysis.getDarkGreen()));
+        if (analysis.getLightYellowPixelCount() > 0)
+            pieChartView.addItemType(new PieChartView.ItemType("", analysis.getLightYellowPixelCount(), analysis.getLightYellow()));
+        if (analysis.getMediumYellowPixelCount() > 0)
+            pieChartView.addItemType(new PieChartView.ItemType("", analysis.getMediumYellowPixelCount(), analysis.getMediumYellow()));
+        if (analysis.getYellowPixelCount() > 0)
+            pieChartView.addItemType(new PieChartView.ItemType("", analysis.getYellowPixelCount(), analysis.getYellow()));
+        if (analysis.getDarkYellowPixelCount() > 0)
+            pieChartView.addItemType(new PieChartView.ItemType("", analysis.getDarkYellowPixelCount(), analysis.getDarkYellow()));
         if (analysis.getLightOrangePixelCount() > 0)
             pieChartView.addItemType(new PieChartView.ItemType("", analysis.getLightOrangePixelCount(), analysis.getLightOrange()));
         if (analysis.getMediumOrangePixelCount() > 0)
@@ -415,6 +452,14 @@ public class ResultFragment extends BaseFragment {
             pieChartView.addItemType(new PieChartView.ItemType("", analysis.getOrangePixelCount(), analysis.getOrange()));
         if (analysis.getDarkOrangePixelCount() > 0)
             pieChartView.addItemType(new PieChartView.ItemType("", analysis.getDarkOrangePixelCount(), analysis.getDarkOrange()));
+        if (analysis.getLightBrownPixelCount() > 0)
+            pieChartView.addItemType(new PieChartView.ItemType("", analysis.getLightBrownPixelCount(), analysis.getLightBrown()));
+        if (analysis.getMediumBrownPixelCount() > 0)
+            pieChartView.addItemType(new PieChartView.ItemType("", analysis.getMediumBrownPixelCount(), analysis.getMediumBrown()));
+        if (analysis.getBrownPixelCount() > 0)
+            pieChartView.addItemType(new PieChartView.ItemType("", analysis.getBrownPixelCount(), analysis.getBrown()));
+        if (analysis.getDarkBrownPixelCount() > 0)
+            pieChartView.addItemType(new PieChartView.ItemType("", analysis.getDarkBrownPixelCount(), analysis.getDarkBrown()));
         if (analysis.getLightGreyPixelCount() > 0)
             pieChartView.addItemType(new PieChartView.ItemType("", analysis.getLightGreyPixelCount(), analysis.getLightGrey()));
         if (analysis.getMediumGreyPixelCount() > 0)
@@ -428,21 +473,50 @@ public class ResultFragment extends BaseFragment {
         redTextView.setText(toPercentage((redPixelTotal * 100.0f) / analysis.getTotalPixelCount()));
         redTextView.setBackground(BudometerUtils.getRedColor(getActivity()));
 
+        if (redPixelTotal == 0)
+            redTextView.setVisibility(View.GONE);
+
         int purplePixelTotal = analysis.getLightPurplePixelCount() + analysis.getMediumPurplePixelCount() + analysis.getPurplePixelCount() + analysis.getDarkPurplePixelCount();
         purpleTextView.setText(toPercentage((purplePixelTotal * 100.0f) / analysis.getTotalPixelCount()));
         purpleTextView.setBackground(BudometerUtils.getPurpleColor(getActivity()));
+
+        if (purplePixelTotal == 0)
+            purpleTextView.setVisibility(View.GONE);
 
         int greenPixelTotal = analysis.getLightGreenPixelCount() + analysis.getMediumGreenPixelCount() + analysis.getGreenPixelCount() + analysis.getDarkGreenPixelCount();
         greenTextView.setText(toPercentage((greenPixelTotal * 100.0f) / analysis.getTotalPixelCount()));
         greenTextView.setBackground(BudometerUtils.getGreenColor(getActivity()));
 
+        if (greenPixelTotal == 0)
+            greenTextView.setVisibility(View.GONE);
+
+        int yellowPixelTotal = analysis.getLightYellowPixelCount() + analysis.getMediumYellowPixelCount() + analysis.getYellowPixelCount() + analysis.getDarkYellowPixelCount();
+        yellowTextView.setText(toPercentage((yellowPixelTotal * 100.0f) / analysis.getTotalPixelCount()));
+        yellowTextView.setBackground(BudometerUtils.getYellowColor(getActivity()));
+
+        if (yellowPixelTotal == 0)
+            yellowTextView.setVisibility(View.GONE);
+
         int orangePixelTotal = analysis.getLightOrangePixelCount() + analysis.getMediumOrangePixelCount() + analysis.getOrangePixelCount() + analysis.getDarkOrangePixelCount();
         orangeTextView.setText(toPercentage((orangePixelTotal * 100.0f) / analysis.getTotalPixelCount()));
         orangeTextView.setBackground(BudometerUtils.getOrangeColor(getActivity()));
 
+        if (orangePixelTotal == 0)
+            orangeTextView.setVisibility(View.GONE);
+
+        int brownPixelTotal = analysis.getLightBrownPixelCount() + analysis.getMediumBrownPixelCount() + analysis.getBrownPixelCount() + analysis.getDarkBrownPixelCount();
+        brownTextView.setText(toPercentage((brownPixelTotal * 100.0f) / analysis.getTotalPixelCount()));
+        brownTextView.setBackground(BudometerUtils.getBrownColor(getActivity()));
+
+        if (brownPixelTotal == 0)
+            brownTextView.setVisibility(View.GONE);
+
         int greyPixelTotal = analysis.getLightGreyPixelCount() + analysis.getMediumGreyPixelCount() + analysis.getGreyPixelCount() + analysis.getDarkGreyPixelCount();
         greyTextView.setText(toPercentage((greyPixelTotal * 100.0f) / analysis.getTotalPixelCount()));
         greyTextView.setBackground(BudometerUtils.getGreyColor(getActivity()));
+
+        if (greyPixelTotal == 0)
+            greyTextView.setVisibility(View.GONE);
 
         pieChartView.invalidate();
     }
@@ -463,10 +537,18 @@ public class ResultFragment extends BaseFragment {
         Analysis analysis = getAnalysis(BudometerSP.init(getActivity()).getLong(BudometerConfig.GREEN_DAO_ANALYSIS_ID));
 
         int totalPixelsNotTurned =
-                analysis.getLightRedPixelCount() +
+                analysis.getLightOrangePixelCount() +
+                        analysis.getMediumOrangePixelCount() +
+                        analysis.getLightBrownPixelCount() +
+                        analysis.getMediumBrownPixelCount() +
+                        analysis.getLightRedPixelCount() +
                         analysis.getMediumRedPixelCount() +
                         analysis.getRedPixelCount() +
                         analysis.getDarkRedPixelCount() +
+                        analysis.getLightYellowPixelCount() +
+                        analysis.getMediumYellowPixelCount() +
+                        analysis.getYellowPixelCount() +
+                        analysis.getDarkYellowPixelCount() +
                         analysis.getLightPurplePixelCount() +
                         analysis.getMediumPurplePixelCount() +
                         analysis.getPurplePixelCount() +
@@ -476,10 +558,10 @@ public class ResultFragment extends BaseFragment {
                         analysis.getDarkGreyPixelCount();
 
         int totalPixelsTurned =
-                analysis.getLightOrangePixelCount() +
-                        analysis.getMediumOrangePixelCount() +
-                        analysis.getOrangePixelCount() +
-                        analysis.getDarkOrangePixelCount();
+                analysis.getOrangePixelCount() +
+                        analysis.getDarkOrangePixelCount() +
+                        analysis.getBrownPixelCount() +
+                        analysis.getDarkBrownPixelCount();
 
         String percentageTurned = toPercentage((totalPixelsTurned * 100.0f) / (totalPixelsTurned + totalPixelsNotTurned));
 
@@ -559,10 +641,20 @@ public class ResultFragment extends BaseFragment {
         analysis.setGreenPixelCount(counter.getGreenPixelCount());
         analysis.setDarkGreenPixelCount(counter.getDarkGreenPixelCount());
 
+        analysis.setLightYellowPixelCount(counter.getLightYellowPixelCount());
+        analysis.setMediumYellowPixelCount(counter.getMediumYellowPixelCount());
+        analysis.setYellowPixelCount(counter.getYellowPixelCount());
+        analysis.setDarkYellowPixelCount(counter.getDarkYellowPixelCount());
+
         analysis.setLightOrangePixelCount(counter.getLightOrangePixelCount());
         analysis.setMediumOrangePixelCount(counter.getMediumOrangePixelCount());
         analysis.setOrangePixelCount(counter.getOrangePixelCount());
         analysis.setDarkOrangePixelCount(counter.getDarkOrangePixelCount());
+
+        analysis.setLightBrownPixelCount(counter.getLightBrownPixelCount());
+        analysis.setMediumBrownPixelCount(counter.getMediumBrownPixelCount());
+        analysis.setBrownPixelCount(counter.getBrownPixelCount());
+        analysis.setDarkBrownPixelCount(counter.getDarkBrownPixelCount());
 
         analysis.setLightGreyPixelCount(counter.getLightGreyPixelCount());
         analysis.setMediumGreyPixelCount(counter.getMediumGreyPixelCount());
@@ -584,10 +676,20 @@ public class ResultFragment extends BaseFragment {
         analysis.setGreen(counter.getGreen());
         analysis.setDarkGreen(counter.getDarkGreen());
 
+        analysis.setLightYellow(counter.getLightYellow());
+        analysis.setMediumYellow(counter.getMediumYellow());
+        analysis.setYellow(counter.getYellow());
+        analysis.setDarkYellow(counter.getDarkYellow());
+
         analysis.setLightOrange(counter.getLightOrange());
         analysis.setMediumOrange(counter.getMediumOrange());
         analysis.setOrange(counter.getOrange());
         analysis.setDarkOrange(counter.getDarkOrange());
+
+        analysis.setLightBrown(counter.getLightBrown());
+        analysis.setMediumBrown(counter.getMediumBrown());
+        analysis.setBrown(counter.getBrown());
+        analysis.setDarkBrown(counter.getDarkBrown());
 
         analysis.setLightGrey(counter.getLightGrey());
         analysis.setMediumGrey(counter.getMediumGrey());
@@ -605,10 +707,12 @@ public class ResultFragment extends BaseFragment {
                 analysis.getMediumRedPixelCount() + analysis.getRedPixelCount() + analysis.getDarkRedPixelCount() +
                 analysis.getLightPurplePixelCount() + analysis.getMediumPurplePixelCount() + analysis.getPurplePixelCount() +
                 analysis.getDarkPurplePixelCount() + analysis.getLightGreenPixelCount() + analysis.getMediumGreenPixelCount() +
-                analysis.getGreenPixelCount() + analysis.getDarkGreenPixelCount() + analysis.getLightOrangePixelCount() +
-                analysis.getMediumOrangePixelCount() + analysis.getOrangePixelCount() + analysis.getDarkOrangePixelCount() +
-                analysis.getLightGreyPixelCount() + analysis.getMediumGreyPixelCount() + analysis.getGreyPixelCount() +
-                analysis.getDarkGreyPixelCount();
+                analysis.getGreenPixelCount() + analysis.getDarkGreenPixelCount() + analysis.getLightYellowPixelCount() + 
+                analysis.getMediumYellowPixelCount() + analysis.getYellowPixelCount() + analysis.getDarkYellowPixelCount() + 
+                analysis.getLightOrangePixelCount() + analysis.getMediumOrangePixelCount() + analysis.getOrangePixelCount() + 
+                analysis.getDarkOrangePixelCount() + analysis.getLightBrownPixelCount() + analysis.getMediumBrownPixelCount() +
+                analysis.getBrownPixelCount() + analysis.getDarkBrownPixelCount() + analysis.getLightGreyPixelCount() + 
+                analysis.getMediumGreyPixelCount() + analysis.getGreyPixelCount() + analysis.getDarkGreyPixelCount();
 
         analysis.setTotalPixelCount(totalPixelCount);
         BudometerApp.getDaoSession().getAnalysisDao().update(analysis);

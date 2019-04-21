@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/background_2"
+        android:src="@drawable/background_1"
         android:transitionName="@string/transition_background"
         app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -79,7 +79,7 @@
         android:layout_marginTop="@dimen/pad5dp"
         android:layout_marginEnd="@dimen/pad5dp"
         android:layout_marginBottom="@dimen/pad5dp"
-        android:background="@color/grey"
+        android:background="@color/grey_2"
         android:scrollbarThumbVertical="@null"
         app:layout_constraintBottom_toBottomOf="@+id/card"
         app:layout_constraintLeft_toLeftOf="@+id/card"
@@ -107,7 +107,7 @@
                 android:layout_height="wrap_content"
                 android:padding="@dimen/pad5dp"
                 android:background="@color/chart_background"
-                android:weightSum="5"
+                android:weightSum="4"
                 android:orientation="horizontal">
 
                 <TextView
@@ -116,7 +116,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="@dimen/pad5dp"
-                    android:background="@color/red"
+                    android:background="@color/red_3"
                     android:textColor="@color/white"
                     android:textSize="@dimen/txt12sp"
                     android:textAllCaps="true"
@@ -129,7 +129,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="@dimen/pad5dp"
-                    android:background="@color/purple"
+                    android:background="@color/purple_2"
                     android:textColor="@color/white"
                     android:textSize="@dimen/txt12sp"
                     android:textAllCaps="true"
@@ -142,20 +142,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="@dimen/pad5dp"
-                    android:background="@color/green"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/txt12sp"
-                    android:textAllCaps="true"
-                    android:textAlignment="center"
-                    android:text="@string/_0_0"/>
-
-                <TextView
-                    android:id="@+id/orangeTextView"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:padding="@dimen/pad5dp"
-                    android:background="@color/orange"
+                    android:background="@color/green_2"
                     android:textColor="@color/white"
                     android:textSize="@dimen/txt12sp"
                     android:textAllCaps="true"
@@ -168,7 +155,55 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="@dimen/pad5dp"
-                    android:background="@color/grey"
+                    android:background="@color/grey_2"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/txt12sp"
+                    android:textAllCaps="true"
+                    android:textAlignment="center"
+                    android:text="@string/_0_0"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/pad5dp"
+                android:background="@color/chart_background"
+                android:weightSum="3"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/yellowTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="@dimen/pad5dp"
+                    android:background="@color/yellow_2"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/txt12sp"
+                    android:textAllCaps="true"
+                    android:textAlignment="center"
+                    android:text="@string/_0_0"/>
+
+                <TextView
+                    android:id="@+id/orangeTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="@dimen/pad5dp"
+                    android:background="@color/orange_2"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/txt12sp"
+                    android:textAllCaps="true"
+                    android:textAlignment="center"
+                    android:text="@string/_0_0"/>
+
+                <TextView
+                    android:id="@+id/brownTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="@dimen/pad5dp"
+                    android:background="@color/brown_2"
                     android:textColor="@color/white"
                     android:textSize="@dimen/txt12sp"
                     android:textAllCaps="true"
@@ -197,7 +232,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/pad10dp"
                 android:layout_marginBottom="@dimen/pad5dp"
-                android:hint="Percentage of pistils turned..."
+                android:hint="@string/percentage_of_pistils_turned"
                 android:inputType="text"
                 android:maxLines="1"
                 android:textColor="@color/primaryText"

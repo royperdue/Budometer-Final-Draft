@@ -36,7 +36,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.view.ContextThemeWrapper;
 import androidx.recyclerview.widget.RecyclerView;
+
 import dmax.dialog.SpotsDialog;
+
 
 public class ImagePickerFragment extends BaseFragment implements ImagePickerView {
     public static final String TAG = "Select Images";
@@ -51,9 +53,13 @@ public class ImagePickerFragment extends BaseFragment implements ImagePickerView
 
     public interface OnImagePickerInteractionListener {
         void setTitle(String title);
+
         void cancel();
+
         void finishPickImages(Intent result);
+
         void selectionChanged(List<Image> imageList);
+
         void onPickerFragmentInteraction(int index);
     }
 
@@ -92,85 +98,74 @@ public class ImagePickerFragment extends BaseFragment implements ImagePickerView
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setupComponents();
 
-        if (isCameraOnly) {
-            if (savedInstanceState == null) {
-                captureImageWithPermission();
-            }
-        } else {
-            if (config == null) {
-                IpCrasher.openIssue();
-            }
+        LayoutInflater localInflater = inflater.cloneInContext(new ContextThemeWrapper(getActivity(), config.getTheme()));
 
-            LayoutInflater localInflater = inflater.cloneInContext(new ContextThemeWrapper(getActivity(), config.getTheme()));
+        View view = localInflater.inflate(R.layout.fragment_image_picker, container, false);
+        setupView(view);
 
-            View view = localInflater.inflate(R.layout.fragment_image_picker, container, false);
-            setupView(view);
+        setupRecyclerView(config, config.getSelectedImages());
 
+        if (savedInstanceState == null) {
             setupRecyclerView(config, config.getSelectedImages());
+        } else {
+            setupRecyclerView(config, savedInstanceState.getParcelableArrayList(BudometerConfig.STATE_KEY_SELECTED_IMAGES));
+            recyclerViewManager.onRestoreState(savedInstanceState.getParcelable(BudometerConfig.STATE_KEY_RECYCLER));
+        }
 
-            if (savedInstanceState == null) {
-                setupRecyclerView(config, config.getSelectedImages());
-            } else {
-                setupRecyclerView(config, savedInstanceState.getParcelableArrayList(BudometerConfig.STATE_KEY_SELECTED_IMAGES));
-                recyclerViewManager.onRestoreState(savedInstanceState.getParcelable(BudometerConfig.STATE_KEY_RECYCLER));
+        mListener.selectionChanged(recyclerViewManager.getSelectedImages());
+
+        CircleMenuView circleMenuView = view.findViewById(R.id.circle_menu);
+        circleMenuView.setEventListener(new CircleMenuView.EventListener() {
+            @Override
+            public void onMenuOpenAnimationStart(@NonNull CircleMenuView view) {
             }
 
-            mListener.selectionChanged(recyclerViewManager.getSelectedImages());
+            @Override
+            public void onMenuOpenAnimationEnd(@NonNull CircleMenuView view) {
+            }
 
-            CircleMenuView circleMenuView = view.findViewById(R.id.circle_menu);
-            circleMenuView.setEventListener(new CircleMenuView.EventListener() {
-                @Override
-                public void onMenuOpenAnimationStart(@NonNull CircleMenuView view) {
+            @Override
+            public void onMenuCloseAnimationStart(@NonNull CircleMenuView view) {
+            }
+
+            @Override
+            public void onMenuCloseAnimationEnd(@NonNull CircleMenuView view) {
+            }
+
+            @Override
+            public void onButtonClickAnimationStart(@NonNull CircleMenuView view, int index) {
+                if (index == 0) {
+                    mListener.onPickerFragmentInteraction(index);
+                } else if (index == 1) {
+                    mListener.onPickerFragmentInteraction(index);
+                } else if (index == 2) {
+                    mListener.onPickerFragmentInteraction(index);
+                } else if (index == 3) {
+                    mListener.onPickerFragmentInteraction(index);
+                } else if (index == 4) {
+                    mListener.onPickerFragmentInteraction(index);
                 }
+            }
 
-                @Override
-                public void onMenuOpenAnimationEnd(@NonNull CircleMenuView view) {
-                }
+            @Override
+            public void onButtonClickAnimationEnd(@NonNull CircleMenuView view, int index) {
+            }
 
-                @Override
-                public void onMenuCloseAnimationStart(@NonNull CircleMenuView view) {
-                }
+            @Override
+            public boolean onButtonLongClick(@NonNull CircleMenuView view, int index) {
+                return true;
+            }
 
-                @Override
-                public void onMenuCloseAnimationEnd(@NonNull CircleMenuView view) {
-                }
+            @Override
+            public void onButtonLongClickAnimationStart(@NonNull CircleMenuView view, int index) {
+            }
 
-                @Override
-                public void onButtonClickAnimationStart(@NonNull CircleMenuView view, int index) {
-                    if (index == 0) {
-                        mListener.onPickerFragmentInteraction(index);
-                    } else if (index == 1) {
-                        mListener.onPickerFragmentInteraction(index);
-                    } else if (index == 2) {
-                        mListener.onPickerFragmentInteraction(index);
-                    } else if (index == 3) {
-                        mListener.onPickerFragmentInteraction(index);
-                    } else if (index == 4) {
-                        mListener.onPickerFragmentInteraction(index);
-                    }
-                }
+            @Override
+            public void onButtonLongClickAnimationEnd(@NonNull CircleMenuView view, int index) {
+            }
+        });
 
-                @Override
-                public void onButtonClickAnimationEnd(@NonNull CircleMenuView view, int index) {
-                }
-
-                @Override
-                public boolean onButtonLongClick(@NonNull CircleMenuView view, int index) {
-                    return true;
-                }
-
-                @Override
-                public void onButtonLongClickAnimationStart(@NonNull CircleMenuView view, int index) {
-                }
-
-                @Override
-                public void onButtonLongClickAnimationEnd(@NonNull CircleMenuView view, int index) {
-                }
-            });
-
-            return view;
-        }
-        return null;
+        return view;
     }
 
     @Override

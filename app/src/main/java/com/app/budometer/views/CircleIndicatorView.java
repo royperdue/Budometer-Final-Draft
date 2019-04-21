@@ -42,7 +42,7 @@ public class CircleIndicatorView extends View {
         activeIndicatorPaint.setColor(ContextCompat.getColor(context, R.color.white));
         activeIndicatorPaint.setAntiAlias(true);
         inactiveIndicatorPaint = new Paint();
-        inactiveIndicatorPaint.setColor(ContextCompat.getColor(context, R.color.grey));
+        inactiveIndicatorPaint.setColor(ContextCompat.getColor(context, R.color.grey_4));
         inactiveIndicatorPaint.setAntiAlias(true);
         radius = getResources().getDimensionPixelSize(R.dimen.pad8dp);
         size = radius * 2;
