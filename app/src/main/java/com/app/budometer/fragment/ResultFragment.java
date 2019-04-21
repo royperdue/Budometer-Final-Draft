@@ -59,12 +59,9 @@ import dmax.dialog.SpotsDialog;
 
 
 public class ResultFragment extends BaseFragment {
+    public static final String TAG = "Result";
     private OnResultFragmentInteractionListener mListener;
     private static ResultFragment fragment = null;
-    private String tensorFlowTitleGrowing = "G";
-    private float tensorFlowConfidenceGrowing = 0.0f;
-    private String tensorFlowTitleReady = "R";
-    private float tensorFlowConfidenceReady = 0.0f;
 
     private int lightRedPixelCount = 0;
     private int lightPurplePixelCount = 0;
@@ -217,7 +214,7 @@ public class ResultFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 BudometerUtils.hideKeyboard(((MainActivity) getActivity()));
-                ((MainActivity) getActivity()).recreate();
+                getActivity().recreate();
             }
         });
 

@@ -146,7 +146,7 @@ public final class CameraLogger {
             if (object instanceof Throwable) {
                 throwable = (Throwable) object;
             }
-            message.append(String.valueOf(object));
+            message.append(object);
             message.append(" ");
         }
         String string = message.toString().trim();

@@ -12,7 +12,7 @@
             android:layout_height="match_parent"
             android:contentDescription="@string/content_description_background_image"
             android:scaleType="centerCrop"
-            android:src="@drawable/background_1"
+            android:src="@drawable/background_2"
             android:transitionName="@string/transition_background"
             app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -20,8 +20,8 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <View
-            android:layout_width="@dimen/pad0dp"
-            android:layout_height="@dimen/pad0dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_marginTop="@dimen/pad8dp"
             android:background="@drawable/details_image_gradient"
             app:layout_constraintBottom_toBottomOf="@+id/iv_background"
@@ -31,7 +31,7 @@
 
         <View
             android:id="@+id/card"
-            android:layout_width="@dimen/pad0dp"
+            android:layout_width="0dp"
             android:layout_height="@dimen/pad423dp"
             android:layout_marginStart="@dimen/pad32dp"
             android:layout_marginEnd="@dimen/pad32dp"
@@ -71,8 +71,8 @@
 
         <ScrollView
             android:id="@+id/scrollView"
-            android:layout_width="@dimen/pad0dp"
-            android:layout_height="@dimen/pad0dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_marginStart="@dimen/pad5dp"
             android:layout_marginTop="@dimen/pad5dp"
             android:layout_marginEnd="@dimen/pad5dp"
@@ -105,7 +105,7 @@
 
                     <TextView
                         android:id="@+id/redTextView"
-                        android:layout_width="@dimen/pad0dp"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:padding="@dimen/pad5dp"
@@ -118,7 +118,7 @@
 
                     <TextView
                         android:id="@+id/purpleTextView"
-                        android:layout_width="@dimen/pad0dp"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:padding="@dimen/pad5dp"
@@ -131,7 +131,7 @@
 
                     <TextView
                         android:id="@+id/greenTextView"
-                        android:layout_width="@dimen/pad0dp"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:padding="@dimen/pad5dp"
@@ -144,7 +144,7 @@
 
                     <TextView
                         android:id="@+id/orangeTextView"
-                        android:layout_width="@dimen/pad0dp"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:padding="@dimen/pad5dp"
@@ -157,7 +157,7 @@
 
                     <TextView
                         android:id="@+id/greyTextView"
-                        android:layout_width="@dimen/pad0dp"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:padding="@dimen/pad5dp"
@@ -178,7 +178,7 @@
 
                     <TextView
                         android:id="@+id/resultLabel"
-                        android:layout_width="@dimen/pad0dp"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/pad5dp"
                         android:layout_weight=".5"
@@ -190,7 +190,7 @@
 
                     <TextView
                         android:id="@+id/resultTextView"
-                        android:layout_width="@dimen/pad0dp"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/pad5dp"
                         android:layout_weight="1.5"
@@ -210,7 +210,7 @@
 
                     <TextView
                         android:id="@+id/turnedLabel"
-                        android:layout_width="@dimen/pad0dp"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/pad5dp"
                         android:layout_weight=".75"
@@ -222,7 +222,7 @@
 
                     <TextView
                         android:id="@+id/turnedTextView"
-                        android:layout_width="@dimen/pad0dp"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/pad5dp"
                         android:layout_weight="1.25"
@@ -243,7 +243,7 @@
 
                     <TextView
                         android:id="@+id/strainLabel"
-                        android:layout_width="@dimen/pad0dp"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/pad5dp"
                         android:layout_weight=".5"
@@ -255,7 +255,7 @@
 
                     <TextView
                         android:id="@+id/strainTextView"
-                        android:layout_width="@dimen/pad0dp"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/pad5dp"
                         android:layout_weight="1.5"
@@ -275,7 +275,7 @@
 
                     <TextView
                         android:id="@+id/cropIdLabel"
-                        android:layout_width="@dimen/pad0dp"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/pad5dp"
                         android:layout_weight=".5"
@@ -287,7 +287,7 @@
 
                     <TextView
                         android:id="@+id/cropIdTextView"
-                        android:layout_width="@dimen/pad0dp"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/pad5dp"
                         android:layout_weight="1.5"
@@ -307,7 +307,7 @@
 
                     <TextView
                         android:id="@+id/analysisDateLabel"
-                        android:layout_width="@dimen/pad0dp"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/pad5dp"
                         android:layout_weight=".5"
@@ -319,7 +319,7 @@
 
                     <TextView
                         android:id="@+id/dateTextView"
-                        android:layout_width="@dimen/pad0dp"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/pad5dp"
                         android:layout_weight="1.5"
@@ -339,7 +339,7 @@
 
                     <TextView
                         android:id="@+id/notesLabel"
-                        android:layout_width="@dimen/pad0dp"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/pad5dp"
                         android:layout_weight=".5"
@@ -351,7 +351,7 @@
 
                     <TextView
                         android:id="@+id/notesTextView"
-                        android:layout_width="@dimen/pad0dp"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/pad5dp"
                         android:layout_weight="1.5"

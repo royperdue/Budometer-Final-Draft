@@ -36,7 +36,7 @@ import static android.app.Activity.RESULT_OK;
 
 
 public class MainFragment extends BaseFragment {
-    public static final String TAG = MainFragment.class.getSimpleName();
+    public static final String TAG = "Home";
     private static MainFragment fragment = null;
     private OnMainFragmentInteractionListener mListener;
     private LinearLayout firstUseInstructionsLayout;

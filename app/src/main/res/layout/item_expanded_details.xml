@@ -10,7 +10,7 @@
         android:layout_marginTop="@dimen/pad16dp"
         android:layout_marginEnd="@dimen/pad16dp"
         android:clickable="true"
-        app:cardCornerRadius="5dp"
+        app:cardCornerRadius="@dimen/pad5dp"
         android:focusable="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,7 +19,7 @@
 
             <LinearLayout
                 android:id="@+id/linearLayout"
-                android:layout_width="@dimen/pad0dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="@dimen/pad16dp"
@@ -51,11 +51,11 @@
 
             <View
                 android:id="@+id/line"
-                android:layout_width="@dimen/pad0dp"
-                android:layout_height="1dp"
-                android:layout_marginLeft="@dimen/pad0dp"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/pad1dp"
+                android:layout_marginLeft="0dp"
                 android:layout_marginTop="@dimen/pad16dp"
-                android:layout_marginRight="@dimen/pad0dp"
+                android:layout_marginRight="0dp"
                 android:alpha="0.5"
                 android:background="@color/item_separator_color"
                 app:layout_constraintLeft_toLeftOf="@+id/linearLayout"
@@ -66,7 +66,7 @@
                 android:id="@+id/tv_connect"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/pad0dp"
+                android:layout_marginStart="0dp"
                 android:layout_marginTop="@dimen/pad16dp"
                 android:layout_marginBottom="@dimen/pad16dp"
                 android:text="@string/connect"

@@ -67,6 +67,7 @@ import com.app.budometer.util.HtmlBuilder;
  * </ul>
  */
 public class HelpFragmentCarousel extends BaseFragment {
+    public static final String TAG = HelpFragmentCarousel.class.getSimpleName();
     private static HelpFragmentCarousel fragment = null;
     private OnHelpCarouselFragmentInteractionListener mListener;
     private HtmlBuilder html;

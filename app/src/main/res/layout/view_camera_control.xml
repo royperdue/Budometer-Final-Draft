@@ -3,12 +3,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginTop="@dimen/pad4dp"
+        android:layout_marginBottom="@dimen/pad4dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp">
+        android:paddingLeft="@dimen/pad16dp"
+        android:paddingRight="@dimen/pad16dp">
 
         <TextView
             android:id="@+id/title"
@@ -22,13 +22,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp" />
+            android:paddingLeft="@dimen/pad8dp"
+            android:paddingRight="@dimen/pad8dp" />
     </LinearLayout>
 
     <View
         android:id="@+id/divider"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="@dimen/pad1dp"
         android:background="#44AAAAAA" />
 </merge>

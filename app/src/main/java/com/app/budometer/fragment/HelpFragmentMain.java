@@ -12,6 +12,7 @@ import com.app.budometer.R;
 
 
 public class HelpFragmentMain extends BaseFragment {
+    public static final String TAG = HelpFragmentMain.class.getSimpleName();
     private OnHelpMainFragmentInteractionListener mListener;
     private static HelpFragmentMain fragment = null;
 

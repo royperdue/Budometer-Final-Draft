@@ -34,6 +34,7 @@ import androidx.annotation.NonNull;
 
 
 public class ReviewFragment extends BaseFragment {
+    public static final String TAG = "Review";
     private static ReviewFragment fragment = null;
     private OnReviewFragmentInteractionListener mListener;
     private OnReviewButtonClickListener mButtonListener;

@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/pad8dp"
             android:textColor="@color/black_alpha_aa"
-            android:textSize="18.4sp" />
+            android:textSize="@dimen/txt18_4sp" />
 
         <TextView
             android:id="@+id/tv_text"
@@ -23,11 +23,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/pad8dp"
             android:textColor="@color/grey"
-            android:textSize="18.4sp" />
+            android:textSize="@dimen/txt18_4sp" />
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="@dimen/pad1dp"
             android:layout_marginTop="@dimen/pad8dp"
             android:background="@color/item_separator_color"
             tools:mockup_opacity="0.5" />

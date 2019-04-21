@@ -26,11 +26,9 @@ public final class BudometerConfig {
     public static final String INPUT_NAME = "input";
     public static final String OUTPUT_NAME = "final_result";
 
-    public static final String STATE_KEY_CAMERA_MODULE = "Key.CameraModule";
     public static final String STATE_KEY_RECYCLER = "Key.Recycler";
     public static final String STATE_KEY_SELECTED_IMAGES = "Key.SelectedImages";
 
-    public static final int RC_CAPTURE = 2000;
     public static final int RC_PERMISSION_REQUEST_WRITE_EXTERNAL_STORAGE = 23;
     public static final int RC_PERMISSION_REQUEST_CAMERA = 24;
 

@@ -69,6 +69,7 @@ import com.app.budometer.util.HtmlBuilder;
  * </ul>
  */
 public class HelpFragmentCrop extends BaseFragment {
+    public static final String TAG = HelpFragmentCrop.class.getSimpleName();
     private static HelpFragmentCrop fragment = null;
     private OnHelpCropFragmentInteractionListener mListener;
 

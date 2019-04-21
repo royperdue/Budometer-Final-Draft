@@ -66,9 +66,9 @@ public class BudometerPalette {
     private static String getRGB(String color) {
         return String.valueOf(Integer.parseInt(color.charAt(0) + "" + color.charAt(1), 16))
                 + ',' +
-                String.valueOf(Integer.parseInt(color.charAt(2) + "" + color.charAt(3), 16))
+                Integer.parseInt(color.charAt(2) + "" + color.charAt(3), 16)
                 + ',' +
-                String.valueOf(Integer.parseInt(color.charAt(4) + "" + color.charAt(5), 16));
+                Integer.parseInt(color.charAt(4) + "" + color.charAt(5), 16);
     }
 
     public interface OnColorRoundingDone {

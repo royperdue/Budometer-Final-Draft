@@ -39,6 +39,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import dmax.dialog.SpotsDialog;
 
 public class ImagePickerFragment extends BaseFragment implements ImagePickerView {
+    public static final String TAG = "Select Images";
     private static ImagePickerFragment fragment = null;
     private OnImagePickerInteractionListener mListener;
     private RecyclerViewManager recyclerViewManager;
@@ -50,17 +51,9 @@ public class ImagePickerFragment extends BaseFragment implements ImagePickerView
 
     public interface OnImagePickerInteractionListener {
         void setTitle(String title);
-
         void cancel();
-
-        // Get this callback by calling an ImagePickerFragment's finishPickImages() method. It
-        // removes Images whose files no longer exist.
         void finishPickImages(Intent result);
-
-        // Called when the item_analysis selects or deselects sn image. Also called in onCreateView.
-        // May include Images whose files no longer exist.
         void selectionChanged(List<Image> imageList);
-
         void onPickerFragmentInteraction(int index);
     }
 

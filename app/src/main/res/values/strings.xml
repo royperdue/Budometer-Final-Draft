@@ -208,9 +208,6 @@
     <string name="help_section_description_leaf_color">Another indicator of cannabis maturity that’s examined by
        Budometer can be seen in the leaves surrounding the calyxes and even the larger fan leaves. When the plant is ripe, the leaves will turn yellowish, start curling up and becoming dark and brittle. This drying and curling of the leaves occurs because cannabis consumes less water as it nears its final phase of life.</string>
 
-    <string name="help_section_description_harvesting_marijuana">Budometer evaluates the following points to determine if a plant is ready to be harvested:</string>
-
-
     <!--SpotsDialog messages-->
     <string name="analyzing">Analyzing...</string>
     <string name="loading">Loading...</string>
@@ -229,8 +226,6 @@
     <!--BudometerSP Keys-->
     <string name="easy_prefs_key_path_selected_image">Path_last_selected_image</string>
     <string name="easy_prefs_key_selected_images_count">Selected_images_count</string>
-    <string name="easy_prefs_key_path_current_image_name">Path_last_current_image_name</string>
-    <string name="easy_prefs_analysis_id">Analysis_id</string>
 
     <!--Content descriptions-->
     <string name="content_description_main_image">Main image</string>
@@ -247,12 +242,9 @@
 
     <!--TensorFlow result messages-->
     <string name="result_message_growing">Growing strong!</string>
-    <string name="result_message_close">Close to harvest!</string>
     <string name="result_message_ready">Ready to harvest!</string>
 
     <string name="ok">OK</string>
-    <string name="done">DONE</string>
-    <string name="camera">CAMERA</string>
 
     <string name="title_folder">Folder</string>
     <string name="title_select_image">Tap to select images</string>
@@ -260,7 +252,6 @@
     <string name="selected">%d selected</string>
     <string name="selected_with_limit">%1$d/%2$d selected</string>
 
-    <string name="error_create_image_file">Failed to create image file</string>
     <string name="error_no_camera">No camera found</string>
 
     <string name="msg_empty_images">No images found</string>
@@ -280,15 +271,6 @@
              * Chart: 2, current = carousel.
              * Gallery: 0, current = camera.
              * Help: 4, current = chart.-->
-
-    <array name="icons">
-        <item>@drawable/ic_photo_library_white_24dp</item>
-        <item>@drawable/ic_crop_white_24dp</item>
-        <item>@drawable/ic_pie_chart_white_24dp</item>
-        <item>@drawable/ic_view_carousel_white_24dp</item>
-        <item>@drawable/ic_help_outline_white_24dp</item>
-        <item>@drawable/ic_photo_camera_white_24dp</item>
-    </array>
 
     <array name="icons_review_fragment">
         <item>@drawable/ic_photo_library_white_24dp</item>
@@ -354,7 +336,6 @@
     <string name="delete">DELETE</string>
 
     <string name="button_finish">Finish</string>
-    <string name="button_skip">Skip</string>
     <string name="analyzed">Analyzed:</string>
     <string name="crop">CROP</string>
     <string name="save">SAVE</string>
@@ -366,5 +347,5 @@
     <string name="close">CLOSE</string>
 
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
-    <string name="snap">SNAP</string>
+    <string name="retake">Retake</string>
 </resources>

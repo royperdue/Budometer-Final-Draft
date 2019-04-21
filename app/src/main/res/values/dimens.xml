@@ -40,4 +40,8 @@
     <dimen name="txt18sp">18sp</dimen>
     <dimen name="txt20sp">20sp</dimen>
     <dimen name="txt22sp">22sp</dimen>
+    <dimen name="pad264dp">264dp</dimen>
+    <dimen name="pad315dp">315dp</dimen>
+    <dimen name="pad200dp">200dp</dimen>
+    <item name="txt18_4sp" type="dimen" format="float">18.4sp</item>
 </resources>

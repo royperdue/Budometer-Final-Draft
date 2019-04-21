@@ -68,6 +68,7 @@ import com.app.budometer.util.HtmlBuilder;
  * </ul>
  */
 public class HelpFragmentGallery extends BaseFragment {
+    public static final String TAG = HelpFragmentGallery.class.getSimpleName();
     private static HelpFragmentGallery fragment = null;
     private OnHelpGalleryFragmentInteractionListener mListener;
 

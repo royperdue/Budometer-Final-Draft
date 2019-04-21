@@ -30,7 +30,7 @@ import java.lang.ref.WeakReference;
 
 
 public class CameraPreviewFragment extends BaseFragment {
-    public static final String TAG = CameraPreviewFragment.class.getSimpleName();
+    public static final String TAG = "Preview";
     private static CameraPreviewFragment fragment = null;
     private static WeakReference<PictureResult> image;
 

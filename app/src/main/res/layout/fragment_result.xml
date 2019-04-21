@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/background_1"
+        android:src="@drawable/background_2"
         android:transitionName="@string/transition_background"
         app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -20,8 +20,8 @@
         android:contentDescription="@string/content_description_background_image" />
 
     <View
-        android:layout_width="@dimen/pad0dp"
-        android:layout_height="@dimen/pad0dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="@dimen/pad8dp"
         android:background="@drawable/details_image_gradient"
         app:layout_constraintBottom_toBottomOf="@+id/imageViewBackground"
@@ -31,7 +31,7 @@
 
     <View
         android:id="@+id/card"
-        android:layout_width="@dimen/pad0dp"
+        android:layout_width="0dp"
         android:layout_height="@dimen/pad450dp"
         android:layout_marginStart="@dimen/pad32dp"
         android:layout_marginEnd="@dimen/pad32dp"
@@ -73,8 +73,8 @@
 
     <ScrollView
         android:id="@+id/scrollView"
-        android:layout_width="@dimen/pad0dp"
-        android:layout_height="@dimen/pad0dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="@dimen/pad5dp"
         android:layout_marginTop="@dimen/pad5dp"
         android:layout_marginEnd="@dimen/pad5dp"
@@ -112,7 +112,7 @@
 
                 <TextView
                     android:id="@+id/redTextView"
-                    android:layout_width="@dimen/pad0dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="@dimen/pad5dp"
@@ -125,7 +125,7 @@
 
                 <TextView
                     android:id="@+id/purpleTextView"
-                    android:layout_width="@dimen/pad0dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="@dimen/pad5dp"
@@ -138,7 +138,7 @@
 
                 <TextView
                     android:id="@+id/greenTextView"
-                    android:layout_width="@dimen/pad0dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="@dimen/pad5dp"
@@ -151,7 +151,7 @@
 
                 <TextView
                     android:id="@+id/orangeTextView"
-                    android:layout_width="@dimen/pad0dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="@dimen/pad5dp"
@@ -164,7 +164,7 @@
 
                 <TextView
                     android:id="@+id/greyTextView"
-                    android:layout_width="@dimen/pad0dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="@dimen/pad5dp"

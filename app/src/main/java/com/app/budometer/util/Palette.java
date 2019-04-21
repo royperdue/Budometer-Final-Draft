@@ -211,7 +211,7 @@ public final class Palette {
     private boolean shouldBeScoredForTarget(final Swatch swatch, final Target target) {
         // Check whether the HSL values are within the correct ranges, and this color hasn't
         // been used yet.
-        final float hsl[] = swatch.getHsl();
+        final float[] hsl = swatch.getHsl();
         return hsl[1] >= target.getMinimumSaturation() && hsl[1] <= target.getMaximumSaturation()
                 && hsl[2] >= target.getMinimumLightness() && hsl[2] <= target.getMaximumLightness()
                 && !mUsedColors.get(swatch.getRgb());

@@ -67,6 +67,7 @@ import com.app.budometer.util.HtmlBuilder;
  * </ul>
  */
 public class HelpFragmentCamera extends BaseFragment {
+    public static final String TAG = HelpFragmentCamera.class.getSimpleName();
     private static HelpFragmentCamera fragment = null;
     private OnHelpCameraFragmentInteractionListener mListener;
     private HtmlBuilder html;

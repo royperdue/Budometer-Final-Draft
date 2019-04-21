@@ -27,7 +27,7 @@ import com.otaliastudios.cameraview.PictureResult;
 
 
 public class CameraFragment extends BaseFragment implements View.OnClickListener, ControlView.Callback {
-    public static final String TAG = CameraFragment.class.getSimpleName();
+    public static final String TAG = "Camera";
     private static CameraFragment fragment = null;
     private CameraFragment.OnCameraFragmentInteractionListener mListener;
     private CameraView camera;

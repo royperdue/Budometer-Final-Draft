@@ -30,6 +30,7 @@ import androidx.fragment.app.Fragment;
 
 
 public class CropFragment extends BaseFragment {
+    public static final String TAG = "Crop";
     private CropFragment.OnCropFragmentInteractionListener mListener;
     private static CropFragment fragment = null;
     private CropImageView cropImageView;

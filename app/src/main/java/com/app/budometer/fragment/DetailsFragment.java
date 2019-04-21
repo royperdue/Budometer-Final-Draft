@@ -35,6 +35,7 @@ import androidx.fragment.app.Fragment;
 
 
 public class DetailsFragment extends BaseFragment {
+    public static final String TAG = "Details";
     private DetailsFragment.OnDetailsFragmentInteractionListener mListener;
     private static DetailsFragment fragment = null;
     private PieChartView pieChartView;
