@@ -104,15 +104,6 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnMa
 
         snackBarView = findViewById(R.id.snackBarMainActivity);
 
-        classifier = TensorFlowImageClassifier.create(
-                getAssets(),
-                BudometerConfig.MODEL_FILE,
-                BudometerConfig.INPUT_SIZE,
-                BudometerConfig.IMAGE_MEAN,
-                BudometerConfig.IMAGE_STD,
-                BudometerConfig.INPUT_NAME,
-                BudometerConfig.OUTPUT_NAME);
-
         launchFragment(0);
     }
 
@@ -419,7 +410,7 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnMa
 
                     @Override
                     public void onComplete(Bitmap bitmap) {
-                        new TensorFlowAsyncTask().execute(bitmap);
+                        new GrowingReadyAsyncTask().execute(bitmap);
                     }
                 })
                 .build();
@@ -440,7 +431,20 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnMa
                 .list().get(0);
     }
 
-    private class TensorFlowAsyncTask extends AsyncTask<Bitmap, Void, ResultData> {
+    private class GrowingReadyAsyncTask extends AsyncTask<Bitmap, Void, ResultData> {
+        protected void onPreExecute (){
+            super.onPreExecute();
+
+            classifier = TensorFlowImageClassifier.create(getAssets(),
+                    BudometerConfig.MODEL_FILE_GROWING_READY,
+                    BudometerConfig.LABEL_FILE_GROWING_READY,
+                    BudometerConfig.INPUT_SIZE,
+                    BudometerConfig.IMAGE_MEAN,
+                    BudometerConfig.IMAGE_STD,
+                    BudometerConfig.INPUT_NAME,
+                    BudometerConfig.OUTPUT_NAME);
+        }
+
         @Override
         protected ResultData doInBackground(Bitmap... params) {
             ResultData resultData = null;
@@ -450,13 +454,8 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnMa
                 resultData = new ResultData(params[0]);
                 for (int i = 0; i < results.size(); i++) {
                     if (results.get(i).getTitle().equals("growing")) {
-                        resultData.setTensorFlowTitleGrowing(results.get(i).getTitle());
                         resultData.setTensorFlowConfidenceGrowing(results.get(i).getConfidence());
-                    } else if (results.get(i).getTitle().equals("close")) {
-                        resultData.setTensorFlowTitleClose(results.get(i).getTitle());
-                        resultData.setTensorFlowConfidenceClose(results.get(i).getConfidence());
                     } else if (results.get(i).getTitle().equals("ready")) {
-                        resultData.setTensorFlowTitleReady(results.get(i).getTitle());
                         resultData.setTensorFlowConfidenceReady(results.get(i).getConfidence());
                     }
 
@@ -469,10 +468,18 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnMa
         @Override
         protected void onPostExecute(ResultData resultData) {
             super.onPostExecute(resultData);
+
+            Analysis analysis = getAnalysis(BudometerSP.init(MainActivity.this).getLong(BudometerConfig.GREEN_DAO_ANALYSIS_ID));
+            analysis.setTensorFlowConfidenceGrowing(resultData.getTensorFlowConfidenceGrowing());
+            analysis.setTensorFlowConfidenceReady(resultData.getTensorFlowConfidenceReady());
+
+            BudometerApp.getDaoSession().getAnalysisDao().update(analysis);
+
             progressDialog.dismiss();
             launchFragment(2);
         }
     }
+
 
     @Override
     public void selectionChanged(List<Image> imageList) {

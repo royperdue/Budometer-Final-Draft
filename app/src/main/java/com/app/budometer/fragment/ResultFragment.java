@@ -162,26 +162,6 @@ public class ResultFragment extends BaseFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            tensorFlowTitleGrowing = getArguments().getString(BudometerConfig.ARG_TF_TITLE_GROWING);
-            tensorFlowConfidenceGrowing = getArguments().getFloat(BudometerConfig.ARG_TF_CONFIDENCE_GROWING);
-
-            tensorFlowTitleReady = getArguments().getString(BudometerConfig.ARG_TF_TITLE_READY);
-            tensorFlowConfidenceReady = getArguments().getFloat(BudometerConfig.ARG_TF_CONFIDENCE_READY);
-
-            Analysis analysis = getAnalysis(BudometerSP.init(getActivity()).getLong(BudometerConfig.GREEN_DAO_ANALYSIS_ID));
-
-            analysis.setTensorFlowTitleGrowing(tensorFlowTitleGrowing);
-            analysis.setTensorFlowTitleReady(tensorFlowTitleReady);
-
-            analysis.setTensorFlowConfidenceGrowing(tensorFlowConfidenceGrowing);
-            analysis.setTensorFlowConfidenceReady(tensorFlowConfidenceReady);
-
-            BudometerApp.getDaoSession().getAnalysisDao().update(analysis);
-
-            System.out.println("-:TITLE-: " + tensorFlowTitleGrowing + ":-CONFIDENCE SCORE-: " + tensorFlowConfidenceGrowing);
-            System.out.println("-:TITLE-: " + tensorFlowTitleReady + ":-CONFIDENCE SCORE-: " + tensorFlowConfidenceReady);
-        }
 
         progressDialog = (SpotsDialog) new SpotsDialog.Builder()
                 .setContext(getActivity())
@@ -287,6 +267,8 @@ public class ResultFragment extends BaseFragment {
         paths[1] = analysis.getImagePath2();
         paths[2] = analysis.getImagePath3();
         paths[3] = analysis.getImagePath4();
+
+        evaluateTensorFlowResults(analysis.getTensorFlowConfidenceGrowing(), analysis.getTensorFlowConfidenceReady());
 
         loadBitmap(getBitmaps(paths));
     }
@@ -444,7 +426,6 @@ public class ResultFragment extends BaseFragment {
                 clearPixelCounters();
                 adjacencyList.clear();
                 adjacencyList = null;
-                evaluateTensorFlowResults();
                 populateChart();
                 turnedEditText.setText("Percent pistil curling: " + calculatePixelsTurned());
                 progressDialog.dismiss();
@@ -495,13 +476,12 @@ public class ResultFragment extends BaseFragment {
         darkGrey = 0;
     }
 
-    private void evaluateTensorFlowResults() {
+    private void evaluateTensorFlowResults(float tensorFlowConfidenceGrowing, float tensorFlowConfidenceReady) {
         resultEditText.setText("Test text.");
-        if (tensorFlowConfidenceGrowing > .55) {
+        if (tensorFlowConfidenceGrowing > tensorFlowConfidenceReady)
             resultEditText.setText(R.string.result_message_growing);
-        } else if (tensorFlowConfidenceReady > .85) {
+        else
             resultEditText.setText(R.string.result_message_ready);
-        }
     }
 
     private void populateChart() {

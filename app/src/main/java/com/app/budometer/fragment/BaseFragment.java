@@ -247,13 +247,12 @@ public class BaseFragment extends Fragment implements OnBackPressedListener {
 
         for (int i = backStackCount; i > 0; i--) {
             getActivity().getSupportFragmentManager().popBackStack();
-
-            if (i == 1)
-                setMainFragment();
         }
+
+        setMainFragment();
     }
 
-    private void setMainFragment() {
+    public void setMainFragment() {
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit);
