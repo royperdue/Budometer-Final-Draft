@@ -27,6 +27,7 @@ import com.app.budometer.layout.DLayoutManager;
 import com.app.budometer.listener.OnProgressListener;
 import com.app.budometer.model.Analysis;
 import com.app.budometer.model.AnalysisDao;
+import com.app.budometer.model.Counter;
 import com.app.budometer.model.ResultData;
 import com.app.budometer.util.AnalysisPresenter;
 import com.app.budometer.util.BudometerApp;
@@ -62,55 +63,6 @@ public class ResultFragment extends BaseFragment {
     public static final String TAG = "Result";
     private OnResultFragmentInteractionListener mListener;
     private static ResultFragment fragment = null;
-
-    private int lightRedPixelCount = 0;
-    private int lightPurplePixelCount = 0;
-    private int lightGreenPixelCount = 0;
-    private int lightOrangePixelCount = 0;
-    private int lightGreyPixelCount = 0;
-
-    private int mediumRedPixelCount = 0;
-    private int mediumPurplePixelCount = 0;
-    private int mediumGreenPixelCount = 0;
-    private int mediumOrangePixelCount = 0;
-    private int mediumGreyPixelCount = 0;
-
-    private int redPixelCount = 0;
-    private int purplePixelCount = 0;
-    private int greenPixelCount = 0;
-    private int orangePixelCount = 0;
-    private int greyPixelCount = 0;
-
-    private int darkRedPixelCount = 0;
-    private int darkPurplePixelCount = 0;
-    private int darkGreenPixelCount = 0;
-    private int darkOrangePixelCount = 0;
-    private int darkGreyPixelCount = 0;
-
-    private int lightRed = 0;
-    private int lightPurple = 0;
-    private int lightGreen = 0;
-    private int lightOrange = 0;
-    private int lightGrey = 0;
-
-    private int mediumRed = 0;
-    private int mediumPurple = 0;
-    private int mediumGreen = 0;
-    private int mediumOrange = 0;
-    private int mediumGrey = 0;
-
-    private int red = 0;
-    private int purple = 0;
-    private int green = 0;
-    private int orange = 0;
-    private int grey = 0;
-
-    private int darkRed = 0;
-    private int darkPurple = 0;
-    private int darkGreen = 0;
-    private int darkOrange = 0;
-    private int darkGrey = 0;
-
     private ConstraintLayout relativeLayout;
     private SpotsDialog progressDialog;
     private PieChartView pieChartView;
@@ -328,6 +280,7 @@ public class ResultFragment extends BaseFragment {
         Palette.from(bitmap).maximumColorCount(300).generate(new Palette.PaletteAsyncListener() {
             public void onGenerated(Palette p) {
                 PaletteGraph paletteGraph = new PaletteGraph();
+                Counter counter = new Counter();
                 swatches = getSwatchesFromPalette(p);
                 Map<String, List<Palette.Swatch>> adjacencyList = paletteGraph.getAdjacencyList();
 
@@ -346,81 +299,70 @@ public class ResultFragment extends BaseFragment {
                         Palette.Swatch swatch = swatchList.get(i);
 
                         if (swatch.getColorName().equals("redLight")) {
-                            lightRedPixelCount += swatch.getPopulation();
-                            lightRed = color;
+                            counter.setLightRedPixelCount(counter.getLightRedPixelCount() + swatch.getPopulation());
+                            counter.setLightRed(color);
                         } else if (swatch.getColorName().equals("redMedium")) {
-                            mediumRedPixelCount += swatch.getPopulation();
-                            mediumRed = color;
+                            counter.setMediumRedPixelCount(counter.getMediumRedPixelCount() + swatch.getPopulation());
+                            counter.setMediumRed(color);
                         } else if (swatch.getColorName().equals("red")) {
-                            redPixelCount += swatch.getPopulation();
-                            red = color;
+                            counter.setRedPixelCount(counter.getRedPixelCount() + swatch.getPopulation());
+                            counter.setRed(color);
                         } else if (swatch.getColorName().equals("redDark")) {
-                            darkRedPixelCount += swatch.getPopulation();
-                            darkRed = color;
+                            counter.setDarkRedPixelCount(counter.getDarkRedPixelCount() + swatch.getPopulation());
+                            counter.setDarkRed(color);
                         } else if (swatch.getColorName().equals("purpleLight")) {
-                            lightPurplePixelCount += swatch.getPopulation();
-                            lightPurple = color;
+                            counter.setLightPurplePixelCount(counter.getLightPurplePixelCount() + swatch.getPopulation());
+                            counter.setLightPurple(color);
                         } else if (swatch.getColorName().equals("purpleMedium")) {
-                            mediumPurplePixelCount += swatch.getPopulation();
-                            mediumPurple = color;
+                            counter.setMediumPurplePixelCount(counter.getMediumPurplePixelCount() + swatch.getPopulation());
+                            counter.setMediumPurple(color);
                         } else if (swatch.getColorName().equals("purple")) {
-                            purplePixelCount += swatch.getPopulation();
-                            purple = color;
+                            counter.setPurplePixelCount(counter.getPurplePixelCount() + swatch.getPopulation());
+                            counter.setPurple(color);
                         } else if (swatch.getColorName().equals("purpleDark")) {
-                            darkPurplePixelCount += swatch.getPopulation();
-                            darkPurple = color;
+                            counter.setDarkPurplePixelCount(counter.getDarkPurplePixelCount() + swatch.getPopulation());
+                            counter.setDarkPurple(color);
                         } else if (swatch.getColorName().equals("greenLight")) {
-                            lightGreenPixelCount += swatch.getPopulation();
-                            lightGreen = color;
+                            counter.setLightGreenPixelCount(counter.getLightGreenPixelCount() + swatch.getPopulation());
+                            counter.setLightGreen(color);
                         } else if (swatch.getColorName().equals("greenMedium")) {
-                            mediumGreenPixelCount += swatch.getPopulation();
-                            mediumGreen = color;
+                            counter.setMediumGreenPixelCount(counter.getMediumGreenPixelCount() + swatch.getPopulation());
+                            counter.setMediumGreen(color);
                         } else if (swatch.getColorName().equals("green")) {
-                            greenPixelCount += swatch.getPopulation();
-                            green = color;
+                            counter.setGreenPixelCount(counter.getGreenPixelCount() + swatch.getPopulation());
+                            counter.setGreen(color);
                         } else if (swatch.getColorName().equals("greenDark")) {
-                            darkGreenPixelCount += swatch.getPopulation();
-                            darkGreen = color;
+                            counter.setDarkGreenPixelCount(counter.getDarkGreenPixelCount() + swatch.getPopulation());
+                            counter.setDarkGreen(color);
                         } else if (swatch.getColorName().equals("orangeLight")) {
-                            lightOrangePixelCount += swatch.getPopulation();
-                            lightOrange = color;
+                            counter.setLightOrangePixelCount(counter.getLightOrangePixelCount() + swatch.getPopulation());
+                            counter.setLightOrange(color);
                         } else if (swatch.getColorName().equals("orangeMedium")) {
-                            mediumOrangePixelCount += swatch.getPopulation();
-                            mediumOrange = color;
+                            counter.setMediumOrangePixelCount(counter.getMediumOrangePixelCount() + swatch.getPopulation());
+                            counter.setMediumOrange(color);
                         } else if (swatch.getColorName().equals("orange")) {
-                            orangePixelCount += swatch.getPopulation();
-                            orange = color;
+                            counter.setOrangePixelCount(counter.getOrangePixelCount() + swatch.getPopulation());
+                            counter.setOrange(color);
                         } else if (swatch.getColorName().equals("orangeDark")) {
-                            darkOrangePixelCount += swatch.getPopulation();
-                            darkOrange = color;
+                            counter.setDarkOrangePixelCount(counter.getDarkOrangePixelCount() + swatch.getPopulation());
+                            counter.setDarkOrange(color);
                         } else if (swatch.getColorName().equals("greyLight")) {
-                            lightGreyPixelCount += swatch.getPopulation();
-                            lightGrey = color;
+                            counter.setLightGreyPixelCount(counter.getLightGreyPixelCount() + swatch.getPopulation());
+                            counter.setLightGrey(color);
                         } else if (swatch.getColorName().equals("greyMedium")) {
-                            mediumGreyPixelCount += swatch.getPopulation();
-                            mediumGrey = color;
+                            counter.setMediumGreyPixelCount(counter.getMediumGreyPixelCount() + swatch.getPopulation());
+                            counter.setMediumGrey(color);
                         } else if (swatch.getColorName().equals("grey")) {
-                            greyPixelCount += swatch.getPopulation();
-                            grey = color;
+                            counter.setGreyPixelCount(counter.getGreyPixelCount() + swatch.getPopulation());
+                            counter.setGrey(color);
                         } else if (swatch.getColorName().equals("greyDark")) {
-                            darkGreyPixelCount += swatch.getPopulation();
-                            darkGrey = color;
+                            counter.setDarkGreyPixelCount(counter.getDarkGreyPixelCount() + swatch.getPopulation());
+                            counter.setDarkGrey(color);
                         }
                     }
                 }
 
-                updateAnalysis(lightRedPixelCount, mediumRedPixelCount, redPixelCount, darkRedPixelCount,
-                        lightPurplePixelCount, mediumPurplePixelCount, purplePixelCount, darkPurplePixelCount,
-                        lightGreenPixelCount, mediumGreenPixelCount, greenPixelCount, darkGreenPixelCount,
-                        lightOrangePixelCount, mediumOrangePixelCount, orangePixelCount, darkOrangePixelCount,
-                        lightGreyPixelCount, mediumGreyPixelCount, greyPixelCount, darkGreyPixelCount,
-                        lightRed, mediumRed, red, darkRed,
-                        lightPurple, mediumPurple, purple, darkPurple,
-                        lightGreen, mediumGreen, green, darkGreen,
-                        lightOrange, mediumOrange, orange, darkOrange,
-                        lightGrey, mediumGrey, grey, darkGrey);
-
-                clearPixelCounters();
+                updateAnalysis(counter);
                 adjacencyList.clear();
                 adjacencyList = null;
                 populateChart();
@@ -428,49 +370,6 @@ public class ResultFragment extends BaseFragment {
                 progressDialog.dismiss();
             }
         });
-    }
-
-    private void clearPixelCounters() {
-        lightRedPixelCount = 0;
-        mediumRedPixelCount = 0;
-        redPixelCount = 0;
-        darkRedPixelCount = 0;
-        lightPurplePixelCount = 0;
-        mediumPurplePixelCount = 0;
-        purplePixelCount = 0;
-        darkPurplePixelCount = 0;
-        lightGreenPixelCount = 0;
-        mediumGreenPixelCount = 0;
-        greenPixelCount = 0;
-        darkGreenPixelCount = 0;
-        lightOrangePixelCount = 0;
-        mediumOrangePixelCount = 0;
-        orangePixelCount = 0;
-        darkOrangePixelCount = 0;
-        lightGreyPixelCount = 0;
-        mediumGreyPixelCount = 0;
-        greyPixelCount = 0;
-        darkGreyPixelCount = 0;
-        lightRed = 0;
-        mediumRed = 0;
-        red = 0;
-        darkRed = 0;
-        lightPurple = 0;
-        mediumPurple = 0;
-        purple = 0;
-        darkPurple = 0;
-        lightGreen = 0;
-        mediumGreen = 0;
-        green = 0;
-        darkGreen = 0;
-        lightOrange = 0;
-        mediumOrange = 0;
-        orange = 0;
-        darkOrange = 0;
-        lightGrey = 0;
-        mediumGrey = 0;
-        grey = 0;
-        darkGrey = 0;
     }
 
     private void evaluateTensorFlowResults(float tensorFlowConfidenceGrowing, float tensorFlowConfidenceReady) {
@@ -642,68 +541,58 @@ public class ResultFragment extends BaseFragment {
         ((MainActivity) getActivity()).showSnackBar(R.string.save_successful, R.drawable.success_background);
     }
 
-    private void updateAnalysis(
-            int lightRedPixelCount, int mediumRedPixelCount, int redPixelCount, int darkRedPixelCount,
-            int lightPurplePixelCount, int mediumPurplePixelCount, int purplePixelCount, int darkPurplePixelCount,
-            int lightGreenPixelCount, int mediumGreenPixelCount, int greenPixelCount, int darkGreenPixelCount,
-            int lightOrangePixelCount, int mediumOrangePixelCount, int orangePixelCount, int darkOrangePixelCount,
-            int lightGreyPixelCount, int mediumGreyPixelCount, int greyPixelCount, int darkGreyPixelCount,
-            int lightRed, int mediumRed, int red, int darkRed,
-            int lightPurple, int mediumPurple, int purple, int darkPurple,
-            int lightGreen, int mediumGreen, int green, int darkGreen,
-            int lightOrange, int mediumOrange, int orange, int darkOrange,
-            int lightGrey, int mediumGrey, int grey, int darkGrey) {
+    private void updateAnalysis(Counter counter) {
         Analysis analysis = getAnalysis(BudometerSP.init(getActivity()).getLong(BudometerConfig.GREEN_DAO_ANALYSIS_ID));
 
-        analysis.setLightRedPixelCount(lightRedPixelCount);
-        analysis.setMediumRedPixelCount(mediumRedPixelCount);
-        analysis.setRedPixelCount(redPixelCount);
-        analysis.setDarkRedPixelCount(darkRedPixelCount);
+        analysis.setLightRedPixelCount(counter.getLightRedPixelCount());
+        analysis.setMediumRedPixelCount(counter.getMediumRedPixelCount());
+        analysis.setRedPixelCount(counter.getRedPixelCount());
+        analysis.setDarkRedPixelCount(counter.getDarkRedPixelCount());
 
-        analysis.setLightPurplePixelCount(lightPurplePixelCount);
-        analysis.setMediumPurplePixelCount(mediumPurplePixelCount);
-        analysis.setPurplePixelCount(purplePixelCount);
-        analysis.setDarkPurplePixelCount(darkPurplePixelCount);
+        analysis.setLightPurplePixelCount(counter.getLightPurplePixelCount());
+        analysis.setMediumPurplePixelCount(counter.getMediumPurplePixelCount());
+        analysis.setPurplePixelCount(counter.getPurplePixelCount());
+        analysis.setDarkPurplePixelCount(counter.getDarkPurplePixelCount());
 
-        analysis.setLightGreenPixelCount(lightGreenPixelCount);
-        analysis.setMediumGreenPixelCount(mediumGreenPixelCount);
-        analysis.setGreenPixelCount(greenPixelCount);
-        analysis.setDarkGreenPixelCount(darkGreenPixelCount);
+        analysis.setLightGreenPixelCount(counter.getLightGreenPixelCount());
+        analysis.setMediumGreenPixelCount(counter.getMediumGreenPixelCount());
+        analysis.setGreenPixelCount(counter.getGreenPixelCount());
+        analysis.setDarkGreenPixelCount(counter.getDarkGreenPixelCount());
 
-        analysis.setLightOrangePixelCount(lightOrangePixelCount);
-        analysis.setMediumOrangePixelCount(mediumOrangePixelCount);
-        analysis.setOrangePixelCount(orangePixelCount);
-        analysis.setDarkOrangePixelCount(darkOrangePixelCount);
+        analysis.setLightOrangePixelCount(counter.getLightOrangePixelCount());
+        analysis.setMediumOrangePixelCount(counter.getMediumOrangePixelCount());
+        analysis.setOrangePixelCount(counter.getOrangePixelCount());
+        analysis.setDarkOrangePixelCount(counter.getDarkOrangePixelCount());
 
-        analysis.setLightGreyPixelCount(lightGreyPixelCount);
-        analysis.setMediumGreyPixelCount(mediumGreyPixelCount);
-        analysis.setGreyPixelCount(greyPixelCount);
-        analysis.setDarkGreyPixelCount(darkGreyPixelCount);
+        analysis.setLightGreyPixelCount(counter.getLightGreyPixelCount());
+        analysis.setMediumGreyPixelCount(counter.getMediumGreyPixelCount());
+        analysis.setGreyPixelCount(counter.getGreyPixelCount());
+        analysis.setDarkGreyPixelCount(counter.getDarkGreyPixelCount());
 
-        analysis.setLightRed(lightRed);
-        analysis.setMediumRed(mediumRed);
-        analysis.setRed(red);
-        analysis.setDarkRed(darkRed);
+        analysis.setLightRed(counter.getLightRed());
+        analysis.setMediumRed(counter.getMediumRed());
+        analysis.setRed(counter.getRed());
+        analysis.setDarkRed(counter.getDarkRed());
 
-        analysis.setLightPurple(lightPurple);
-        analysis.setMediumPurple(mediumPurple);
-        analysis.setPurple(purple);
-        analysis.setDarkPurple(darkPurple);
+        analysis.setLightPurple(counter.getLightPurple());
+        analysis.setMediumPurple(counter.getMediumPurple());
+        analysis.setPurple(counter.getPurple());
+        analysis.setDarkPurple(counter.getDarkPurple());
 
-        analysis.setLightGreen(lightGreen);
-        analysis.setMediumGreen(mediumGreen);
-        analysis.setGreen(green);
-        analysis.setDarkGreen(darkGreen);
+        analysis.setLightGreen(counter.getLightGreen());
+        analysis.setMediumGreen(counter.getMediumGreen());
+        analysis.setGreen(counter.getGreen());
+        analysis.setDarkGreen(counter.getDarkGreen());
 
-        analysis.setLightOrange(lightOrange);
-        analysis.setMediumOrange(mediumOrange);
-        analysis.setOrange(orange);
-        analysis.setDarkOrange(darkOrange);
+        analysis.setLightOrange(counter.getLightOrange());
+        analysis.setMediumOrange(counter.getMediumOrange());
+        analysis.setOrange(counter.getOrange());
+        analysis.setDarkOrange(counter.getDarkOrange());
 
-        analysis.setLightGrey(lightGrey);
-        analysis.setMediumGrey(mediumGrey);
-        analysis.setGrey(grey);
-        analysis.setDarkGrey(darkGrey);
+        analysis.setLightGrey(counter.getLightGrey());
+        analysis.setMediumGrey(counter.getMediumGrey());
+        analysis.setGrey(counter.getGrey());
+        analysis.setDarkGrey(counter.getDarkGrey());
 
         BudometerApp.getDaoSession().getAnalysisDao().update(analysis);
         addTotalPixelCount();

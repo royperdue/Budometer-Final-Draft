@@ -27,7 +27,10 @@
     <dimen name="pad150dp">150dp</dimen>
     <dimen name="pad170dp">170dp</dimen>
     <dimen name="pad180dp">180dp</dimen>
+    <dimen name="pad200dp">200dp</dimen>
     <dimen name="pad250dp">250dp</dimen>
+    <dimen name="pad264dp">264dp</dimen>
+    <dimen name="pad315dp">315dp</dimen>
     <dimen name="pad423dp">423dp</dimen>
     <dimen name="pad450dp">450dp</dimen>
 
@@ -38,10 +41,7 @@
     <dimen name="txt16sp">16sp</dimen>
     <dimen name="txt17sp">17sp</dimen>
     <dimen name="txt18sp">18sp</dimen>
+    <dimen name="txt18_4sp">18.4sp</dimen>
     <dimen name="txt20sp">20sp</dimen>
     <dimen name="txt22sp">22sp</dimen>
-    <dimen name="pad264dp">264dp</dimen>
-    <dimen name="pad315dp">315dp</dimen>
-    <dimen name="pad200dp">200dp</dimen>
-    <item name="txt18_4sp" type="dimen" format="float">18.4sp</item>
 </resources>
