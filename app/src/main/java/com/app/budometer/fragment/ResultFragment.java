@@ -168,6 +168,7 @@ public class ResultFragment extends BaseFragment {
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                BudometerApp.getDaoSession().clear();
                 BudometerUtils.hideKeyboard(((MainActivity) getActivity()));
                 getActivity().recreate();
             }
@@ -537,14 +538,11 @@ public class ResultFragment extends BaseFragment {
         Analysis analysis = getAnalysis(BudometerSP.init(getActivity()).getLong(BudometerConfig.GREEN_DAO_ANALYSIS_ID));
 
         int totalPixelsNotTurned =
-                analysis.getLightOrangePixelCount() +
+                analysis.getLightBrownPixelCount() +
+                        analysis.getLightOrangePixelCount() +
                         analysis.getMediumOrangePixelCount() +
-                        analysis.getLightBrownPixelCount() +
-                        analysis.getMediumBrownPixelCount() +
                         analysis.getLightRedPixelCount() +
                         analysis.getMediumRedPixelCount() +
-                        analysis.getRedPixelCount() +
-                        analysis.getDarkRedPixelCount() +
                         analysis.getLightYellowPixelCount() +
                         analysis.getMediumYellowPixelCount() +
                         analysis.getYellowPixelCount() +
@@ -558,8 +556,11 @@ public class ResultFragment extends BaseFragment {
                         analysis.getDarkGreyPixelCount();
 
         int totalPixelsTurned =
-                analysis.getOrangePixelCount() +
+                analysis.getRedPixelCount() +
+                        analysis.getDarkRedPixelCount() +
+                        analysis.getOrangePixelCount() +
                         analysis.getDarkOrangePixelCount() +
+                        analysis.getMediumBrownPixelCount() +
                         analysis.getBrownPixelCount() +
                         analysis.getDarkBrownPixelCount();
 
@@ -707,11 +708,11 @@ public class ResultFragment extends BaseFragment {
                 analysis.getMediumRedPixelCount() + analysis.getRedPixelCount() + analysis.getDarkRedPixelCount() +
                 analysis.getLightPurplePixelCount() + analysis.getMediumPurplePixelCount() + analysis.getPurplePixelCount() +
                 analysis.getDarkPurplePixelCount() + analysis.getLightGreenPixelCount() + analysis.getMediumGreenPixelCount() +
-                analysis.getGreenPixelCount() + analysis.getDarkGreenPixelCount() + analysis.getLightYellowPixelCount() + 
-                analysis.getMediumYellowPixelCount() + analysis.getYellowPixelCount() + analysis.getDarkYellowPixelCount() + 
-                analysis.getLightOrangePixelCount() + analysis.getMediumOrangePixelCount() + analysis.getOrangePixelCount() + 
+                analysis.getGreenPixelCount() + analysis.getDarkGreenPixelCount() + analysis.getLightYellowPixelCount() +
+                analysis.getMediumYellowPixelCount() + analysis.getYellowPixelCount() + analysis.getDarkYellowPixelCount() +
+                analysis.getLightOrangePixelCount() + analysis.getMediumOrangePixelCount() + analysis.getOrangePixelCount() +
                 analysis.getDarkOrangePixelCount() + analysis.getLightBrownPixelCount() + analysis.getMediumBrownPixelCount() +
-                analysis.getBrownPixelCount() + analysis.getDarkBrownPixelCount() + analysis.getLightGreyPixelCount() + 
+                analysis.getBrownPixelCount() + analysis.getDarkBrownPixelCount() + analysis.getLightGreyPixelCount() +
                 analysis.getMediumGreyPixelCount() + analysis.getGreyPixelCount() + analysis.getDarkGreyPixelCount();
 
         analysis.setTotalPixelCount(totalPixelCount);
