@@ -200,9 +200,7 @@ public class BaseFragment extends Fragment implements OnBackPressedListener {
     }
 
     public void clearBackStack() {
-        while (getFragmentManager().getBackStackEntryCount() > 0) {
-            getFragmentManager().popBackStackImmediate();
-        }
+        getFragmentManager().popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
         setMainFragment();
     }

@@ -35,6 +35,7 @@ import com.app.budometer.listener.ImagePickerView;
 import com.app.budometer.listener.OnProgressListener;
 import com.app.budometer.model.Analysis;
 import com.app.budometer.model.AnalysisDao;
+import com.app.budometer.model.Counter;
 import com.app.budometer.model.Folder;
 import com.app.budometer.model.Image;
 import com.app.budometer.model.ResultData;
@@ -67,22 +68,15 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnMa
     private Classifier classifier;
     private SpotsDialog progressDialog;
     private SnackBarView snackBarView;
-
     private Fragment fragment;
     private String title = null;
-
-    private int lightOrangePixelCount = 0;
-    private int mediumOrangePixelCount = 0;
-    private int orangePixelCount = 0;
-    private int darkOrangePixelCount = 0;
     private int totalPixelCount = 0;
     private Bitmap[] bitmaps = new Bitmap[4];
     private List<Float> percentTotals = new ArrayList<>();
     private List<Image> images = null;
     private List<Palette.Swatch> swatches = null;
 
-
-    View.OnClickListener hideSnackBarListener = new View.OnClickListener() {
+    private View.OnClickListener hideSnackBarListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             snackBarView.hide();
@@ -103,12 +97,6 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnMa
         snackBarView = findViewById(R.id.snackBarMainActivity);
 
         launchFragment(0);
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle oldInstanceState) {
-        super.onSaveInstanceState(oldInstanceState);
-        oldInstanceState.clear();
     }
 
     public void showSnackBar(int message, int drawable) {
@@ -298,6 +286,7 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnMa
     private void segmentImageColors(Bitmap bitmap) {
         Palette.from(bitmap).maximumColorCount(20).generate(new Palette.PaletteAsyncListener() {
             public void onGenerated(Palette p) {
+                Counter counter = new Counter();
                 PaletteGraph paletteGraph = new PaletteGraph();
                 swatches = p.getSwatches();
 
@@ -316,25 +305,29 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnMa
                     for (int i = 0; i < swatchList.size(); i++) {
                         Palette.Swatch swatch = swatchList.get(i);
 
-                        if (swatch.getColorName().equals("orangeLight")) {
-                            lightOrangePixelCount += swatch.getPopulation();
-                            System.out.println("LIGHT-ORANGE: " + lightOrangePixelCount);
+                        if (swatch.getColorName().equals("yellowLight")) {
+                            counter.setLightYellowPixelCount(counter.getLightYellowPixelCount() + swatch.getPopulation());
+                        } else if (swatch.getColorName().equals("yellowMedium")) {
+                            counter.setMediumYellowPixelCount(counter.getMediumYellowPixelCount() + swatch.getPopulation());
+                        } else if (swatch.getColorName().equals("yellow")) {
+                            counter.setYellowPixelCount(counter.getYellowPixelCount() + swatch.getPopulation());
+                        } else if (swatch.getColorName().equals("yellowDark")) {
+                            counter.setDarkYellowPixelCount(counter.getDarkYellowPixelCount() + swatch.getPopulation());
+                        } else if (swatch.getColorName().equals("orangeLight")) {
+                            counter.setLightOrangePixelCount(counter.getLightOrangePixelCount() + swatch.getPopulation());
                         } else if (swatch.getColorName().equals("orangeMedium")) {
-                            mediumOrangePixelCount += swatch.getPopulation();
-                            System.out.println("MEDIUM-ORANGE: " + mediumOrangePixelCount);
+                            counter.setMediumOrangePixelCount(counter.getMediumOrangePixelCount() + swatch.getPopulation());
                         } else if (swatch.getColorName().equals("orange")) {
-                            orangePixelCount += swatch.getPopulation();
-                            System.out.println("ORANGE: " + orangePixelCount);
+                            counter.setOrangePixelCount(counter.getOrangePixelCount() + swatch.getPopulation());
                         } else if (swatch.getColorName().equals("orangeDark")) {
-                            darkOrangePixelCount += swatch.getPopulation();
-                            System.out.println("DARK-ORANGE: " + darkOrangePixelCount);
+                            counter.setDarkOrangePixelCount(counter.getDarkOrangePixelCount() + swatch.getPopulation());
                         }
 
                         totalPixelCount += swatch.getPopulation();
                     }
                 }
 
-                percentTotals.add(calculatePercentTotal());
+                percentTotals.add(calculatePercentTotal(counter));
 
                 if (percentTotals.size() == 4) {
                     if (percentTotals.get(0) < 100.0 && percentTotals.get(1) < 100.0 && percentTotals.get(2) < 100.0 && percentTotals.get(3) < 100.0) {
@@ -342,7 +335,6 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnMa
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                List<String> urls = new ArrayList<>();
                                 long analysisId = createAnalysis();
 
                                 BudometerSP.init(MainActivity.this).putLong(BudometerConfig.GREEN_DAO_ANALYSIS_ID, analysisId);
@@ -350,13 +342,9 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnMa
                                 Analysis analysis = getAnalysis(analysisId);
 
                                 analysis.setImagePath1(BudometerSP.init(MainActivity.this).getString(BudometerConfig.IMAGE_PATH_1));
-                                urls.add(BudometerSP.init(MainActivity.this).getString(BudometerConfig.IMAGE_PATH_1));
                                 analysis.setImagePath2(BudometerSP.init(MainActivity.this).getString(BudometerConfig.IMAGE_PATH_2));
-                                urls.add(BudometerSP.init(MainActivity.this).getString(BudometerConfig.IMAGE_PATH_2));
                                 analysis.setImagePath3(BudometerSP.init(MainActivity.this).getString(BudometerConfig.IMAGE_PATH_3));
-                                urls.add(BudometerSP.init(MainActivity.this).getString(BudometerConfig.IMAGE_PATH_3));
                                 analysis.setImagePath4(BudometerSP.init(MainActivity.this).getString(BudometerConfig.IMAGE_PATH_4));
-                                urls.add(BudometerSP.init(MainActivity.this).getString(BudometerConfig.IMAGE_PATH_4));
 
                                 BudometerApp.getDaoSession().getAnalysisDao().update(analysis);
 
@@ -374,10 +362,6 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnMa
     }
 
     private void clearPixelCounters() {
-        lightOrangePixelCount = 0;
-        mediumOrangePixelCount = 0;
-        orangePixelCount = 0;
-        darkOrangePixelCount = 0;
         totalPixelCount = 0;
     }
 
@@ -392,8 +376,9 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnMa
                 .create().show();
     }
 
-    private float calculatePercentTotal() {
-        int totalPixelsTurned = lightOrangePixelCount + mediumOrangePixelCount + orangePixelCount + darkOrangePixelCount;
+    private float calculatePercentTotal(Counter counter) {
+        int totalPixelsTurned = counter.getLightOrangePixelCount() + counter.getMediumOrangePixelCount() + counter.getOrangePixelCount() + counter.getDarkOrangePixelCount()
+                + counter.getLightYellowPixelCount() + counter.getMediumYellowPixelCount() + counter.getYellowPixelCount() + counter.getDarkYellowPixelCount();
 
         float percentTotal = (totalPixelsTurned * 100.0f) / totalPixelCount;
         clearPixelCounters();

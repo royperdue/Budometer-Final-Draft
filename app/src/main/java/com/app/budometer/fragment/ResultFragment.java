@@ -109,6 +109,8 @@ public class ResultFragment extends BaseFragment {
             throw new RuntimeException(context.toString()
                     + " must implement OnResultFragmentInteractionListener");
         }
+
+        setRetainInstance(false);
     }
 
     @Override
@@ -168,9 +170,8 @@ public class ResultFragment extends BaseFragment {
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BudometerApp.getDaoSession().clear();
                 BudometerUtils.hideKeyboard(((MainActivity) getActivity()));
-                getActivity().recreate();
+                clearBackStack();
             }
         });
 
@@ -217,6 +218,11 @@ public class ResultFragment extends BaseFragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Analysis analysis = getAnalysis(BudometerSP.init(getActivity()).getLong(BudometerConfig.GREEN_DAO_ANALYSIS_ID));
+
+        System.out.println("ANALYSIS-ID: " + analysis.getAnalysisId());
+        System.out.println("GROWING: " + analysis.getTensorFlowConfidenceGrowing());
+        System.out.println("READY: " + analysis.getTensorFlowConfidenceReady());
+
         String[] paths = new String[4];
         paths[0] = analysis.getImagePath1();
         paths[1] = analysis.getImagePath2();
@@ -226,6 +232,14 @@ public class ResultFragment extends BaseFragment {
         evaluateTensorFlowResults(analysis.getTensorFlowConfidenceGrowing(), analysis.getTensorFlowConfidenceReady());
 
         loadBitmap(getBitmaps(paths));
+    }
+
+    private void evaluateTensorFlowResults(float tensorFlowConfidenceGrowing, float tensorFlowConfidenceReady) {
+        System.out.println("EVALUATE-RESULTS: ");
+        if (tensorFlowConfidenceGrowing > tensorFlowConfidenceReady)
+            resultEditText.setText(R.string.result_message_growing);
+        else
+            resultEditText.setText(R.string.result_message_ready);
     }
 
     private Bitmap[] getBitmaps(String[] paths) {
@@ -270,6 +284,8 @@ public class ResultFragment extends BaseFragment {
         if (analysis != null)
             if (!analysis.getSaved())
                 BudometerApp.getDaoSession().getAnalysisDao().deleteByKey(BudometerSP.init(getActivity()).getLong(BudometerConfig.GREEN_DAO_ANALYSIS_ID));
+
+        BudometerApp.getDaoSession().clear();
     }
 
 
@@ -402,14 +418,6 @@ public class ResultFragment extends BaseFragment {
         });
     }
 
-    private void evaluateTensorFlowResults(float tensorFlowConfidenceGrowing, float tensorFlowConfidenceReady) {
-        resultEditText.setText("Test text.");
-        if (tensorFlowConfidenceGrowing > tensorFlowConfidenceReady)
-            resultEditText.setText(R.string.result_message_growing);
-        else
-            resultEditText.setText(R.string.result_message_ready);
-    }
-
     private void populateChart() {
         Analysis analysis = getAnalysis(BudometerSP.init(getActivity()).getLong(BudometerConfig.GREEN_DAO_ANALYSIS_ID));
 
@@ -519,6 +527,8 @@ public class ResultFragment extends BaseFragment {
         if ((greyPixelTotal * 100.0f) / analysis.getTotalPixelCount() < 1.0f)
             greyTextView.setVisibility(View.GONE);
 
+        evaluateTensorFlowResults(analysis.getTensorFlowConfidenceGrowing(), analysis.getTensorFlowConfidenceReady());
+
         pieChartView.invalidate();
     }
 
@@ -621,6 +631,7 @@ public class ResultFragment extends BaseFragment {
         strainEditText.setText("");
         cropIdEditText.setText("");
         notesEditText.setText("");
+        BudometerApp.getDaoSession().clear();
         ((MainActivity) getActivity()).showSnackBar(R.string.save_successful, R.drawable.success_background);
     }
 
