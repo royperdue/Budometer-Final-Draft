@@ -545,34 +545,67 @@ public class ResultFragment extends BaseFragment {
     }
 
     private String calculatePixelsTurned() {
+        int totalPixelsNotTurned = 0;
+        int totalPixelsTurned = 0;
         Analysis analysis = getAnalysis(BudometerSP.init(getActivity()).getLong(BudometerConfig.GREEN_DAO_ANALYSIS_ID));
 
-        int totalPixelsNotTurned =
-                analysis.getLightBrownPixelCount() +
-                        analysis.getLightOrangePixelCount() +
-                        analysis.getMediumOrangePixelCount() +
-                        analysis.getLightRedPixelCount() +
-                        analysis.getMediumRedPixelCount() +
-                        analysis.getLightYellowPixelCount() +
-                        analysis.getMediumYellowPixelCount() +
-                        analysis.getYellowPixelCount() +
-                        analysis.getDarkYellowPixelCount() +
-                        analysis.getLightPurplePixelCount() +
-                        analysis.getMediumPurplePixelCount() +
-                        analysis.getPurplePixelCount() +
-                        analysis.getDarkPurplePixelCount() +
-                        analysis.getMediumGreyPixelCount() +
-                        analysis.getGreyPixelCount() +
-                        analysis.getDarkGreyPixelCount();
+        if (analysis.getTensorFlowConfidenceOrange() > analysis.getTensorFlowConfidenceWhite() && analysis.getTensorFlowConfidenceOrange() > analysis.getTensorFlowConfidencePurple()) {
+            totalPixelsNotTurned =
+                    analysis.getLightBrownPixelCount() +
+                            analysis.getLightOrangePixelCount() +
+                            analysis.getMediumOrangePixelCount() +
+                            analysis.getLightRedPixelCount() +
+                            analysis.getMediumRedPixelCount() +
+                            analysis.getLightYellowPixelCount() +
+                            analysis.getMediumYellowPixelCount() +
+                            analysis.getYellowPixelCount() +
+                            analysis.getDarkYellowPixelCount() +
+                            analysis.getLightPurplePixelCount() +
+                            analysis.getMediumPurplePixelCount() +
+                            analysis.getPurplePixelCount() +
+                            analysis.getDarkPurplePixelCount() +
+                            analysis.getMediumGreyPixelCount() +
+                            analysis.getGreyPixelCount() +
+                            analysis.getDarkGreyPixelCount();
 
-        int totalPixelsTurned =
-                analysis.getRedPixelCount() +
-                        analysis.getDarkRedPixelCount() +
-                        analysis.getOrangePixelCount() +
-                        analysis.getDarkOrangePixelCount() +
-                        analysis.getMediumBrownPixelCount() +
-                        analysis.getBrownPixelCount() +
-                        analysis.getDarkBrownPixelCount();
+            totalPixelsTurned =
+                    analysis.getRedPixelCount() +
+                            analysis.getDarkRedPixelCount() +
+                            analysis.getOrangePixelCount() +
+                            analysis.getDarkOrangePixelCount() +
+                            analysis.getMediumBrownPixelCount() +
+                            analysis.getBrownPixelCount() +
+                            analysis.getDarkBrownPixelCount();
+        } else if (analysis.getTensorFlowConfidencePurple() > analysis.getTensorFlowConfidenceOrange() &&
+                analysis.getTensorFlowConfidencePurple() > analysis.getTensorFlowConfidenceWhite() &&
+                analysis.getTensorFlowConfidenceReady() > analysis.getTensorFlowConfidenceGrowing()) {
+            totalPixelsNotTurned =
+                    analysis.getLightBrownPixelCount() +
+                            analysis.getLightOrangePixelCount() +
+                            analysis.getMediumOrangePixelCount() +
+                            analysis.getLightRedPixelCount() +
+                            analysis.getLightYellowPixelCount() +
+                            analysis.getMediumYellowPixelCount() +
+                            analysis.getYellowPixelCount() +
+                            analysis.getDarkYellowPixelCount() +
+                            analysis.getLightPurplePixelCount() +
+                            analysis.getGreyPixelCount() +
+                            analysis.getDarkGreyPixelCount();
+
+            totalPixelsTurned =
+                    analysis.getMediumRedPixelCount() +
+                            analysis.getRedPixelCount() +
+                            analysis.getDarkRedPixelCount() +
+                            analysis.getOrangePixelCount() +
+                            analysis.getDarkOrangePixelCount() +
+                            analysis.getMediumBrownPixelCount() +
+                            analysis.getBrownPixelCount() +
+                            analysis.getDarkBrownPixelCount() +
+                            analysis.getMediumPurplePixelCount() +
+                            analysis.getPurplePixelCount() +
+                            analysis.getDarkPurplePixelCount() +
+                            analysis.getMediumGreyPixelCount();
+        }
 
         String percentageTurned = toPercentage((totalPixelsTurned * 100.0f) / (totalPixelsTurned + totalPixelsNotTurned));
 

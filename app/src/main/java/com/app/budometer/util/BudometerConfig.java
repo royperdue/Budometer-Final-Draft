@@ -7,7 +7,7 @@ import androidx.interpolator.view.animation.FastOutLinearInInterpolator;
 
 
 public final class BudometerConfig {
-    public static final String MODEL_FILE_GROWING_READY = "file:///android_asset/retrained_graph.pb";
+    public static final String MODEL_FILE_GROWING_READY = "file:///android_asset/growing_ready_graph.pb";
     public static final String LABEL_FILE_GROWING_READY = "file:///android_asset/growing_ready_labels.txt";
 
     public static final String MODEL_FILE_BUD_COLORS = "file:///android_asset/rounded_bud_colors_graph.pb";
@@ -19,6 +19,8 @@ public final class BudometerConfig {
     public static final String IMAGE_PATH_2 = "image_path_2**";
     public static final String IMAGE_PATH_3 = "image_path_3**";
     public static final String IMAGE_PATH_4 = "image_path_4**";
+
+    public static final String CAMERA_FLASH_SETTING = "camera_flash_setting**";
 
     public static final String BUNDLE_ANALYSIS_ID = "bundle_analysis_id";
     public static final String GREEN_DAO_ANALYSIS_ID = "green_dao_analysis_id";

@@ -570,4 +570,10 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnMa
     public SnackBarView getSnackBarView() {
         return snackBarView;
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        BudometerSP.init(this).putInt(BudometerConfig.CAMERA_FLASH_SETTING, -1);
+    }
 }

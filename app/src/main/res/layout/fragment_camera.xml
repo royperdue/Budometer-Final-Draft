@@ -40,11 +40,13 @@
         app:cameraPictureSizeAspectRatio="1:1"
         app:cameraExperimental="true"
         app:cameraFlash="off"
+        app:cameraWhiteBalance="auto"
+        app:cameraHdr="on"
         app:cameraGestureLongTap="none"
         app:cameraGesturePinch="zoom"
-        app:cameraGestureScrollHorizontal="exposureCorrection"
+        app:cameraGestureScrollHorizontal="none"
         app:cameraGestureScrollVertical="none"
-        app:cameraGestureTap="focusWithMarker"
+        app:cameraGestureTap="none"
         app:cameraGrid="off"
         app:cameraMode="picture"
         app:cameraPlaySounds="true"
@@ -63,7 +65,7 @@
         android:gravity="center"
         android:orientation="horizontal"
         android:weightSum="3"
-        app:layout_constraintBottom_toTopOf="@+id/root"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/camera">
@@ -85,36 +87,9 @@
             android:src="@drawable/ic_capture_photo_button" />
 
         <ImageButton
-            android:id="@+id/editImageButton"
+            android:id="@+id/flashImageButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_edit" />
+            android:layout_weight="1" />
     </LinearLayout>
-
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:id="@+id/root"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/camera_tools_view">
-
-        <androidx.core.widget.NestedScrollView
-            android:id="@+id/controls"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/white"
-            app:behavior_hideable="true"
-            app:behavior_peekHeight="300dp"
-            app:behavior_skipCollapsed="false"
-            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </androidx.core.widget.NestedScrollView>
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
