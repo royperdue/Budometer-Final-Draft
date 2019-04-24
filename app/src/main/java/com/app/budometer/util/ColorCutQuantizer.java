@@ -129,7 +129,7 @@ final class ColorCutQuantizer {
         } else {
             //********* MODIFIED TO CHANGE COLORS TO MATCH CLOSEST IN BUD_COLORS PALETTE.*********
             // We need use quantization to reduce the number of colors
-            mQuantizedColors = quantizePixels(300);
+            mQuantizedColors = quantizePixels(64);
 
             Palette.Swatch[] palettes = mQuantizedColors.toArray(new Palette.Swatch[mQuantizedColors.size()]);
             mQuantizedColors.clear();

@@ -282,7 +282,7 @@ public class ResultFragment extends BaseFragment {
 
     private void segmentImageColors(Bitmap bitmap) {
         dateEditText.setText(new SimpleDateFormat("EEEE, MMMM d, yyyy").format(new Date(System.currentTimeMillis())));
-        Palette.from(bitmap).maximumColorCount(300).generate(new Palette.PaletteAsyncListener() {
+        Palette.from(bitmap).maximumColorCount(64).generate(new Palette.PaletteAsyncListener() {
             public void onGenerated(Palette p) {
                 PaletteGraph paletteGraph = new PaletteGraph();
                 Counter counter = new Counter();

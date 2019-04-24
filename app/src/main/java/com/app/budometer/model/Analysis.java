@@ -236,13 +236,22 @@ public class Analysis {
     @Property(nameInDb = "tensorFlowConfidenceReady")
     private float tensorFlowConfidenceReady;
 
+    @Property(nameInDb = "tensorFlowConfidenceOrange")
+    private float tensorFlowConfidenceOrange;
+
+    @Property(nameInDb = "tensorFlowConfidencePurple")
+    private float tensorFlowConfidencePurple;
+
+    @Property(nameInDb = "tensorFlowConfidenceWhite")
+    private float tensorFlowConfidenceWhite;
+
     @Property(nameInDb = "tensorFlowResult")
     private String tensorFlowResult;
 
     @Property(nameInDb = "totalPixelCount")
     private int totalPixelCount;
 
-    @Generated(hash = 1945748955)
+    @Generated(hash = 1304685431)
     public Analysis(Long analysisId, boolean saved, String imagePath1,
             String imagePath2, String imagePath3, String imagePath4,
             String combinedImagePath, String combinedImageName,
@@ -267,8 +276,9 @@ public class Analysis {
             int darkPurple, int darkGreen, int darkYellow, int darkOrange,
             int darkBrown, int darkGrey, String tensorFlowTitleGrowing,
             float tensorFlowConfidenceGrowing, String tensorFlowTitleReady,
-            float tensorFlowConfidenceReady, String tensorFlowResult,
-            int totalPixelCount) {
+            float tensorFlowConfidenceReady, float tensorFlowConfidenceOrange,
+            float tensorFlowConfidencePurple, float tensorFlowConfidenceWhite,
+            String tensorFlowResult, int totalPixelCount) {
         this.analysisId = analysisId;
         this.saved = saved;
         this.imagePath1 = imagePath1;
@@ -343,6 +353,9 @@ public class Analysis {
         this.tensorFlowConfidenceGrowing = tensorFlowConfidenceGrowing;
         this.tensorFlowTitleReady = tensorFlowTitleReady;
         this.tensorFlowConfidenceReady = tensorFlowConfidenceReady;
+        this.tensorFlowConfidenceOrange = tensorFlowConfidenceOrange;
+        this.tensorFlowConfidencePurple = tensorFlowConfidencePurple;
+        this.tensorFlowConfidenceWhite = tensorFlowConfidenceWhite;
         this.tensorFlowResult = tensorFlowResult;
         this.totalPixelCount = totalPixelCount;
     }
@@ -941,6 +954,30 @@ public class Analysis {
 
     public void setTensorFlowConfidenceReady(float tensorFlowConfidenceReady) {
         this.tensorFlowConfidenceReady = tensorFlowConfidenceReady;
+    }
+
+    public float getTensorFlowConfidenceOrange() {
+        return this.tensorFlowConfidenceOrange;
+    }
+
+    public void setTensorFlowConfidenceOrange(float tensorFlowConfidenceOrange) {
+        this.tensorFlowConfidenceOrange = tensorFlowConfidenceOrange;
+    }
+
+    public float getTensorFlowConfidencePurple() {
+        return this.tensorFlowConfidencePurple;
+    }
+
+    public void setTensorFlowConfidencePurple(float tensorFlowConfidencePurple) {
+        this.tensorFlowConfidencePurple = tensorFlowConfidencePurple;
+    }
+
+    public float getTensorFlowConfidenceWhite() {
+        return this.tensorFlowConfidenceWhite;
+    }
+
+    public void setTensorFlowConfidenceWhite(float tensorFlowConfidenceWhite) {
+        this.tensorFlowConfidenceWhite = tensorFlowConfidenceWhite;
     }
 
     public String getTensorFlowResult() {

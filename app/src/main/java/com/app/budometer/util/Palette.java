@@ -34,7 +34,7 @@ public final class Palette {
     }
 
     static final int DEFAULT_RESIZE_BITMAP_AREA = 224 * 224;
-    static final int DEFAULT_CALCULATE_NUMBER_COLORS = 300;
+    static final int DEFAULT_CALCULATE_NUMBER_COLORS = 64;
 
     static final float MIN_CONTRAST_TITLE_TEXT = 3.0f;
     static final float MIN_CONTRAST_BODY_TEXT = 4.5f;

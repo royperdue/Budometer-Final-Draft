@@ -87,21 +87,19 @@
     </string-array>
 
 
-    <string-array name="image_extraction_colors_red">
-        <item>#f2e0ee</item>
-        <item>#b07078</item>
-        <item>#a84741</item>
-        <item>#a84741</item>
-    </string-array>
-
     <string-array name="image_extraction_colors_purple">
+        <item>#fdfbfd</item>
+        <item>#E8EDEA</item>
+        <item>#dddcdb</item>
+        <item>#d2d5c9</item>
         <item>#ac87b0</item>
         <item>#894580</item>
         <item>#663c60</item>
         <item>#492a54</item>
-    </string-array>
-
-    <string-array name="image_extraction_colors_green">
+        <item>#f2e0ee</item>
+        <item>#b07078</item>
+        <item>#a84741</item>
+        <item>#a84741</item>
         <item>#b3d577</item>
         <item>#91A36A</item>
         <item>#667e34</item>
@@ -109,6 +107,14 @@
     </string-array>
 
     <string-array name="image_extraction_colors_orange">
+        <item>#fdfbfd</item>
+        <item>#E8EDEA</item>
+        <item>#dddcdb</item>
+        <item>#d2d5c9</item>
+        <item>#eff76c</item>
+        <item>#ede970</item>
+        <item>#d5da53</item>
+        <item>#dcd775</item>
         <item>#f0d043</item>
         <item>#e09e54</item>
         <item>#df8109</item>
@@ -117,20 +123,25 @@
         <item>#c58425</item>
         <item>#a26208</item>
         <item>#723f16</item>
+        <item>#b3d577</item>
+        <item>#91A36A</item>
+        <item>#667e34</item>
+        <item>#306024</item>
     </string-array>
 
-    <string-array name="image_extraction_colors_yellow">
+    <string-array name="image_extraction_colors_grey">
         <item>#eff76c</item>
         <item>#ede970</item>
         <item>#d5da53</item>
         <item>#dcd775</item>
-    </string-array>
-
-    <string-array name="image_extraction_colors_grey">
         <item>#fdfbfd</item>
         <item>#E8EDEA</item>
         <item>#dddcdb</item>
         <item>#d2d5c9</item>
+        <item>#b3d577</item>
+        <item>#91A36A</item>
+        <item>#667e34</item>
+        <item>#306024</item>
     </string-array>
 
 

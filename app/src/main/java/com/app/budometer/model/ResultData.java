@@ -11,6 +11,9 @@ public class ResultData {
     private float tensorFlowConfidenceClose = 0.0f;
     private String tensorFlowTitleReady;
     private float tensorFlowConfidenceReady = 0.0f;
+    private float tensorFlowConfidenceOrange = 0.0f;
+    private float tensorFlowConfidencePurple = 0.0f;
+    private float tensorFlowConfidenceWhite = 0.0f;
     private Bitmap bitmap;
 
     public ResultData() {}
@@ -75,6 +78,30 @@ public class ResultData {
 
     public void setTensorFlowConfidenceReady(float tensorFlowConfidenceReady) {
         this.tensorFlowConfidenceReady = tensorFlowConfidenceReady;
+    }
+
+    public float getTensorFlowConfidenceOrange() {
+        return tensorFlowConfidenceOrange;
+    }
+
+    public void setTensorFlowConfidenceOrange(float tensorFlowConfidenceOrange) {
+        this.tensorFlowConfidenceOrange = tensorFlowConfidenceOrange;
+    }
+
+    public float getTensorFlowConfidencePurple() {
+        return tensorFlowConfidencePurple;
+    }
+
+    public void setTensorFlowConfidencePurple(float tensorFlowConfidencePurple) {
+        this.tensorFlowConfidencePurple = tensorFlowConfidencePurple;
+    }
+
+    public float getTensorFlowConfidenceWhite() {
+        return tensorFlowConfidenceWhite;
+    }
+
+    public void setTensorFlowConfidenceWhite(float tensorFlowConfidenceWhite) {
+        this.tensorFlowConfidenceWhite = tensorFlowConfidenceWhite;
     }
 
     public Bitmap getBitmap() {

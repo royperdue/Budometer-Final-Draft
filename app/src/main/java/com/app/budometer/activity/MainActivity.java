@@ -415,7 +415,7 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnMa
 
                     @Override
                     public void onComplete(Bitmap bitmap) {
-                        new GrowingReadyAsyncTask().execute(bitmap);
+                        new BudColorsAsyncTask().execute(bitmap);
                     }
                 })
                 .build();
@@ -435,6 +435,58 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnMa
                 .where(AnalysisDao.Properties.AnalysisId.eq(analysisId))
                 .list().get(0);
     }
+
+    private class BudColorsAsyncTask extends AsyncTask<Bitmap, Void, ResultData> {
+        protected void onPreExecute (){
+            super.onPreExecute();
+
+            classifier = TensorFlowImageClassifier.create(getAssets(),
+                    BudometerConfig.MODEL_FILE_BUD_COLORS,
+                    BudometerConfig.LABEL_FILE_BUD_COLORS,
+                    BudometerConfig.INPUT_SIZE,
+                    BudometerConfig.IMAGE_MEAN,
+                    BudometerConfig.IMAGE_STD,
+                    BudometerConfig.INPUT_NAME,
+                    BudometerConfig.OUTPUT_NAME);
+        }
+
+        @Override
+        protected ResultData doInBackground(Bitmap... params) {
+            ResultData resultData = null;
+            final List<Classifier.Recognition> results = classifier.recognizeImage(params[0]);
+
+            if (results != null) {
+                resultData = new ResultData(params[0]);
+                for (int i = 0; i < results.size(); i++) {
+                    if (results.get(i).getTitle().contains("orange")) {
+                        resultData.setTensorFlowConfidenceOrange(results.get(i).getConfidence());
+                    } else if (results.get(i).getTitle().contains("purple")) {
+                        resultData.setTensorFlowConfidencePurple(results.get(i).getConfidence());
+                    }  else if (results.get(i).getTitle().contains("white")) {
+                        resultData.setTensorFlowConfidenceWhite(results.get(i).getConfidence());
+                    }
+
+                    System.out.println("TITLE: " + results.get(i).getTitle() + ":CONFIDENCE SCORE: " + results.get(i).getConfidence());
+                }
+            }
+            return resultData;
+        }
+
+        @Override
+        protected void onPostExecute(ResultData resultData) {
+            super.onPostExecute(resultData);
+
+            Analysis analysis = getAnalysis(BudometerSP.init(MainActivity.this).getLong(BudometerConfig.GREEN_DAO_ANALYSIS_ID));
+            analysis.setTensorFlowConfidenceOrange(resultData.getTensorFlowConfidenceOrange());
+            analysis.setTensorFlowConfidencePurple(resultData.getTensorFlowConfidencePurple());
+            analysis.setTensorFlowConfidenceWhite(resultData.getTensorFlowConfidenceWhite());
+
+            BudometerApp.getDaoSession().getAnalysisDao().update(analysis);
+
+            new GrowingReadyAsyncTask().execute(resultData.getBitmap());
+        }
+    }
+
 
     private class GrowingReadyAsyncTask extends AsyncTask<Bitmap, Void, ResultData> {
         protected void onPreExecute (){
