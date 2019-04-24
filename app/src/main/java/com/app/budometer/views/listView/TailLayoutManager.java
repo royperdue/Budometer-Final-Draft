@@ -17,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
+
 /**
  * A {@link androidx.recyclerview.widget.RecyclerView.LayoutManager} implementation.
  */
@@ -31,7 +32,8 @@ public class TailLayoutManager extends RecyclerView.LayoutManager
 
         int anchorPos;
 
-        SavedState() {}
+        SavedState() {
+        }
 
         SavedState(Parcel in) {
             anchorPos = in.readInt();
@@ -185,12 +187,14 @@ public class TailLayoutManager extends RecyclerView.LayoutManager
 
         final int anchorPos = getAnchorPosition();
 
-        final int scrollOffset;
+        int scrollOffset = 0;
         if (childCount == 0) {
             scrollOffset = 0;
         } else {
             final View anchorView = findViewByPosition(anchorPos);
-            scrollOffset = mItemStart - getDecoratedLeft(anchorView);
+
+            if (anchorView != null)
+                scrollOffset = mItemStart - getDecoratedLeft(anchorView);
         }
 
         detachAndScrapAttachedViews(recycler);
@@ -300,7 +304,7 @@ public class TailLayoutManager extends RecyclerView.LayoutManager
 
     /**
      * Return current center view or null.
-      * @return current center view or null.
+     * @return current center view or null.
      */
     @Nullable
     public View getCenterView() {
