@@ -57,9 +57,9 @@
 
     <string-array name="image_extraction_colors">
         <item>#f2e0ee</item>
-        <item>#f9b8ce</item>
-        <item>#cb6396</item>
-        <item>#a1485c</item>
+        <item>#b07078</item>
+        <item>#a84741</item>
+        <item>#a84741</item>
         <item>#ac87b0</item>
         <item>#894580</item>
         <item>#663c60</item>
@@ -73,9 +73,9 @@
         <item>#d5da53</item>
         <item>#dcd775</item>
         <item>#f0d043</item>
-        <item>#ffcf00</item>
-        <item>#ffa900</item>
+        <item>#e09e54</item>
         <item>#df8109</item>
+        <item>#d97422</item>
         <item>#b9973a</item>
         <item>#c58425</item>
         <item>#a26208</item>
@@ -89,9 +89,9 @@
 
     <string-array name="image_extraction_colors_red">
         <item>#f2e0ee</item>
-        <item>#f9b8ce</item>
-        <item>#cb6396</item>
-        <item>#a1485c</item>
+        <item>#b07078</item>
+        <item>#a84741</item>
+        <item>#a84741</item>
     </string-array>
 
     <string-array name="image_extraction_colors_purple">
@@ -110,9 +110,9 @@
 
     <string-array name="image_extraction_colors_orange">
         <item>#f0d043</item>
-        <item>#ffcf00</item>
-        <item>#ffa900</item>
+        <item>#e09e54</item>
         <item>#df8109</item>
+        <item>#d97422</item>
         <item>#b9973a</item>
         <item>#c58425</item>
         <item>#a26208</item>
@@ -135,9 +135,9 @@
 
 
     <color name="red_1"> #f2e0ee</color>
-    <color name="red_2"> #f9b8ce</color>
-    <color name="red_3"> #cb6396</color>
-    <color name="red_4"> #a1485c</color>
+    <color name="red_2"> #b07078</color>
+    <color name="red_3"> #a84741</color>
+    <color name="red_4"> #a84741</color>
 
     <color name="purple_1"> #ac87b0</color>
     <color name="purple_2"> #894580</color>
@@ -150,9 +150,9 @@
     <color name="green_4"> #306024</color>
 
     <color name="orange_1"> #f0d043</color>
-    <color name="orange_2"> #ffcf00</color>
-    <color name="orange_3"> #ffa900</color>
-    <color name="orange_4"> #df8109</color>
+    <color name="orange_2"> #e09e54</color>
+    <color name="orange_3"> #df8109</color>
+    <color name="orange_4"> #d97422</color>
 
     <color name="brown_1">#b9973a</color>
     <color name="brown_2">#c58425</color>
@@ -168,7 +168,7 @@
     <color name="grey_2"> #E8EDEA</color>
     <color name="grey_3"> #dddcdb</color>
     <color name="grey_4"> #d2d5c9</color>
-    
+
 
 
     <!--
@@ -194,4 +194,81 @@
 5% — 0D
 0% — 00
     -->
+    <color name="color_21growing_3">#f0c8d0</color>
+    <color name="color_21growing_0">#c8a0a0</color>
+    <color name="color_21growing_1">#e0b8c0</color>
+    <color name="color_334growing_2">#e098b0</color>
+    <color name="color_21growing_5">#c89898</color>
+    <color name="color_21growing_6">#b898a0</color>
+    <color name="color_334growing_0">#d06898</color>
+    <color name="color_334growing_1">#b07078</color>
+    <color name="color_334growing_3">#883048</color>
+    <color name="color_334growing_5">#b04070</color>
+
+    <color name="color_100growing_3">#487060</color>
+    <color name="color_100growing_4">#a0c8c8</color>
+    <color name="color_100growing_5">#406058</color>
+    <color name="color_100growing_6">#284038</color>
+    <color name="color_100growing_7">#88b0a8</color>
+    <color name="color_100growing_8">#587870</color>
+    <color name="color_100growing_9">#284840</color>
+    <color name="color_100growing_10">#78a098</color>
+    <color name="color_100growing_11">#78a8a0</color>
+    <color name="color_100growing_12">#709088</color>
+    <color name="color_100growing_13">#90c0c0</color>
+    <color name="color_100growing_14">#7890a0</color>
+
+    <color name="color_164growing_12">#e8e8e8</color>
+    <color name="color_164growing_2">#c8c0c8</color>
+    <color name="color_164growing_3">#b8b0c0</color>
+    <color name="color_164growing_5">#908898</color>
+    <color name="color_164growing_7">#807890</color>
+    <color name="color_164growing_8">#a8a0b0</color>
+    <color name="color_164growing_9">#787078</color>
+    <color name="color_3growing_18">#583850</color>
+    <color name="color_3growing_19">#482840</color>
+    <color name="color_164growing_10">#383040</color>
+
+    <color name="color_223ready_8">#f0d050</color>
+    <color name="color_223ready_9">#c0a040</color>
+    <color name="color_16growing_14">#a09820</color>
+    <color name="color_16growing_15">#a89868</color>
+    <color name="color_16growing_16">#b8b050</color>
+    <color name="color_16growing_17">#d8c870</color>
+    <color name="color_16growing_18">#b0a838</color>
+    <color name="color_16growing_19">#d0c080</color>
+
+
+    <color name="color_347ready_16">#e1d8ac</color>
+    <color name="color_347ready_6">#a09068</color>
+    <color name="color_347ready_7">#cbb77a</color>
+    <color name="color_347ready_8">#ab7a37</color>
+    <color name="color_347ready_14">#685424</color>
+
+    <color name="color_492ready_4">#e0e0d0</color>
+    <color name="color_492ready_8">#c8c8b8</color>
+    <color name="color_492ready_10">#706868</color>
+    <color name="color_492ready_12">#b8b8b8</color>
+    <color name="color_492ready_13">#a8a8a0</color>
+    <color name="color_492ready_14">#706858</color>
+    <color name="color_492ready_15">#606058</color>
+    <color name="color_492ready_5">#a09898</color>
+    <color name="color_492ready_6">#787868</color>
+    <color name="color_492ready_7">#808080</color>
+
+    <color name="color_0growing_14">#a8c088</color>
+    <color name="color_37growing_15">#98a858</color>
+    <color name="color_37growing_16">#a8b868</color>
+    <color name="color_37growing_17">#809838</color>
+    <color name="color_37growing_18">#789050</color>
+    <color name="color_37growing_19">#88a068</color>
+    <color name="color_38growing_0">#608048</color>
+    <color name="color_0growing_3">#689058</color>
+    <color name="color_0growing_4">#486038</color>
+    <color name="color_0growing_5">#88a860</color>
+    <color name="color_0growing_6">#488038</color>
+    <color name="color_0growing_9">#385828</color>
+    <color name="color_0growing_10">#607038</color>
+    <color name="color_0growing_11">#50792a</color>
+
 </resources>

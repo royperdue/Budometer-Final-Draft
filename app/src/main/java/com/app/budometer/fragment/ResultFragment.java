@@ -473,49 +473,49 @@ public class ResultFragment extends BaseFragment {
         redTextView.setText(toPercentage((redPixelTotal * 100.0f) / analysis.getTotalPixelCount()));
         redTextView.setBackground(BudometerUtils.getRedColor(getActivity()));
 
-        if (redPixelTotal == 0)
+        if ((redPixelTotal * 100.0f) / analysis.getTotalPixelCount() < 1.0f)
             redTextView.setVisibility(View.GONE);
 
         int purplePixelTotal = analysis.getLightPurplePixelCount() + analysis.getMediumPurplePixelCount() + analysis.getPurplePixelCount() + analysis.getDarkPurplePixelCount();
         purpleTextView.setText(toPercentage((purplePixelTotal * 100.0f) / analysis.getTotalPixelCount()));
         purpleTextView.setBackground(BudometerUtils.getPurpleColor(getActivity()));
 
-        if (purplePixelTotal == 0)
+        if ((purplePixelTotal * 100.0f) / analysis.getTotalPixelCount() < 1.0f)
             purpleTextView.setVisibility(View.GONE);
 
         int greenPixelTotal = analysis.getLightGreenPixelCount() + analysis.getMediumGreenPixelCount() + analysis.getGreenPixelCount() + analysis.getDarkGreenPixelCount();
         greenTextView.setText(toPercentage((greenPixelTotal * 100.0f) / analysis.getTotalPixelCount()));
         greenTextView.setBackground(BudometerUtils.getGreenColor(getActivity()));
 
-        if (greenPixelTotal == 0)
+        if ((greenPixelTotal * 100.0f) / analysis.getTotalPixelCount() < 1.0f)
             greenTextView.setVisibility(View.GONE);
 
         int yellowPixelTotal = analysis.getLightYellowPixelCount() + analysis.getMediumYellowPixelCount() + analysis.getYellowPixelCount() + analysis.getDarkYellowPixelCount();
         yellowTextView.setText(toPercentage((yellowPixelTotal * 100.0f) / analysis.getTotalPixelCount()));
         yellowTextView.setBackground(BudometerUtils.getYellowColor(getActivity()));
 
-        if (yellowPixelTotal == 0)
+        if ((yellowPixelTotal * 100.0f) / analysis.getTotalPixelCount() < 1.0f)
             yellowTextView.setVisibility(View.GONE);
 
         int orangePixelTotal = analysis.getLightOrangePixelCount() + analysis.getMediumOrangePixelCount() + analysis.getOrangePixelCount() + analysis.getDarkOrangePixelCount();
         orangeTextView.setText(toPercentage((orangePixelTotal * 100.0f) / analysis.getTotalPixelCount()));
         orangeTextView.setBackground(BudometerUtils.getOrangeColor(getActivity()));
 
-        if (orangePixelTotal == 0)
+        if ((orangePixelTotal * 100.0f) / analysis.getTotalPixelCount() < 1.0f)
             orangeTextView.setVisibility(View.GONE);
 
         int brownPixelTotal = analysis.getLightBrownPixelCount() + analysis.getMediumBrownPixelCount() + analysis.getBrownPixelCount() + analysis.getDarkBrownPixelCount();
         brownTextView.setText(toPercentage((brownPixelTotal * 100.0f) / analysis.getTotalPixelCount()));
         brownTextView.setBackground(BudometerUtils.getBrownColor(getActivity()));
 
-        if (brownPixelTotal == 0)
+        if ((brownPixelTotal * 100.0f) / analysis.getTotalPixelCount() < 1.0f)
             brownTextView.setVisibility(View.GONE);
 
         int greyPixelTotal = analysis.getLightGreyPixelCount() + analysis.getMediumGreyPixelCount() + analysis.getGreyPixelCount() + analysis.getDarkGreyPixelCount();
         greyTextView.setText(toPercentage((greyPixelTotal * 100.0f) / analysis.getTotalPixelCount()));
         greyTextView.setBackground(BudometerUtils.getGreyColor(getActivity()));
 
-        if (greyPixelTotal == 0)
+        if ((greyPixelTotal * 100.0f) / analysis.getTotalPixelCount() < 1.0f)
             greyTextView.setVisibility(View.GONE);
 
         pieChartView.invalidate();

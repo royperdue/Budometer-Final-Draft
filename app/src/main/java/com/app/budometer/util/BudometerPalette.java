@@ -41,7 +41,7 @@ public class BudometerPalette {
     }
 
     private static final float BLACK_MAX_LIGHTNESS = 0.012447455f;
-    private static final float WHITE_MIN_LIGHTNESS = 0.55f;
+    private static final float WHITE_MIN_LIGHTNESS = 0.85f;
 
     public static void generate(int colorInt, OnColorRoundingDone onColorRoundingDone) {
         onColorRoundingDone.onDone(Color.parseColor(getSimilarColor(String.format("#%06X", (0xFFFFFF & colorInt)))));
