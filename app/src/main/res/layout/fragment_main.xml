@@ -18,13 +18,15 @@
 
     <LinearLayout
         android:id="@+id/firstUseInstructionsLayout"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="top|center_horizontal"
-        app:layout_constraintTop_toTopOf="parent"
         android:minHeight="@dimen/pad150dp"
         android:orientation="vertical"
-        android:padding="@dimen/pad10dp">
+        android:padding="@dimen/pad10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <Space
             android:layout_width="match_parent"
@@ -37,7 +39,10 @@
             android:background="@color/grey_alpha_80"
             android:paddingStart="@dimen/pad10dp"
             android:paddingTop="@dimen/pad10dp"
-            android:paddingEnd="@dimen/pad10dp">
+            android:paddingEnd="@dimen/pad10dp"
+            app:layout_constraintEnd_toEndOf="@+id/firstUseInstructionsLayout"
+            app:layout_constraintStart_toStartOf="@+id/firstUseInstructionsLayout"
+            app:layout_constraintTop_toTopOf="@+id/firstUseInstructionsLayout">
 
             <ImageView
                 android:id="@+id/helpImageViewMain"
@@ -47,7 +52,7 @@
                 android:background="@drawable/expanded_circle_buttons_main"
                 android:contentDescription="@null"
                 android:scaleType="fitCenter"
-                app:layout_constraintRight_toLeftOf="@+id/helpTitleTextViewMain"
+                app:layout_constraintEnd_toStartOf="@+id/helpTitleTextViewMain"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -65,16 +70,18 @@
             <TextView
                 android:id="@+id/helpDescriptionTextViewMain"
                 style="@style/TextAppearance.AppCompat.Small"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/pad10dp"
                 android:layout_marginTop="@dimen/pad8dp"
-                android:inputType="textMultiLine|text"
+                android:inputType="textMultiLine"
+                android:padding="@dimen/pad5dp"
                 android:text="@string/help_section_description_expand_button"
                 android:textColor="@color/white"
                 android:textSize="@dimen/txt14sp"
                 app:layout_constraintStart_toEndOf="@+id/helpImageViewMain"
-                app:layout_constraintTop_toBottomOf="@+id/helpTitleTextViewMain" />
+                app:layout_constraintTop_toBottomOf="@+id/helpTitleTextViewMain"
+                app:layout_constraintEnd_toEndOf="@+id/constraintLayout"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -82,9 +89,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/grey_alpha_80"
-            android:paddingTop="@dimen/pad10dp"
             android:paddingStart="@dimen/pad10dp"
-            android:paddingEnd="@dimen/pad10dp">
+            android:paddingTop="@dimen/pad10dp"
+            android:paddingEnd="@dimen/pad10dp"
+            app:layout_constraintEnd_toEndOf="@+id/firstUseInstructionsLayout"
+            app:layout_constraintStart_toStartOf="@+id/firstUseInstructionsLayout"
+            app:layout_constraintTop_toTopOf="@+id/firstUseInstructionsLayout">
 
             <ImageView
                 android:id="@+id/helpImageViewGroup"
@@ -94,7 +104,7 @@
                 android:background="@drawable/expanded_circle_buttons_group1"
                 android:contentDescription="@null"
                 android:scaleType="fitCenter"
-                app:layout_constraintRight_toLeftOf="@+id/helpTitleTextViewGroup"
+                app:layout_constraintEnd_toStartOf="@+id/helpTitleTextViewGroup"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -115,16 +125,16 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/pad8dp"
-                android:inputType="textMultiLine|text"
-                android:paddingEnd="@dimen/txt20sp"
+                android:inputType="textMultiLine"
+                android:padding="@dimen/pad5dp"
                 android:text="@string/help_section_description_navigation_menu_first_use"
                 android:textAlignment="viewStart"
                 android:textColor="@color/white"
                 android:textSize="@dimen/txt14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/helpTitleTextViewGroup"
-                app:layout_constraintTop_toBottomOf="@+id/helpTitleTextViewGroup" />
+                app:layout_constraintStart_toEndOf="@+id/helpImageViewGroup"
+                app:layout_constraintTop_toBottomOf="@+id/helpTitleTextViewGroup"
+                app:layout_constraintEnd_toEndOf="@+id/constraintLayout2"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -132,9 +142,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/grey_alpha_80"
-            android:paddingTop="@dimen/pad10dp"
             android:paddingStart="@dimen/pad10dp"
-            android:paddingEnd="@dimen/pad10dp">
+            android:paddingTop="@dimen/pad10dp"
+            app:layout_constraintEnd_toEndOf="@+id/firstUseInstructionsLayout"
+            app:layout_constraintStart_toStartOf="@+id/firstUseInstructionsLayout"
+            app:layout_constraintTop_toTopOf="@+id/firstUseInstructionsLayout">
 
             <ImageView
                 android:id="@+id/helpImageViewHelpButton"
@@ -162,33 +174,32 @@
             <TextView
                 android:id="@+id/helpDescriptionTextViewHelpButton"
                 style="@style/TextAppearance.AppCompat.Small"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/pad10dp"
                 android:layout_marginTop="@dimen/pad8dp"
-                android:paddingEnd="@dimen/txt20sp"
                 android:inputType="textMultiLine|text"
                 android:text="@string/help_section_description_help_button_first_use"
                 android:textColor="@color/white"
                 android:textSize="@dimen/txt14sp"
                 app:layout_constraintStart_toEndOf="@+id/helpImageViewHelpButton"
-                app:layout_constraintTop_toBottomOf="@+id/helpTitleTextViewHelpButton" />
+                app:layout_constraintTop_toBottomOf="@+id/helpTitleTextViewHelpButton"
+                app:layout_constraintEnd_toEndOf="@+id/constraintLayoutHelpButton"/>
 
             <Button
                 android:id="@+id/gotItButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/pad10dp"
+                android:background="@color/transparent"
                 android:paddingEnd="@dimen/txt20sp"
                 android:paddingBottom="@dimen/txt20sp"
-                android:background="@color/transparent"
                 android:text="@string/got_it"
-                android:textAllCaps="true"
-                android:textSize="@dimen/txt20sp"
-                android:textColor="@color/white"
                 android:textAlignment="viewEnd"
-                app:layout_constraintStart_toStartOf="parent"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt20sp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/helpDescriptionTextViewHelpButton" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>

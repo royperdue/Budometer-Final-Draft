@@ -130,6 +130,8 @@ public class HelpFragmentCamera extends BaseFragment {
                 .text(getString(R.string.help_description_camera_placement_photo_capture_2)).close()
                 .li().font().color("white")
                 .text(getString(R.string.help_description_start_the_camera)).close()
+                .li().font().color("white")
+                .text(getString(R.string.help_description_camera_placement_camera_close_button)).close()
                 .li(getString(R.string.help_description_camera_placement_photo_capture_1)).close()
                 .li().font().color("white")
                 .text(getString(R.string.help_description_camera_front_rear)).close()
@@ -138,8 +140,9 @@ public class HelpFragmentCamera extends BaseFragment {
                 .li().font().color("white")
                 .text(getString(R.string.help_description_camera_flash_setting)).close()
                 .li().font().color("white")
+                .text(getString(R.string.help_description_camera_save_image_1)).close()
+                .li().font().color("white")
                 .text(getString(R.string.help_description_camera_retake)).close()
-                .li(getString(R.string.help_description_camera_save_image_1))
                 .p().font().color("red")
                 .text(getString(R.string.help_description_camera_save_image_2)).close();
         cameraCaptureTextView0.setText(html.close().build());

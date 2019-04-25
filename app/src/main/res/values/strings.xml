@@ -54,7 +54,7 @@
 
     <string name="help_section_description_navigation_menu_first_use">The navigation menu contains an assortment of buttons used to navigate within the app.</string>
 
-    <string name="help_section_description_help_button_first_use">*IMPORTANT* Read the help pages \nbefore first use. Click the purple button to access the help pages. Instructions for \nthe usage of each \nnavigation button are provided on the help pages.</string>
+    <string name="help_section_description_help_button_first_use">*IMPORTANT* Read the help pages before first use. Click the purple button to access the help pages. Instructions for the usage of each navigation button are provided on the help pages.</string>
 
     <string name="help_section_description_camera_button_1">After installing the Budometer app you will need to take some pictures of the buds you want to analyze.</string>
 
@@ -62,15 +62,17 @@
 
     <string name="help_description_start_the_camera">Click the camera icon in the navigation menu to start the camera.</string>
 
-    <string name="help_description_camera_placement_photo_capture_1">(1) Position the camera close to the bud as indicated by the red outline.</string>
+    <string name="help_description_camera_placement_camera_close_button">(1) Click to close the camera.</string>
+
+    <string name="help_description_camera_placement_photo_capture_1">(2) Position the camera close to the bud as indicated by the red outline.</string>
 
     <string name="help_description_camera_placement_photo_capture_2">It\'s important that the photo contains bud only without background showing around the edges.</string>
 
-    <string name="help_description_click_capture">(3) Click the large center button to capture the image.</string>
+    <string name="help_description_click_capture">(4) Click the large center button to capture the image.</string>
 
-    <string name="help_description_camera_flash_setting">(4) Click to change the camera\'s flash setting.</string>
+    <string name="help_description_camera_flash_setting">(5) Click to change the camera\'s flash setting.</string>
 
-    <string name="help_description_camera_front_rear">(2) Toggles between the front-facing and rear-facing cameras.</string>
+    <string name="help_description_camera_front_rear">(3) Toggles between the front-facing and rear-facing cameras.</string>
 
     <string name="help_description_camera_display_image_preview">The captured image will be displayed on the camera\'s image preview page.</string>
 
@@ -78,7 +80,7 @@
 
     <string name="help_description_camera_save_image_2">Saved images are saved to the folder labeled \'Budometer\' located inside the \'Pictures\' directory.</string>
 
-    <string name="help_description_camera_retake">(5) Click to discard the current image and take a new photo.</string>
+    <string name="help_description_camera_retake">(7) Click to discard the current image and take a new photo.</string>
 
     <string name="help_description_gallery_main_1">Images captured using the camera are accessible through the image gallery.</string>
 
@@ -114,11 +116,11 @@
 
     <string name="help_description_chart_pistil_percent">(8) Text indicating the percentage of pistils that have turned orange/brown, wilted, and curled.</string>
 
-    <string name="help_description_chart_strain_1">(9) Text showing the strain of cannabis represented in the analyzed photos.</string>
+    <string name="help_description_chart_strain_1">(10) Text showing the strain of cannabis represented in the analyzed photos.</string>
 
     <string name="help_description_chart_strain_2">This information is user input, entering the cannabis strain is optional.</string>
 
-    <string name="help_description_chart_crop_id_1">(10) Crop id, archived analysis readings are grouped according to the crop or plant from which they were taken and therefore each reading must have a crop/plant identifier.</string>
+    <string name="help_description_chart_crop_id_1">(9) Crop id, archived analysis readings are grouped according to the crop or plant from which they were taken and therefore each reading must have a crop/plant identifier.</string>
 
     <string name="help_description_chart_crop_id_2">This information is user input, entering the crop id is required to save the reading.</string>
 
@@ -131,19 +133,21 @@
     <string name="help_description_crop_main">Budometer\'s image cropping tool can be used
        to trim off unwanted background colors along the image edges.</string>
 
-    <string name="help_description_crop_1">(1) Navigate to the gallery.</string>
+    <string name="help_description_crop_1">Navigate to the gallery.</string>
 
-    <string name="help_description_crop_2">(2) Select the folder containing the image.</string>
+    <string name="help_description_crop_2">Select the folder containing the image.</string>
 
-    <string name="help_description_crop_3">(3) Select an image.</string>
+    <string name="help_description_crop_3">Select an image.</string>
 
-    <string name="help_description_crop_4">(4) Click expanding menu button to reveal the navigation menu.</string>
+    <string name="help_description_crop_4">Click expanding menu button to reveal the navigation menu.</string>
 
-    <string name="help_description_crop_5">(5) Clicking the yellow crop image button opens the selected image in the image cropping tool.</string>
+    <string name="help_description_crop_5">Clicking the yellow crop image button opens the selected image in the image cropping tool.</string>
 
-    <string name="help_description_crop_6">(6) Resize and reposition the cropping guide so that the section of image inside the guide represents the image that you would like to keep.</string>
+    <string name="help_description_crop_6">Resize and reposition the cropping guide(1) so that the section of image inside the guide represents the image that you would like to keep.</string>
 
-    <string name="help_description_crop_7">(7) Clicking the crop image button crops the image, saves the edited version to the gallery, refreshes the gallery, and exits the cropping tool.</string>
+    <string name="help_description_crop_7">Clicking the crop image button(2) crops the image, saves the edited version to the gallery, refreshes the gallery, and exits the cropping tool.</string>
+
+    <string name="help_description_crop_8">The close button(3) exits image cropping.</string>
 
     <string name="gallery">Gallery</string>
 

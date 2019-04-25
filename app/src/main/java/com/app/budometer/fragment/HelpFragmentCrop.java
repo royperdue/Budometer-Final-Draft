@@ -126,7 +126,9 @@ public class HelpFragmentCrop extends BaseFragment {
                 .li().font().color("white")
                 .text(getString(R.string.help_description_crop_6)).close()
                 .li().font().color("white")
-                .text(getString(R.string.help_description_crop_7)).close();
+                .text(getString(R.string.help_description_crop_7)).close()
+                .li().font().color("white")
+                .text(getString(R.string.help_description_crop_8)).close();
         cropSelectTextView1.setText(html.close().build());
 
 
