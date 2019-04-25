@@ -90,6 +90,8 @@
             android:id="@+id/flashImageButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:background="@color/transparent"
+            android:layout_weight="1"
+            android:src="@drawable/ic_flash_off_white_48dp"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

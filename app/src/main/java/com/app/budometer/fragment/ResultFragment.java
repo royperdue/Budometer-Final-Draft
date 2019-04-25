@@ -527,6 +527,10 @@ public class ResultFragment extends BaseFragment {
         if ((greyPixelTotal * 100.0f) / analysis.getTotalPixelCount() < 1.0f)
             greyTextView.setVisibility(View.GONE);
 
+        resultEditText.setText("");
+        strainEditText.setText("");
+        cropIdEditText.setText("");
+        notesEditText.setText("");
         evaluateTensorFlowResults(analysis.getTensorFlowConfidenceGrowing(), analysis.getTensorFlowConfidenceReady());
 
         pieChartView.invalidate();
@@ -553,7 +557,6 @@ public class ResultFragment extends BaseFragment {
             totalPixelsNotTurned =
                     analysis.getLightBrownPixelCount() +
                             analysis.getLightOrangePixelCount() +
-                            analysis.getMediumOrangePixelCount() +
                             analysis.getLightRedPixelCount() +
                             analysis.getMediumRedPixelCount() +
                             analysis.getLightYellowPixelCount() +
@@ -572,6 +575,7 @@ public class ResultFragment extends BaseFragment {
                     analysis.getRedPixelCount() +
                             analysis.getDarkRedPixelCount() +
                             analysis.getOrangePixelCount() +
+                            analysis.getMediumOrangePixelCount() +
                             analysis.getDarkOrangePixelCount() +
                             analysis.getMediumBrownPixelCount() +
                             analysis.getBrownPixelCount() +
@@ -786,8 +790,13 @@ public class ResultFragment extends BaseFragment {
     }
 
     private Analysis getAnalysis(long analysisId) {
-        return BudometerApp.getDaoSession().getAnalysisDao().queryBuilder()
+        Analysis analysis = null;
+        List<Analysis> analyses = BudometerApp.getDaoSession().getAnalysisDao().queryBuilder()
                 .where(AnalysisDao.Properties.AnalysisId.eq(analysisId))
-                .list().get(0);
+                .list();
+        if (analyses.size() > 0)
+            analysis = analyses.get(0);
+
+        return analysis;
     }
 }
