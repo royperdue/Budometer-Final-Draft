@@ -47,7 +47,7 @@
     <string name="help_section_title_leaf_color">Leaf Curling &amp; Coloration:</string>
 
     <!--HELP UI PAGES - Help explanation messages-->
-    <string name="help_section_description_expand_button">Click to reveal/conceal the navigation menu.</string>
+    <string name="help_section_description_expand_button">Click to open/close the navigation menu.</string>
 
     <string name="help_section_description_navigation_menu">The navigation menu contains an assortment of buttons used to navigate within the app. Instructions for the usage of each navigation button are
        provided on the proceeding help pages.</string>
