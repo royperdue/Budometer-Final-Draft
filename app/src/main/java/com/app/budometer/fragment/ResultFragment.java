@@ -554,16 +554,16 @@ public class ResultFragment extends BaseFragment {
         String percentageTurned = "";
         Analysis analysis = getAnalysis(BudometerSP.init(getActivity()).getLong(BudometerConfig.GREEN_DAO_ANALYSIS_ID));
 
-        if (analysis.getTensorFlowConfidenceOrange() > analysis.getTensorFlowConfidenceWhite() && analysis.getTensorFlowConfidenceOrange() > analysis.getTensorFlowConfidencePurple()) {
+        if (analysis.getTensorFlowConfidenceOrange() > analysis.getTensorFlowConfidenceWhite() &&
+                analysis.getTensorFlowConfidenceOrange() > analysis.getTensorFlowConfidencePurple() &&
+                analysis.getTensorFlowConfidenceReady() > analysis.getTensorFlowConfidenceGrowing()) {
             totalPixelsNotTurned =
-                    analysis.getLightBrownPixelCount() +
-                            analysis.getLightOrangePixelCount() +
-                            analysis.getLightRedPixelCount() +
-                            analysis.getMediumRedPixelCount() +
-                            analysis.getLightYellowPixelCount() +
+                    analysis.getLightYellowPixelCount() +
                             analysis.getMediumYellowPixelCount() +
                             analysis.getYellowPixelCount() +
                             analysis.getDarkYellowPixelCount() +
+                            analysis.getLightRedPixelCount() +
+                            analysis.getMediumRedPixelCount() +
                             analysis.getLightPurplePixelCount() +
                             analysis.getMediumPurplePixelCount() +
                             analysis.getPurplePixelCount() +
@@ -575,9 +575,11 @@ public class ResultFragment extends BaseFragment {
             totalPixelsTurned =
                     analysis.getRedPixelCount() +
                             analysis.getDarkRedPixelCount() +
-                            analysis.getOrangePixelCount() +
+                            analysis.getLightOrangePixelCount() +
                             analysis.getMediumOrangePixelCount() +
+                            analysis.getOrangePixelCount() +
                             analysis.getDarkOrangePixelCount() +
+                            analysis.getLightBrownPixelCount() +
                             analysis.getMediumBrownPixelCount() +
                             analysis.getBrownPixelCount() +
                             analysis.getDarkBrownPixelCount();

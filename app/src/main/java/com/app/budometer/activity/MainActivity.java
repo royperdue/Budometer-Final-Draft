@@ -451,7 +451,7 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnMa
                         resultData.setTensorFlowConfidenceWhite(results.get(i).getConfidence());
                     }
 
-                    //System.out.println("TITLE: " + results.get(i).getTitle() + ":CONFIDENCE SCORE: " + results.get(i).getConfidence());
+                    System.out.println("TITLE: " + results.get(i).getTitle() + ":CONFIDENCE SCORE: " + results.get(i).getConfidence());
                 }
             }
             return resultData;
@@ -501,7 +501,7 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnMa
                         resultData.setTensorFlowConfidenceReady(results.get(i).getConfidence());
                     }
 
-                    //System.out.println("TITLE: " + results.get(i).getTitle() + ":CONFIDENCE SCORE: " + results.get(i).getConfidence());
+                    System.out.println("TITLE: " + results.get(i).getTitle() + ":CONFIDENCE SCORE: " + results.get(i).getConfidence());
                 }
             }
             return resultData;

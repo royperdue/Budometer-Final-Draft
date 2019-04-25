@@ -10,7 +10,7 @@ public final class BudometerConfig {
     public static final String MODEL_FILE_GROWING_READY = "file:///android_asset/growing_ready_graph.pb";
     public static final String LABEL_FILE_GROWING_READY = "file:///android_asset/growing_ready_labels.txt";
 
-    public static final String MODEL_FILE_BUD_COLORS = "file:///android_asset/rounded_bud_colors_graph.pb";
+    public static final String MODEL_FILE_BUD_COLORS = "file:///android_asset/bud_colors_graph.pb";
     public static final String LABEL_FILE_BUD_COLORS = "file:///android_asset/bud_colors_labels.txt";
 
     public static final String GOT_IT = "got_it**";
