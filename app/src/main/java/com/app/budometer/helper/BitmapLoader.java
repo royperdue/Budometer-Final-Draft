@@ -47,7 +47,6 @@ public class BitmapLoader {
     private Map<String, Runnable> doingTasks;
     private Map<String, List<Runnable>> undoTasks;
 
-
     private BitmapLoader(Context context) {
         mDiskLruCache = new DiskLruCacheHelper(context).mDiskLruCache;
         lruCacheHelper = new LruCacheHelper();
@@ -56,7 +55,6 @@ public class BitmapLoader {
         doingTasks = new HashMap<>();
         undoTasks = new HashMap<>();
     }
-
 
     public void asyncLoad(final int index, final String url, final int reqWidth, final int reqHeight, final Handler handler) {
         Runnable task = new Runnable() {
@@ -82,19 +80,19 @@ public class BitmapLoader {
         String key = BudometerUtils.hashKeyFormUrl(url);
         Bitmap bitmap = lruCacheHelper.getBitmapFromMemCache(key);
         if (bitmap != null) {
-            Log.e(TAG, "load from memory:" + url);
+            //Log.e(TAG, "load from memory:" + url);
             return bitmap;
         }
 
         try {
             bitmap = loadBitmapFromDiskCache(url, reqWidth, reqHeight);
             if (bitmap != null) {
-                Log.e(TAG, "load from disk:" + url);
+                //Log.e(TAG, "load from disk:" + url);
                 return bitmap;
             }
             bitmap = loadBitmapFromHttp(url, reqWidth, reqHeight);
             if (bitmap != null) {
-                Log.e(TAG, "load from http:" + url);
+                //Log.e(TAG, "load from http:" + url);
                 return bitmap;
             }
         } catch (IOException e) {
@@ -141,7 +139,7 @@ public class BitmapLoader {
             }
             return true;
         } catch (IOException e) {
-            Log.e(TAG, "downloadBitmap failed." + e);
+            //Log.e(TAG, "downloadBitmap failed." + e);
         } finally {
             if (urlConnection != null) {
                 urlConnection.disconnect();

@@ -152,7 +152,7 @@ class AudioMediaEncoder extends MediaEncoder {
             while (!mRequestStop) {
                 read(false);
             }
-            LOG.w("RECORDER: Stop was requested. We're out of the loop. Will post an endOfStream.");
+            //Log.w("RECORDER: Stop was requested. We're out of the loop. Will post an endOfStream.");
             // Last input with 0 length. This will signal the endOfStream.
             // Can't use drain(true); it is only available when writing to the codec InputSurface.
             read(true);
@@ -164,7 +164,7 @@ class AudioMediaEncoder extends MediaEncoder {
         private void read(boolean endOfStream) {
             mCurrentBuffer = mByteBufferPool.get();
             if (mCurrentBuffer == null) {
-                LOG.e("Skipping audio frame, encoding is too slow.");
+                //Log.e("Skipping audio frame, encoding is too slow.");
                 // TODO should fix the next presentation time here. However this is
                 // extremely unlikely based on my tests. The mByteBufferPool should be big enough.
             } else {
@@ -175,9 +175,9 @@ class AudioMediaEncoder extends MediaEncoder {
                     mCurrentBuffer.limit(mReadBytes);
                     onBuffer(endOfStream);
                 } else if (mReadBytes == AudioRecord.ERROR_INVALID_OPERATION) {
-                    LOG.e("Got AudioRecord.ERROR_INVALID_OPERATION");
+                    //Log.e("Got AudioRecord.ERROR_INVALID_OPERATION");
                 } else if (mReadBytes == AudioRecord.ERROR_BAD_VALUE) {
-                    LOG.e("Got AudioRecord.ERROR_BAD_VALUE");
+                    //Log.e("Got AudioRecord.ERROR_BAD_VALUE");
                 }
             }
         }
@@ -193,7 +193,7 @@ class AudioMediaEncoder extends MediaEncoder {
 
         private void increaseTime(int readBytes) {
             increaseTime3(readBytes);
-            LOG.v("Read", readBytes, "bytes, increasing PTS to", mLastTimeUs);
+            //Log.v("Read", readBytes, "bytes, increasing PTS to", mLastTimeUs);
         }
 
         /**
@@ -285,7 +285,7 @@ class AudioMediaEncoder extends MediaEncoder {
         }
 
         private void performPendingOps(boolean force) {
-            LOG.v("Performing", mPendingOps.size(), "Pending operations.");
+            //Log.v("Performing", mPendingOps.size(), "Pending operations.");
             InputBuffer buffer;
             while ((buffer = mPendingOps.peek()) != null) {
                 if (force) {

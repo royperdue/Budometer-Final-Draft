@@ -35,15 +35,11 @@ public class RecyclerViewManager {
     private final Context context;
     private final RecyclerView recyclerView;
     private final ImagePickerConfig config;
-
     private GridLayoutManager layoutManager;
     private GridSpacingItemDecoration itemOffsetDecoration;
-
     private ImagePickerAdapter imageAdapter;
     private FolderPickerAdapter folderAdapter;
-
     private Parcelable foldersState;
-
     private int imageColumns;
     private int folderColumns;
 

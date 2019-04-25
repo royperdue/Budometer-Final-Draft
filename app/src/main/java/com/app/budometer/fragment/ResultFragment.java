@@ -219,9 +219,9 @@ public class ResultFragment extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
         Analysis analysis = getAnalysis(BudometerSP.init(getActivity()).getLong(BudometerConfig.GREEN_DAO_ANALYSIS_ID));
 
-        System.out.println("ANALYSIS-ID: " + analysis.getAnalysisId());
-        System.out.println("GROWING: " + analysis.getTensorFlowConfidenceGrowing());
-        System.out.println("READY: " + analysis.getTensorFlowConfidenceReady());
+        //System.out.println("ANALYSIS-ID: " + analysis.getAnalysisId());
+        //System.out.println("GROWING: " + analysis.getTensorFlowConfidenceGrowing());
+        //System.out.println("READY: " + analysis.getTensorFlowConfidenceReady());
 
         String[] paths = new String[4];
         paths[0] = analysis.getImagePath1();
@@ -235,7 +235,7 @@ public class ResultFragment extends BaseFragment {
     }
 
     private void evaluateTensorFlowResults(float tensorFlowConfidenceGrowing, float tensorFlowConfidenceReady) {
-        System.out.println("EVALUATE-RESULTS: ");
+        //System.out.println("EVALUATE-RESULTS: ");
         if (tensorFlowConfidenceGrowing > tensorFlowConfidenceReady)
             resultEditText.setText(R.string.result_message_growing);
         else

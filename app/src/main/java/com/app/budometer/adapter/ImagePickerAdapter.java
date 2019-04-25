@@ -191,5 +191,4 @@ public class ImagePickerAdapter extends BaseListAdapter<ImagePickerAdapter.Image
             fileTypeIndicator = itemView.findViewById(R.id.item_file_type_indicator);
         }
     }
-
 }

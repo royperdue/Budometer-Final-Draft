@@ -43,7 +43,7 @@ public class BudometerSP {
         sSharedPreferences = mContext.getSharedPreferences(spName, Context.MODE_PRIVATE);
         sEditor = sSharedPreferences.edit();
         mCurSPName = spName;
-        Log.i(TAG, "BudometerSP: " + mCurSPName);
+        //Log.i(TAG, "BudometerSP: " + mCurSPName);
     }
 
     public static BudometerSP init(Context context) {

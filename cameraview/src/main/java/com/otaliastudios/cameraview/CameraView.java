@@ -24,6 +24,7 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -239,7 +240,7 @@ public class CameraView extends FrameLayout implements LifecycleObserver {
     }
 
     protected CameraPreview instantiatePreview(Context context, ViewGroup container) {
-        LOG.w("preview:", "isHardwareAccelerated:", isHardwareAccelerated());
+        //Log.w("preview:", "isHardwareAccelerated:", isHardwareAccelerated());
         switch (mPreview) {
             case SURFACE:
                 return new SurfaceCameraPreview(context, container, null);
@@ -315,7 +316,7 @@ public class CameraView extends FrameLayout implements LifecycleObserver {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         Size previewSize = mCameraController.getPreviewStreamSize(CameraController.REF_VIEW);
         if (previewSize == null) {
-            LOG.w("onMeasure:", "surface is not ready. Calling default behavior.");
+            //Log.w("onMeasure:", "surface is not ready. Calling default behavior.");
             super.onMeasure(widthMeasureSpec, heightMeasureSpec);
             return;
         }
@@ -341,16 +342,16 @@ public class CameraView extends FrameLayout implements LifecycleObserver {
             if (heightMode == AT_MOST && lp.height == MATCH_PARENT) heightMode = EXACTLY;
         }
 
-        LOG.i("onMeasure:", "requested dimensions are", "(" + widthValue + "[" + ms(widthMode) + "]x" +
-                heightValue + "[" + ms(heightMode) + "])");
-        LOG.i("onMeasure:",  "previewSize is", "(" + previewWidth + "x" + previewHeight + ")");
+        /*Log.i("onMeasure:", "requested dimensions are", "(" + widthValue + "[" + ms(widthMode) + "]x" +
+                heightValue + "[" + ms(heightMode) + "])");*/
+        //Log.i("onMeasure:",  "previewSize is", "(" + previewWidth + "x" + previewHeight + ")");
 
         // (1) If we have fixed dimensions (either 300dp or MATCH_PARENT), there's nothing we should do,
         // other than respect it. The preview will eventually be cropped at the sides (by PreviewImpl scaling)
         // except the case in which these fixed dimensions manage to fit exactly the preview aspect ratio.
         if (widthMode == EXACTLY && heightMode == EXACTLY) {
-            LOG.w("onMeasure:", "both are MATCH_PARENT or fixed value. We adapt.",
-                    "This means CROP_CENTER.", "(" + widthValue + "x" + heightValue + ")");
+            /*Log.w("onMeasure:", "both are MATCH_PARENT or fixed value. We adapt.",
+                    "This means CROP_CENTER.", "(" + widthValue + "x" + heightValue + ")");*/
             super.onMeasure(widthMeasureSpec, heightMeasureSpec);
             return;
         }
@@ -358,9 +359,9 @@ public class CameraView extends FrameLayout implements LifecycleObserver {
         // (2) If both dimensions are free, with no limits, then our size will be exactly the
         // preview size. This can happen rarely, for example in 2d scrollable containers.
         if (widthMode == UNSPECIFIED && heightMode == UNSPECIFIED) {
-            LOG.i("onMeasure:", "both are completely free.",
+            /*Log.i("onMeasure:", "both are completely free.",
                     "We respect that and extend to the whole preview size.",
-                    "(" + previewWidth + "x" + previewHeight + ")");
+                    "(" + previewWidth + "x" + previewHeight + ")");*/
             super.onMeasure(
                     MeasureSpec.makeMeasureSpec((int) previewWidth, EXACTLY),
                     MeasureSpec.makeMeasureSpec((int) previewHeight, EXACTLY));
@@ -384,8 +385,8 @@ public class CameraView extends FrameLayout implements LifecycleObserver {
                 width = widthValue;
                 height = (int) (width * ratio);
             }
-            LOG.i("onMeasure:", "one dimension was free, we adapted it to fit the aspect ratio.",
-                    "(" + width + "x" + height + ")");
+            /*Log.i("onMeasure:", "one dimension was free, we adapted it to fit the aspect ratio.",
+                    "(" + width + "x" + height + ")");*/
             super.onMeasure(MeasureSpec.makeMeasureSpec(width, EXACTLY),
                     MeasureSpec.makeMeasureSpec(height, EXACTLY));
             return;
@@ -404,9 +405,9 @@ public class CameraView extends FrameLayout implements LifecycleObserver {
                 width = widthValue;
                 height = Math.min((int) (width * ratio), heightValue);
             }
-            LOG.i("onMeasure:", "one dimension was EXACTLY, another AT_MOST.",
+            /*Log.i("onMeasure:", "one dimension was EXACTLY, another AT_MOST.",
                     "We have TRIED to fit the aspect ratio, but it's not guaranteed.",
-                    "(" + width + "x" + height + ")");
+                    "(" + width + "x" + height + ")");*/
             super.onMeasure(MeasureSpec.makeMeasureSpec(width, EXACTLY),
                     MeasureSpec.makeMeasureSpec(height, EXACTLY));
             return;
@@ -424,9 +425,9 @@ public class CameraView extends FrameLayout implements LifecycleObserver {
             height = heightValue;
             width = (int) (height / ratio);
         }
-        LOG.i("onMeasure:", "both dimension were AT_MOST.",
+       /* LOG.i("onMeasure:", "both dimension were AT_MOST.",
                 "We fit the preview aspect ratio.",
-                "(" + width + "x" + height + ")");
+                "(" + width + "x" + height + ")");*/
         super.onMeasure(MeasureSpec.makeMeasureSpec(width, EXACTLY),
                 MeasureSpec.makeMeasureSpec(height, EXACTLY));
     }
@@ -514,13 +515,13 @@ public class CameraView extends FrameLayout implements LifecycleObserver {
         // Pass to our own GestureLayouts
         CameraOptions options = mCameraController.getCameraOptions(); // Non null
         if (mPinchGestureLayout.onTouchEvent(event)) {
-            LOG.i("onTouchEvent", "pinch!");
+            //Log.i("onTouchEvent", "pinch!");
             onGesture(mPinchGestureLayout, options);
         } else if (mScrollGestureLayout.onTouchEvent(event)) {
-            LOG.i("onTouchEvent", "scroll!");
+            //Log.i("onTouchEvent", "scroll!");
             onGesture(mScrollGestureLayout, options);
         } else if (mTapGestureLayout.onTouchEvent(event)) {
-            LOG.i("onTouchEvent", "tap!");
+            //Log.i("onTouchEvent", "tap!");
             onGesture(mTapGestureLayout, options);
         }
         return true;

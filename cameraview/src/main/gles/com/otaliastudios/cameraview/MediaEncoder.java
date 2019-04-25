@@ -60,11 +60,11 @@ abstract class MediaEncoder {
         mBufferInfo = new MediaCodec.BufferInfo();
         mMaxLengthMillis = maxLengthMillis;
         mWorker = WorkerHandler.get(getName());
-        LOG.i(getName(), "Prepare was called. Posting.");
+        //Log.i(getName(), "Prepare was called. Posting.");
         mWorker.post(new Runnable() {
             @Override
             public void run() {
-                LOG.i(getName(), "Prepare was called. Executing.");
+                //Log.i(getName(), "Prepare was called. Executing.");
                 onPrepare(controller, maxLengthMillis);
             }
         });
@@ -76,11 +76,11 @@ abstract class MediaEncoder {
      * like a "frame available".
      */
     final void start() {
-        LOG.i(getName(), "Start was called. Posting.");
+        //Log.i(getName(), "Start was called. Posting.");
         mWorker.post(new Runnable() {
             @Override
             public void run() {
-                LOG.i(getName(), "Start was called. Executing.");
+                //Log.i(getName(), "Start was called. Executing.");
                 onStart();
             }
         });
@@ -93,11 +93,11 @@ abstract class MediaEncoder {
      * @param data object
      */
     final void notify(final @NonNull String event, final @Nullable Object data) {
-        LOG.i(getName(), "Notify was called. Posting.");
+        //Log.i(getName(), "Notify was called. Posting.");
         mWorker.post(new Runnable() {
             @Override
             public void run() {
-                LOG.i(getName(), "Notify was called. Executing.");
+                //Log.i(getName(), "Notify was called. Executing.");
                 onEvent(event, data);
             }
         });
@@ -107,11 +107,11 @@ abstract class MediaEncoder {
      * Stop recording.
      */
     final void stop() {
-        LOG.i(getName(), "Stop was called. Posting.");
+        //Log.i(getName(), "Stop was called. Posting.");
         mWorker.post(new Runnable() {
             @Override
             public void run() {
-                LOG.i(getName(), "Stop was called. Executing.");
+                //Log.i(getName(), "Stop was called. Executing.");
                 onStop();
             }
         });
@@ -158,7 +158,7 @@ abstract class MediaEncoder {
      * parameters, might also be through an input buffer flag).
      */
     private void release() {
-        LOG.w("Subclass", getName(), "Notified that it is released.");
+        //Log.w("Subclass", getName(), "Notified that it is released.");
         mController.requestRelease(mTrackIndex);
         mMediaCodec.stop();
         mMediaCodec.release();
@@ -209,7 +209,7 @@ abstract class MediaEncoder {
      */
     @SuppressWarnings("WeakerAccess")
     protected void encodeInputBuffer(InputBuffer buffer) {
-        LOG.w("ENCODING:", getName(), "Buffer:", buffer.index, "Bytes:", buffer.length, "Presentation:", buffer.timestamp);
+        //Log.w("ENCODING:", getName(), "Buffer:", buffer.index, "Bytes:", buffer.length, "Presentation:", buffer.timestamp);
         if (buffer.isEndOfStream) { // send EOS
             mMediaCodec.queueInputBuffer(buffer.index, 0, 0,
                     buffer.timestamp, MediaCodec.BUFFER_FLAG_END_OF_STREAM);
@@ -240,9 +240,9 @@ abstract class MediaEncoder {
     @SuppressLint("LogNotTimber")
     @SuppressWarnings("WeakerAccess")
     protected void drainOutput(boolean drainAll) {
-        LOG.w("DRAINING:", getName(), "EOS:", drainAll);
+        //Log.w("DRAINING:", getName(), "EOS:", drainAll);
         if (mMediaCodec == null) {
-            LOG.e("drain() was called before prepare() or after releasing.");
+            //Log.e("drain() was called before prepare() or after releasing.");
             return;
         }
         if (mBuffers == null) {
@@ -265,7 +265,7 @@ abstract class MediaEncoder {
                 mTrackIndex = mController.requestStart(newFormat);
                 mOutputBufferPool = new OutputBufferPool(mTrackIndex);
             } else if (encoderStatus < 0) {
-                LOG.e("Unexpected result from dequeueOutputBuffer: " + encoderStatus);
+                //Log.e("Unexpected result from dequeueOutputBuffer: " + encoderStatus);
                 // let's ignore it
             } else {
                 ByteBuffer encodedData = mBuffers.getOutputBuffer(encoderStatus);
@@ -289,7 +289,7 @@ abstract class MediaEncoder {
                     // and should be used for offsets only.
                     // TODO find a better way, this causes sync issues. (+ note: this sends pts=0 at first)
                     // mBufferInfo.presentationTimeUs = mLastPresentationTimeUs - mStartPresentationTimeUs;
-                    LOG.i("DRAINING:", getName(), "Dispatching write(). Presentation:", mBufferInfo.presentationTimeUs);
+                    //Log.i("DRAINING:", getName(), "Dispatching write(). Presentation:", mBufferInfo.presentationTimeUs);
 
                     // TODO fix the mBufferInfo being the same, then implement delayed writing in Controller
                     // and remove the isStarted() check here.
@@ -307,9 +307,9 @@ abstract class MediaEncoder {
                         && !mMaxLengthReached
                         && mStartPresentationTimeUs != Long.MIN_VALUE
                         && mLastPresentationTimeUs - mStartPresentationTimeUs > mMaxLengthMillis * 1000) {
-                    LOG.w("DRAINING: Reached maxLength! mLastPresentationTimeUs:", mLastPresentationTimeUs,
+                    /*Log.w("DRAINING: Reached maxLength! mLastPresentationTimeUs:", mLastPresentationTimeUs,
                             "mStartPresentationTimeUs:", mStartPresentationTimeUs,
-                            "mMaxLengthUs:", mMaxLengthMillis * 1000);
+                            "mMaxLengthUs:", mMaxLengthMillis * 1000);*/
                     mMaxLengthReached = true;
                     mController.requestStop(mTrackIndex);
                     break;
@@ -317,7 +317,7 @@ abstract class MediaEncoder {
 
                 // Check for the EOS flag so we can release the encoder.
                 if ((mBufferInfo.flags & MediaCodec.BUFFER_FLAG_END_OF_STREAM) != 0) {
-                    LOG.w("DRAINING:", getName(), "Dispatching release().");
+                    //Log.w("DRAINING:", getName(), "Dispatching release().");
                     release();
                     break;
                 }

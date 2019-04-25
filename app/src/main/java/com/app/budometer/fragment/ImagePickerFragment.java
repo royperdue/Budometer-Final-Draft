@@ -22,7 +22,6 @@ import com.app.budometer.listener.ImagePickerView;
 import com.app.budometer.features.IpCons;
 import com.app.budometer.features.common.BaseConfig;
 import com.app.budometer.features.recyclers.RecyclerViewManager;
-import com.app.budometer.helper.IpCrasher;
 import com.app.budometer.model.Folder;
 import com.app.budometer.model.Image;
 import com.app.budometer.util.BudometerConfig;
@@ -62,7 +61,6 @@ public class ImagePickerFragment extends BaseFragment implements ImagePickerView
 
         void onPickerFragmentInteraction(int index);
     }
-
 
     public ImagePickerFragment() {
     }

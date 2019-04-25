@@ -115,7 +115,7 @@ class SnapshotPictureRecorder extends PictureRecorder {
 
                         // Fix rotation:
                         // TODO Not sure why we need the minus here... It makes no sense to me.
-                        LOG.w("Recording frame. Rotation:", mResult.rotation, "Actual:", -mResult.rotation);
+                        //LOG.w("Recording frame. Rotation:", mResult.rotation, "Actual:", -mResult.rotation);
                         int rotation = -mResult.rotation;
                         mResult.rotation = 0;
 

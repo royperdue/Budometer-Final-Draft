@@ -21,7 +21,6 @@ import com.app.budometer.features.ImagePickerSavePath;
 import com.app.budometer.features.IpCons;
 import com.app.budometer.features.ReturnMode;
 import com.app.budometer.features.common.BaseConfig;
-import com.app.budometer.helper.IpLogger;
 import com.app.budometer.model.Image;
 
 import java.io.Closeable;
@@ -133,7 +132,7 @@ public class BudometerUtils {
         // Create the storage directory if it does not exist
         if (!mediaStorageDir.exists()) {
             if (!mediaStorageDir.mkdirs()) {
-                IpLogger.getInstance().d("Oops! Failed create " + path);
+                //IpLogger.getInstance().d("Oops! Failed create " + path);
                 return null;
             }
         }
@@ -146,7 +145,7 @@ public class BudometerUtils {
         try {
             imageFile = File.createTempFile(imageFileName, ".jpg", mediaStorageDir);
         } catch (IOException e) {
-            IpLogger.getInstance().d("Oops! Failed create " + imageFileName + " file");
+            //IpLogger.getInstance().d("Oops! Failed create " + imageFileName + " file");
         }
         return imageFile;
     }

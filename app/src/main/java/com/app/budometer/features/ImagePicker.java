@@ -5,7 +5,6 @@ import android.content.Intent;
 
 
 import com.app.budometer.features.imageloader.ImageLoader;
-import com.app.budometer.helper.IpLogger;
 import com.app.budometer.helper.LocaleManager;
 import com.app.budometer.model.Image;
 import com.app.budometer.util.BudometerUtils;
@@ -153,7 +152,7 @@ public abstract class ImagePicker {
     }
 
     public ImagePicker enableLog(boolean isEnable) {
-        IpLogger.getInstance().setEnable(isEnable);
+        //IpLogger.getInstance().setEnable(isEnable);
         return this;
     }
 

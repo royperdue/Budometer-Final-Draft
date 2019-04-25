@@ -3,39 +3,28 @@ package com.app.budometer.fragment;
 
 import android.Manifest;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.app.budometer.R;
-import com.app.budometer.activity.MainActivity;
 import com.app.budometer.features.ImageFileLoader;
 import com.app.budometer.features.ImagePicker;
 import com.app.budometer.features.ImagePickerConfig;
 import com.app.budometer.features.ImagePickerPresenter;
 import com.app.budometer.features.ReturnMode;
 import com.app.budometer.features.camera.CameraHelper;
-import com.app.budometer.helper.IpLogger;
 import com.app.budometer.listener.OnBackPressedListener;
-import com.app.budometer.util.BudometerConfig;
-import com.app.budometer.util.BudometerSP;
-import com.app.budometer.views.SnackBarView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -47,7 +36,6 @@ import static com.app.budometer.util.BudometerConfig.REQUEST_ID_MULTIPLE_PERMISS
 
 
 public class BaseFragment extends Fragment implements OnBackPressedListener {
-    protected IpLogger logger = IpLogger.getInstance();
     protected ImagePicker.ImagePickerWithActivity imagePickerWithActivity;
     protected ImagePickerPresenter presenter;
     protected ImagePickerConfig config;
@@ -121,11 +109,11 @@ public class BaseFragment extends Fragment implements OnBackPressedListener {
                     // Check for both permissions
                     if (perms.get(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
                             && perms.get(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED && perms.get(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
-                        Log.d("in fragment on request", "CAMERA & WRITE_EXTERNAL_STORAGE READ_EXTERNAL_STORAGE permission granted");
+                        //Log.d("in fragment on request", "CAMERA & WRITE_EXTERNAL_STORAGE READ_EXTERNAL_STORAGE permission granted");
                         // process the normal flow
                         //else any one or both the permissions are not granted
                     } else {
-                        Log.d("in fragment on request", "Some permissions are not granted ask again ");
+                        //Log.d("in fragment on request", "Some permissions are not granted ask again ");
                         //permission is denied (this is the first time, when "never ask again" is not checked) so ask again explaining the usage of permission
                         //                        // shouldShowRequestPermissionRationale will return true
                         //show the dialog or snackbar saying its necessary and try again otherwise proceed with setup.

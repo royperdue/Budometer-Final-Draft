@@ -22,7 +22,7 @@ class EglElement {
     protected static void check(String opName) {
         int error = GLES20.glGetError();
         if (error != GLES20.GL_NO_ERROR) {
-            LOG.e("Error during", opName, "glError 0x", Integer.toHexString(error));
+            //LOG.e("Error during", opName, "glError 0x", Integer.toHexString(error));
             throw new RuntimeException(CameraLogger.lastMessage);
         }
     }
@@ -30,7 +30,7 @@ class EglElement {
     // Check for valid location.
     protected static void checkLocation(int location, String label) {
         if (location < 0) {
-            LOG.e("Unable to locate", label, "in program");
+            //LOG.e("Unable to locate", label, "in program");
             throw new RuntimeException(CameraLogger.lastMessage);
         }
     }
@@ -44,7 +44,7 @@ class EglElement {
         int[] compiled = new int[1];
         GLES20.glGetShaderiv(shader, GLES20.GL_COMPILE_STATUS, compiled, 0);
         if (compiled[0] == 0) {
-            LOG.e("Could not compile shader", shaderType, ":", GLES20.glGetShaderInfoLog(shader));
+            //LOG.e("Could not compile shader", shaderType, ":", GLES20.glGetShaderInfoLog(shader));
             GLES20.glDeleteShader(shader);
             shader = 0;
         }
@@ -60,9 +60,9 @@ class EglElement {
 
         int program = GLES20.glCreateProgram();
         check("glCreateProgram");
-        if (program == 0) {
+        /*if (program == 0) {
             LOG.e("Could not create program");
-        }
+        }*/
         GLES20.glAttachShader(program, vertexShader);
         check("glAttachShader");
         GLES20.glAttachShader(program, pixelShader);
@@ -71,7 +71,7 @@ class EglElement {
         int[] linkStatus = new int[1];
         GLES20.glGetProgramiv(program, GLES20.GL_LINK_STATUS, linkStatus, 0);
         if (linkStatus[0] != GLES20.GL_TRUE) {
-            LOG.e("Could not link program:", GLES20.glGetProgramInfoLog(program));
+            //LOG.e("Could not link program:", GLES20.glGetProgramInfoLog(program));
             GLES20.glDeleteProgram(program);
             program = 0;
         }

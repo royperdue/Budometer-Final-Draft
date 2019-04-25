@@ -689,7 +689,7 @@ public final class Palette {
                     try {
                         return generate();
                     } catch (Exception e) {
-                        Log.e(LOG_TAG, "Exception thrown during async generate", e);
+                        //Log.e(LOG_TAG, "Exception thrown during async generate", e);
                         return null;
                     }
                 }

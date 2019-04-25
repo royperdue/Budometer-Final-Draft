@@ -19,7 +19,6 @@ import java.util.List;
 
 public class FolderPickerAdapter extends BaseListAdapter<FolderPickerAdapter.FolderViewHolder> {
     private final OnFolderClickListener folderClickListener;
-
     private List<Folder> folders = new ArrayList<>();
 
     public FolderPickerAdapter(Context context, ImageLoader imageLoader, OnFolderClickListener folderClickListener) {

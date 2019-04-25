@@ -59,7 +59,7 @@ public class AnalysisPresenter extends RecyclerViewPresenter<Analysis> {
             }
 
             adapter.setData(list);
-            Log.e("AnalysisPresenter", "found " + list.size() + " analysis for query " + query);
+            //Log.e("AnalysisPresenter", "found " + list.size() + " analysis for query " + query);
         }
         adapter.notifyDataSetChanged();
     }

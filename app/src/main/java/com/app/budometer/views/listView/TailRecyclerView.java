@@ -2,7 +2,6 @@ package com.app.budometer.views.listView;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
@@ -33,9 +32,9 @@ public class TailRecyclerView extends RecyclerView {
      */
     @Override
     public void setAdapter(Adapter adapter) {
-        if (!(adapter instanceof TailAdapter)) {
+        /*if (!(adapter instanceof TailAdapter)) {
             Log.i(TAG, "Adapter must be instance of TailAdapter class");
-        }
+        }*/
         super.setAdapter(adapter);
     }
 

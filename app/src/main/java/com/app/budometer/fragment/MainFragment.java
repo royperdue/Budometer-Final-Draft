@@ -71,7 +71,7 @@ public class MainFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
 
-        System.out.println("MAIN-FRAGMENT-LAUNCHED:");
+        //System.out.println("MAIN-FRAGMENT-LAUNCHED:");
 
         firstUseInstructionsLayout = view.findViewById(R.id.firstUseInstructionsLayout);
 
@@ -107,8 +107,6 @@ public class MainFragment extends BaseFragment {
 
             @Override
             public void onButtonClickAnimationStart(@NonNull CircleMenuView view, int index) {
-                Log.d("D", "onButtonClickAnimationStart| index: " + index);
-
                 if (index == 0) {
                     mListener.onMainFragmentInteraction(index);
                 } else if (index == 1) {

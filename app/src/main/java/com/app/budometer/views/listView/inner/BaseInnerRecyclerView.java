@@ -3,7 +3,6 @@ package com.app.budometer.views.listView.inner;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,9 +30,9 @@ public class BaseInnerRecyclerView extends RecyclerView {
      */
     @Override
     public void setAdapter(Adapter adapter) {
-        if (!(adapter instanceof BaseInnerAdapter)) {
+        /*if (!(adapter instanceof BaseInnerAdapter)) {
             Log.i(TAG, "Adapter must be instance of BaseInnerAdapter class");
-        }
+        }*/
         super.setAdapter(adapter);
     }
 

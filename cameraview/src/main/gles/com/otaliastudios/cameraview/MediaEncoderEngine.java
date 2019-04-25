@@ -72,7 +72,7 @@ class MediaEncoderEngine {
             mPossibleStopReason = STOP_BY_MAX_DURATION;
             finalMaxDuration = maxDuration;
         }
-        LOG.w("Computed a max duration of", (finalMaxDuration / 1000F));
+        //LOG.w("Computed a max duration of", (finalMaxDuration / 1000F));
         for (MediaEncoder encoder : mEncoders) {
             encoder.prepare(mController, finalMaxDuration);
         }
@@ -93,7 +93,7 @@ class MediaEncoderEngine {
                     throw new IllegalStateException("Trying to start but muxer started already");
                 }
                 int track = mMediaMuxer.addTrack(format);
-                LOG.w("Controller:", "Assigned track", track, "to format", format.getString(MediaFormat.KEY_MIME));
+                //LOG.w("Controller:", "Assigned track", track, "to format", format.getString(MediaFormat.KEY_MIME));
                 if (++mStartedEncodersCount == mEncoders.size()) {
                     mMediaMuxer.start();
                     mMediaMuxerStarted = true;
@@ -125,7 +125,7 @@ class MediaEncoderEngine {
             // This is a bad idea and causes crashes.
             // if (info.presentationTimeUs < mLastTimestampUs) info.presentationTimeUs = mLastTimestampUs;
             // mLastTimestampUs = info.presentationTimeUs;
-            LOG.v("Writing for track", buffer.trackIndex, ". Presentation:", buffer.info.presentationTimeUs);
+            //LOG.v("Writing for track", buffer.trackIndex, ". Presentation:", buffer.info.presentationTimeUs);
             mMediaMuxer.writeSampleData(buffer.trackIndex, buffer.data, buffer.info);
             pool.recycle(buffer);
         }
@@ -138,7 +138,7 @@ class MediaEncoderEngine {
          * When this succeeds, {@link MediaEncoder#stop()} is called.
          */
         void requestStop(int track) {
-            LOG.i("RequestStop was called for track", track);
+            //LOG.i("RequestStop was called for track", track);
             synchronized (mControllerLock) {
                 if (--mStartedEncodersCount == 0) {
                     mStopReason = mPossibleStopReason;
@@ -152,7 +152,7 @@ class MediaEncoderEngine {
          * we will actually stop the muxer.
          */
         void requestRelease(int track) {
-            LOG.i("requestRelease was called for track", track);
+            //LOG.i("requestRelease was called for track", track);
             synchronized (mControllerLock) {
                 if (++mStoppedEncodersCount == mEncoders.size()) {
                     release();

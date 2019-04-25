@@ -119,7 +119,7 @@ abstract class CameraController implements
         if (!(throwable instanceof CameraException)) {
             // This is unexpected, either a bug or something the developer should know.
             // Release and crash the UI thread so we get bug reports.
-            LOG.e("uncaughtException:", "Unexpected exception:", throwable);
+            //LOG.e("uncaughtException:", "Unexpected exception:", throwable);
             destroy();
             mCrashHandler.post(new Runnable() {
                 @Override
@@ -137,11 +137,11 @@ abstract class CameraController implements
             // At the moment all CameraExceptions are unrecoverable, there was something
             // wrong when starting, stopping, or binding the camera to the preview.
             final CameraException error = (CameraException) throwable;
-            LOG.e("uncaughtException:", "Interrupting thread with state:", ss(), "due to CameraException:", error);
+            //LOG.e("uncaughtException:", "Interrupting thread with state:", ss(), "due to CameraException:", error);
             thread.interrupt();
             mHandler = WorkerHandler.get("CameraViewController");
             mHandler.getThread().setUncaughtExceptionHandler(this);
-            LOG.i("uncaughtException:", "Calling stopImmediately and notifying.");
+            //LOG.i("uncaughtException:", "Calling stopImmediately and notifying.");
             mHandler.post(new Runnable() {
                 @Override
                 public void run() {
@@ -154,7 +154,7 @@ abstract class CameraController implements
 
     // Public & not final so we can verify with mockito in CameraViewTest
     public void destroy() {
-        LOG.i("destroy:", "state:", ss());
+        //LOG.i("destroy:", "state:", ss());
         // Prevent CameraController leaks. Don't set to null, or exceptions
         // inside the standard stop() method might crash the main thread.
         mHandler.getThread().setUncaughtExceptionHandler(new NoOpExceptionHandler());
@@ -179,16 +179,16 @@ abstract class CameraController implements
 
     // Starts the preview asynchronously.
     final void start() {
-        LOG.i("Start:", "posting runnable. State:", ss());
+        //LOG.i("Start:", "posting runnable. State:", ss());
         mHandler.post(new Runnable() {
             @Override
             public void run() {
-                LOG.i("Start:", "executing. State:", ss());
+                //LOG.i("Start:", "executing. State:", ss());
                 if (mState >= STATE_STARTING) return;
                 mState = STATE_STARTING;
-                LOG.i("Start:", "about to call onStart()", ss());
+                //LOG.i("Start:", "about to call onStart()", ss());
                 onStart();
-                LOG.i("Start:", "returned from onStart().", "Dispatching.", ss());
+                //LOG.i("Start:", "returned from onStart().", "Dispatching.", ss());
                 mState = STATE_STARTED;
                 mCameraCallbacks.dispatchOnCameraOpened(mCameraOptions);
             }
@@ -198,16 +198,16 @@ abstract class CameraController implements
     // Stops the preview asynchronously.
     // Public & not final so we can verify with mockito in CameraViewTest
     public void stop() {
-        LOG.i("Stop:", "posting runnable. State:", ss());
+        //LOG.i("Stop:", "posting runnable. State:", ss());
         mHandler.post(new Runnable() {
             @Override
             public void run() {
-                LOG.i("Stop:", "executing. State:", ss());
+                //LOG.i("Stop:", "executing. State:", ss());
                 if (mState <= STATE_STOPPED) return;
                 mState = STATE_STOPPING;
-                LOG.i("Stop:", "about to call onStop()");
+                //LOG.i("Stop:", "about to call onStop()");
                 onStop();
-                LOG.i("Stop:", "returned from onStop().", "Dispatching.");
+                //LOG.i("Stop:", "returned from onStop().", "Dispatching.");
                 mState = STATE_STOPPED;
                 mCameraCallbacks.dispatchOnCameraClosed();
             }
@@ -218,15 +218,15 @@ abstract class CameraController implements
     final void stopImmediately() {
         try {
             // Don't check, try stop again.
-            LOG.i("stopImmediately:", "State was:", ss());
+            //LOG.i("stopImmediately:", "State was:", ss());
             if (mState == STATE_STOPPED) return;
             mState = STATE_STOPPING;
             onStop();
             mState = STATE_STOPPED;
-            LOG.i("stopImmediately:", "Stopped. State is:", ss());
+            //LOG.i("stopImmediately:", "Stopped. State is:", ss());
         } catch (Exception e) {
             // Do nothing.
-            LOG.i("stopImmediately:", "Swallowing exception while stopping.", e);
+            //LOG.i("stopImmediately:", "Swallowing exception while stopping.", e);
             mState = STATE_STOPPED;
         }
     }
@@ -234,25 +234,25 @@ abstract class CameraController implements
     // Forces a restart.
     @SuppressWarnings("WeakerAccess")
     protected final void restart() {
-        LOG.i("Restart:", "posting runnable");
+        //Log.i("Restart:", "posting runnable");
         mHandler.post(new Runnable() {
             @Override
             public void run() {
-                LOG.i("Restart:", "executing. Needs stopping:", mState > STATE_STOPPED, ss());
+                //Log.i("Restart:", "executing. Needs stopping:", mState > STATE_STOPPED, ss());
                 // Don't stop if stopped.
                 if (mState > STATE_STOPPED) {
                     mState = STATE_STOPPING;
                     onStop();
                     mState = STATE_STOPPED;
-                    LOG.i("Restart:", "stopped. Dispatching.", ss());
+                    //Log.i("Restart:", "stopped. Dispatching.", ss());
                     mCameraCallbacks.dispatchOnCameraClosed();
                 }
 
-                LOG.i("Restart: about to start. State:", ss());
+                //Log.i("Restart: about to start. State:", ss());
                 mState = STATE_STARTING;
                 onStart();
                 mState = STATE_STARTED;
-                LOG.i("Restart: returned from start. Dispatching. State:", ss());
+                //Log.i("Restart: returned from start. Dispatching. State:", ss());
                 mCameraCallbacks.dispatchOnCameraOpened(mCameraOptions);
             }
         });
@@ -639,7 +639,7 @@ abstract class CameraController implements
         Size targetMinSize = getPreviewSurfaceSize(REF_VIEW);
         AspectRatio targetRatio = AspectRatio.of(mCaptureSize.getWidth(), mCaptureSize.getHeight());
         if (flip) targetRatio = targetRatio.inverse();
-        LOG.i("size:", "computePreviewStreamSize:", "targetRatio:", targetRatio, "targetMinSize:", targetMinSize);
+        //Log.i("size:", "computePreviewStreamSize:", "targetRatio:", targetRatio, "targetMinSize:", targetMinSize);
         SizeSelector matchRatio = SizeSelectors.and( // Match this aspect ratio and sort by biggest
                 SizeSelectors.aspectRatio(targetRatio, 0),
                 SizeSelectors.biggest());
@@ -664,7 +664,7 @@ abstract class CameraController implements
         }
         Size result = selector.select(sizes).get(0);
         if (flip) result = result.flip();
-        LOG.i("computePreviewStreamSize:", "result:", result, "flip:", flip);
+        //Log.i("computePreviewStreamSize:", "result:", result, "flip:", flip);
         return result;
     }
 

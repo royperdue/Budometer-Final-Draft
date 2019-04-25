@@ -75,7 +75,7 @@ class SnapshotVideoRecorder extends VideoRecorder implements GlCameraPreview.Ren
                 case H_264: type = "video/avc"; break; // MediaFormat.MIMETYPE_VIDEO_AVC:
                 case DEVICE_DEFAULT: type = "video/avc"; break;
             }
-            LOG.w("Creating frame encoder. Rotation:", mResult.rotation);
+            //LOG.w("Creating frame encoder. Rotation:", mResult.rotation);
             TextureMediaEncoder.Config config = new TextureMediaEncoder.Config(width, height,
                     mResult.videoBitRate,
                     mResult.videoFrameRate,

@@ -25,15 +25,15 @@ class WorkerHandler {
             if (cached != null) {
                 HandlerThread thread = cached.mThread;
                 if (thread.isAlive() && !thread.isInterrupted()) {
-                    LOG.w("get:", "Reusing cached worker handler.", name);
+                    //Log.w("get:", "Reusing cached worker handler.", name);
                     return cached;
                 }
             }
-            LOG.w("get:", "Thread reference died, removing.", name);
+            //Log.w("get:", "Thread reference died, removing.", name);
             sCache.remove(name);
         }
 
-        LOG.i("get:", "Creating new handler.", name);
+        //Log.i("get:", "Creating new handler.", name);
         WorkerHandler handler = new WorkerHandler(name);
         sCache.put(name, new WeakReference<>(handler));
         return handler;

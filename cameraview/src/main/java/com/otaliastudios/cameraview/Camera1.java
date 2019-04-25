@@ -71,11 +71,11 @@ class Camera1 extends CameraController implements Camera.PreviewCallback, Camera
      */
     @Override
     public void onSurfaceAvailable() {
-        LOG.i("onSurfaceAvailable:", "Size is", getPreviewSurfaceSize(REF_VIEW));
+        //Log.i("onSurfaceAvailable:", "Size is", getPreviewSurfaceSize(REF_VIEW));
         schedule(null, false, new Runnable() {
             @Override
             public void run() {
-                LOG.i("onSurfaceAvailable:", "Inside handler. About to bind.");
+                //Log.i("onSurfaceAvailable:", "Inside handler. About to bind.");
                 if (shouldBindToSurface()) bindToSurface();
                 if (shouldStartPreview()) startPreview("onSurfaceAvailable");
             }
@@ -89,7 +89,7 @@ class Camera1 extends CameraController implements Camera.PreviewCallback, Camera
      */
     @Override
     public void onSurfaceChanged() {
-        LOG.i("onSurfaceChanged, size is", getPreviewSurfaceSize(REF_VIEW));
+        //Log.i("onSurfaceChanged, size is", getPreviewSurfaceSize(REF_VIEW));
         schedule(null, true, new Runnable() {
             @Override
             public void run() {
@@ -100,7 +100,7 @@ class Camera1 extends CameraController implements Camera.PreviewCallback, Camera
                 if (newSize.equals(mPreviewStreamSize)) return;
 
                 // Apply.
-                LOG.i("onSurfaceChanged:", "Computed a new preview size. Going on.");
+                //Log.i("onSurfaceChanged:", "Computed a new preview size. Going on.");
                 mPreviewStreamSize = newSize;
                 stopPreview();
                 startPreview("onSurfaceChanged:");
@@ -110,7 +110,7 @@ class Camera1 extends CameraController implements Camera.PreviewCallback, Camera
 
     @Override
     public void onSurfaceDestroyed() {
-        LOG.i("onSurfaceDestroyed");
+        //Log.i("onSurfaceDestroyed");
         schedule(null, true, new Runnable() {
             @Override
             public void run() {
@@ -131,7 +131,7 @@ class Camera1 extends CameraController implements Camera.PreviewCallback, Camera
      */
     @WorkerThread
     private void bindToSurface() {
-        LOG.i("bindToSurface:", "Started");
+        //Log.i("bindToSurface:", "Started");
         Object output = mPreview.getOutput();
         try {
             if (output instanceof SurfaceHolder) {
@@ -142,7 +142,7 @@ class Camera1 extends CameraController implements Camera.PreviewCallback, Camera
                 throw new RuntimeException("Unknown CameraPreview output class.");
             }
         } catch (IOException e) {
-            LOG.e("bindToSurface:", "Failed to bind.", e);
+            //Log.e("bindToSurface:", "Failed to bind.", e);
             throw new CameraException(e, CameraException.REASON_FAILED_TO_START_PREVIEW);
         }
 
@@ -165,7 +165,7 @@ class Camera1 extends CameraController implements Camera.PreviewCallback, Camera
                 throw new RuntimeException("Unknown CameraPreview output class.");
             }
         } catch (IOException e) {
-            LOG.e("unbindFromSurface", "Could not release surface", e);
+            //Log.e("unbindFromSurface", "Could not release surface", e);
         }
     }
 
@@ -175,7 +175,7 @@ class Camera1 extends CameraController implements Camera.PreviewCallback, Camera
 
     // To be called when the preview size is setup or changed.
     private void startPreview(String log) {
-        LOG.i(log, "Dispatching onCameraPreviewStreamSizeChanged.");
+        //Log.i(log, "Dispatching onCameraPreviewStreamSizeChanged.");
         mCameraCallbacks.onCameraPreviewStreamSizeChanged();
 
         Size previewSize = getPreviewStreamSize(REF_VIEW);
@@ -201,14 +201,14 @@ class Camera1 extends CameraController implements Camera.PreviewCallback, Camera
         mCamera.setPreviewCallbackWithBuffer(this); // Add ourselves
         mFrameManager.allocate(ImageFormat.getBitsPerPixel(mPreviewFormat), mPreviewStreamSize);
 
-        LOG.i(log, "Starting preview with startPreview().");
+        //Log.i(log, "Starting preview with startPreview().");
         try {
             mCamera.startPreview();
         } catch (Exception e) {
-            LOG.e(log, "Failed to start preview.", e);
+            //Log.e(log, "Failed to start preview.", e);
             throw new CameraException(e, CameraException.REASON_FAILED_TO_START_PREVIEW);
         }
-        LOG.i(log, "Started preview.");
+        //Log.i(log, "Started preview.");
     }
 
     private void stopPreview() {
@@ -218,7 +218,7 @@ class Camera1 extends CameraController implements Camera.PreviewCallback, Camera
         try {
             mCamera.stopPreview();
         } catch (Exception e) {
-            LOG.e("stopPreview", "Could not stop preview", e);
+            //Log.e("stopPreview", "Could not stop preview", e);
         }
     }
 
@@ -226,13 +226,13 @@ class Camera1 extends CameraController implements Camera.PreviewCallback, Camera
         try {
             mCamera = Camera.open(mCameraId);
         } catch (Exception e) {
-            LOG.e("createCamera:", "Failed to connect. Maybe in use by another app?");
+            //Log.e("createCamera:", "Failed to connect. Maybe in use by another app?");
             throw new CameraException(e, CameraException.REASON_FAILED_TO_CONNECT);
         }
         mCamera.setErrorCallback(this);
 
         // Set parameters that might have been set before the camera was opened.
-        LOG.i("createCamera:", "Applying default parameters.");
+        //Log.i("createCamera:", "Applying default parameters.");
         Camera.Parameters params = mCamera.getParameters();
         mCameraOptions = new CameraOptions(params, flip(REF_SENSOR, REF_VIEW));
         applyDefaultFocus(params);
@@ -248,11 +248,11 @@ class Camera1 extends CameraController implements Camera.PreviewCallback, Camera
 
     private void destroyCamera() {
         try {
-            LOG.i("destroyCamera:", "Clean up.", "Releasing camera.");
+            //Log.i("destroyCamera:", "Clean up.", "Releasing camera.");
             mCamera.release();
-            LOG.i("destroyCamera:", "Clean up.", "Released camera.");
+            //Log.i("destroyCamera:", "Clean up.", "Released camera.");
         } catch (Exception e) {
-            LOG.w("destroyCamera:", "Clean up.", "Exception while releasing camera.", e);
+            //Log.w("destroyCamera:", "Clean up.", "Exception while releasing camera.", e);
         }
         mCamera = null;
         mCameraOptions = null;
@@ -262,16 +262,16 @@ class Camera1 extends CameraController implements Camera.PreviewCallback, Camera
     @Override
     void onStart() {
         if (isCameraAvailable()) {
-            LOG.w("onStart:", "Camera not available. Should not happen.");
+            //Log.w("onStart:", "Camera not available. Should not happen.");
             onStop(); // Should not happen.
         }
         if (collectCameraId()) {
             createCamera();
             if (shouldBindToSurface()) bindToSurface();
             if (shouldStartPreview()) startPreview("onStart");
-            LOG.i("onStart:", "Ended");
+            //Log.i("onStart:", "Ended");
         } else {
-            LOG.e("onStart:", "No camera available for facing", mFacing);
+            //Log.e("onStart:", "No camera available for facing", mFacing);
             throw new CameraException(CameraException.REASON_NO_CAMERA);
         }
     }
@@ -279,7 +279,7 @@ class Camera1 extends CameraController implements Camera.PreviewCallback, Camera
     @WorkerThread
     @Override
     void onStop() {
-        LOG.i("onStop:", "About to clean up.");
+        //Log.i("onStop:", "About to clean up.");
         mHandler.get().removeCallbacks(mPostFocusResetRunnable);
         if (mVideoRecorder != null) {
             mVideoRecorder.stop();
@@ -295,7 +295,7 @@ class Camera1 extends CameraController implements Camera.PreviewCallback, Camera
         mPreviewStreamSize = null;
         mCaptureSize = null;
         mIsBound = false;
-        LOG.w("onStop:", "Clean up.", "Returning.");
+        //Log.w("onStop:", "Clean up.", "Returning.");
 
         // We were saving a reference to the exception here and throwing to the user.
         // I don't think it's correct. We are closing and have already done our best
@@ -305,7 +305,7 @@ class Camera1 extends CameraController implements Camera.PreviewCallback, Camera
 
     private boolean collectCameraId() {
         int internalFacing = mMapper.map(mFacing);
-        LOG.i("collectCameraId", "Facing:", mFacing, "Internal:", internalFacing, "Cameras:", Camera.getNumberOfCameras());
+        //Log.i("collectCameraId", "Facing:", mFacing, "Internal:", internalFacing, "Cameras:", Camera.getNumberOfCameras());
         Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
         for (int i = 0, count = Camera.getNumberOfCameras(); i < count; i++) {
             Camera.getCameraInfo(i, cameraInfo);

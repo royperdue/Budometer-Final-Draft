@@ -174,7 +174,7 @@ final class EglCore {
         int[] numConfigs = new int[1];
         if (!EGL14.eglChooseConfig(mEGLDisplay, attribList, 0, configs, 0, configs.length,
                 numConfigs, 0)) {
-            Log.w(TAG, "unable to find RGB8888 / " + version + " EGLConfig");
+            //Log.w(TAG, "unable to find RGB8888 / " + version + " EGLConfig");
             return null;
         }
         return configs[0];
@@ -209,8 +209,8 @@ final class EglCore {
                 // We're limited here -- finalizers don't run on the thread that holds
                 // the EGL state, so if a surface or context is still current on another
                 // thread we can't fully release it here.  Exceptions thrown from here
-                // are quietly discarded.  Complain in the log file.
-                Log.w(TAG, "WARNING: EglCore was not explicitly released -- state may be leaked");
+                // are quietly discarded.  Complain in the //Log file.
+                //Log.w(TAG, "WARNING: EglCore was not explicitly released -- state may be leaked");
                 release();
             }
         } finally {
@@ -286,7 +286,7 @@ final class EglCore {
     public void makeCurrent(EGLSurface drawSurface, EGLSurface readSurface) {
         if (mEGLDisplay == EGL14.EGL_NO_DISPLAY) {
             // called makeCurrent() before create?
-            Log.d(TAG, "NOTE: makeCurrent w/o display");
+            //Log.d(TAG, "NOTE: makeCurrent w/o display");
         }
         if (!EGL14.eglMakeCurrent(mEGLDisplay, drawSurface, readSurface, mEGLContext)) {
             throw new RuntimeException("eglMakeCurrent(draw,read) failed");
