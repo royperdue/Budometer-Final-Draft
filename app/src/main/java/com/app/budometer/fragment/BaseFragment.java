@@ -108,7 +108,8 @@ public class BaseFragment extends Fragment implements OnBackPressedListener {
                         perms.put(permissions[i], grantResults[i]);
                     // Check for both permissions
                     if (perms.get(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
-                            && perms.get(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED && perms.get(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+                            && perms.get(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED && perms
+                            .get(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
                         //Log.d("in fragment on request", "CAMERA & WRITE_EXTERNAL_STORAGE READ_EXTERNAL_STORAGE permission granted");
                         // process the normal flow
                         //else any one or both the permissions are not granted
@@ -117,7 +118,9 @@ public class BaseFragment extends Fragment implements OnBackPressedListener {
                         //permission is denied (this is the first time, when "never ask again" is not checked) so ask again explaining the usage of permission
                         //                        // shouldShowRequestPermissionRationale will return true
                         //show the dialog or snackbar saying its necessary and try again otherwise proceed with setup.
-                        if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE) || ActivityCompat.shouldShowRequestPermissionRationale(getActivity(), Manifest.permission.CAMERA) || ActivityCompat.shouldShowRequestPermissionRationale(getActivity(), Manifest.permission.READ_EXTERNAL_STORAGE)) {
+                        if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE) || ActivityCompat
+                                .shouldShowRequestPermissionRationale(getActivity(), Manifest.permission.CAMERA) || ActivityCompat
+                                .shouldShowRequestPermissionRationale(getActivity(), Manifest.permission.READ_EXTERNAL_STORAGE)) {
                             showDialogOK("Camera and Storage Permission required for this app",
                                     new DialogInterface.OnClickListener() {
                                         @Override
@@ -155,6 +158,7 @@ public class BaseFragment extends Fragment implements OnBackPressedListener {
                 .create()
                 .show();
     }
+
     /**
      * Start camera intent
      * Create a temporary file and pass file Uri to camera intent
@@ -195,9 +199,13 @@ public class BaseFragment extends Fragment implements OnBackPressedListener {
 
     public void setMainFragment() {
         FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit);
-        transaction.replace(R.id.fragment_container, MainFragment.newInstance())
-                .addToBackStack(MainFragment.TAG).commit();
+        if (fragmentManager != null) {
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            if (transaction != null) {
+                transaction.setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit);
+                transaction.replace(R.id.fragment_container, MainFragment.newInstance())
+                        .addToBackStack(MainFragment.TAG).commit();
+            }
+        }
     }
 }

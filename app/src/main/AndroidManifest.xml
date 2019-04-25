@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="com.app.budometer">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -19,8 +18,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:replace="android:theme"
-        tools:ignore="AllowBackup,GoogleAppIndexingWarning,MissingApplicationIcon">
+        android:extractNativeLibs="false">
 
         <activity
             android:name="com.app.budometer.activity.MainActivity"
