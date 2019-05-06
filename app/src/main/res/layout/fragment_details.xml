@@ -251,7 +251,7 @@
                         android:paddingEnd="@dimen/pad5dp"
                         android:text="@string/percentage_of_pistils_turned"
                         android:textColor="@color/primaryText"
-                        android:textSize="@dimen/txt14sp" />
+                        android:textSize="@dimen/txt12sp" />
 
                     <TextView
                         android:id="@+id/turnedTextView"
@@ -265,7 +265,7 @@
                         android:paddingStart="@dimen/pad5dp"
                         android:paddingEnd="@dimen/pad5dp"
                         android:textColor="@color/primaryText"
-                        android:textSize="@dimen/txt14sp" />
+                        android:textSize="@dimen/txt12sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -284,7 +284,7 @@
                         android:paddingEnd="@dimen/pad5dp"
                         android:text="@string/strain"
                         android:textColor="@color/primaryText"
-                        android:textSize="@dimen/txt14sp" />
+                        android:textSize="@dimen/txt12sp" />
 
                     <TextView
                         android:id="@+id/strainTextView"
@@ -297,7 +297,7 @@
                         android:paddingStart="@dimen/pad5dp"
                         android:paddingEnd="@dimen/pad5dp"
                         android:textColor="@color/primaryText"
-                        android:textSize="@dimen/txt14sp" />
+                        android:textSize="@dimen/txt12sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -316,7 +316,7 @@
                         android:paddingEnd="@dimen/pad5dp"
                         android:text="@string/crop_id"
                         android:textColor="@color/primaryText"
-                        android:textSize="@dimen/txt14sp" />
+                        android:textSize="@dimen/txt12sp" />
 
                     <TextView
                         android:id="@+id/cropIdTextView"
@@ -329,7 +329,7 @@
                         android:paddingStart="@dimen/pad5dp"
                         android:paddingEnd="@dimen/pad5dp"
                         android:textColor="@color/primaryText"
-                        android:textSize="@dimen/txt14sp" />
+                        android:textSize="@dimen/txt12sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -343,25 +343,25 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/pad5dp"
-                        android:layout_weight=".5"
+                        android:layout_weight=".6"
                         android:paddingStart="@dimen/pad5dp"
                         android:paddingEnd="@dimen/pad5dp"
                         android:text="@string/analyzed"
                         android:textColor="@color/primaryText"
-                        android:textSize="@dimen/txt14sp" />
+                        android:textSize="@dimen/txt12sp" />
 
                     <TextView
                         android:id="@+id/dateTextView"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/pad5dp"
-                        android:layout_weight="1.5"
+                        android:layout_weight="1.4"
                         android:inputType="date"
                         android:maxLines="1"
                         android:paddingStart="@dimen/pad5dp"
                         android:paddingEnd="@dimen/pad5dp"
                         android:textColor="@color/primaryText"
-                        android:textSize="@dimen/txt14sp" />
+                        android:textSize="@dimen/txt12sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -380,7 +380,7 @@
                         android:paddingEnd="@dimen/pad5dp"
                         android:text="@string/notes"
                         android:textColor="@color/primaryText"
-                        android:textSize="@dimen/txt14sp" />
+                        android:textSize="@dimen/txt12sp" />
 
                     <TextView
                         android:id="@+id/notesTextView"
@@ -393,7 +393,7 @@
                         android:paddingStart="@dimen/pad5dp"
                         android:paddingEnd="@dimen/pad5dp"
                         android:textColor="@color/primaryText"
-                        android:textSize="@dimen/txt14sp" />
+                        android:textSize="@dimen/txt12sp" />
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>

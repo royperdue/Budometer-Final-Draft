@@ -35,6 +35,8 @@
     <dimen name="pad450dp">450dp</dimen>
 
     <!--Text sizes-->
+    <dimen name="txt10sp">10sp</dimen>
+    <dimen name="txt11sp">11sp</dimen>
     <dimen name="txt12sp">12sp</dimen>
     <dimen name="txt13sp">13sp</dimen>
     <dimen name="txt14sp">14sp</dimen>

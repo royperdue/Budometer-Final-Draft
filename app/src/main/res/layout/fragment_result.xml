@@ -235,7 +235,7 @@
                 android:maxLines="1"
                 android:textColor="@color/primaryText"
                 android:textColorHint="@color/hintText"
-                android:textSize="@dimen/txt16sp"
+                android:textSize="@dimen/txt14sp"
                 android:importantForAutofill="no" />
 
             <EditText
@@ -249,7 +249,7 @@
                 android:maxLines="1"
                 android:textColor="@color/primaryText"
                 android:textColorHint="@color/hintText"
-                android:textSize="@dimen/txt18sp" />
+                android:textSize="@dimen/txt16sp" />
 
             <EditText
                 android:id="@+id/strainEditText"
@@ -262,7 +262,7 @@
                 android:maxLines="1"
                 android:textColor="@color/primaryText"
                 android:textColorHint="@color/hintText"
-                android:textSize="@dimen/txt18sp"/>
+                android:textSize="@dimen/txt16sp"/>
 
             <EditText
                 android:id="@+id/dateEditText"
@@ -275,7 +275,7 @@
                 android:maxLines="1"
                 android:textColor="@color/primaryText"
                 android:textColorHint="@color/hintText"
-                android:textSize="@dimen/txt18sp"
+                android:textSize="@dimen/txt16sp"
                 android:importantForAutofill="no" />
 
             <EditText
@@ -289,7 +289,7 @@
                 android:maxLines="10"
                 android:textColor="@color/primaryText"
                 android:textColorHint="@color/hintText"
-                android:textSize="@dimen/txt18sp"
+                android:textSize="@dimen/txt16sp"
                 android:importantForAutofill="no" />
         </LinearLayout>
     </ScrollView>

@@ -10,7 +10,7 @@
     <string name="input">Input</string>
     <string name="week_7">Week 7</string>
     <string name="maturing">Maturing</string>
-    <string name="under_50">Under 50%</string>
+    <string name="under_50">0%-50%</string>
     <string name="fully_wilted">Fully Wilted</string>
     <string name="_50_70">50%-70%</string>
     <string name="amber">Amber</string>
@@ -50,7 +50,7 @@
     <string name="help_section_description_expand_button">Click to open/close the navigation menu.</string>
 
     <string name="help_section_description_navigation_menu">The navigation menu contains an assortment of buttons used to navigate within the app. Instructions for the usage of each navigation button are
-       provided on the proceeding help pages.</string>
+       provided on the following help pages.</string>
 
     <string name="help_section_description_navigation_menu_first_use">The navigation menu contains an assortment of buttons used to navigate within the app.</string>
 
@@ -195,8 +195,8 @@
        Budometer takes the guesswork out of determining the optimal point at which to harvest your crop. Using
        revolutionary machine learning algorithms Budometer evaluates numerous factors such as bud density,
        pistil coloration, pistil curling, trichome coloration, and leaf discoloration to determine the point
-       of peak bud maturity. Below is a brief explanation of how each of these factors is used in the determination
-       of bud maturity.</string>
+       of peak bud maturity. Below is a brief explanation of how each of these factors is used to determine
+       bud maturity.</string>
 
     <string name="help_section_description_bud_density">Cannabis flowers grow as clusters of calyxes developing at leaf nodes along the branches. As the buds mature they become larger and denser filling in space between them. Budometer\'s machine learning algorithms very precisely evaluate and compare changes in that spacing to determine increases in bud density.</string>
 
@@ -204,13 +204,13 @@
        and robust, it is far too early to harvest, and you probably have to wait several more weeks. Peak maturity and the prime point to harvest is when 50% to 70% of the pistils have turned an orange/brown color and have begun to curl. Budometer analyzes, tracks, and graphs pistil coloration allowing you to monitor precise changes as your buds develop.</string>
 
     <string name="help_section_description_pistil_vigor">During the early stages of flowering buds are covered in
-       bright white, robust pistils. As the plants approach peak maturity, their pistils begin wilting and curling inward as they change to an orange/brown color. Curling starts at the tips and progresses until the pistil has withered entirely and changed color completely. Budometer recognizes and incorporates the degree pistil curling when assessing a plants stage of maturity.</string>
+       bright white, robust pistils. As the plants approach peak maturity their pistils begin wilting, curling inward, and they change to an orange/brown color. Curling starts at the tips and progresses until the pistil has withered entirely and changed color completely. Budometer recognizes and incorporates the degree of pistil curling when assessing a plants stage of maturity.</string>
 
-    <string name="help_section_description_trichomes_color">Trichomes are sticky resin-bearing glands that cover buds as they mature. Developing trichomes go through three consecutive color states beginning clear then turning cloudy and finishing amber. The best time to harvest your cannabis is when 30% of the trichomes are amber, and 70% are clear or cloudy. Trichome coloration is another factor Budometer uses when evaluating bud maturity.</string>
+    <string name="help_section_description_trichomes_color">Trichomes are sticky resin-bearing glands that cover buds as they mature. Developing trichomes go through three consecutive color states beginning clear, then turning cloudy, and finishing amber. The best time to harvest your cannabis is when 30% of the trichomes are amber, and 70% are clear or cloudy. Trichome coloration is another factor Budometer uses when evaluating bud maturity.</string>
 
 
     <string name="help_section_description_leaf_color">Another indicator of cannabis maturity that’s examined by
-       Budometer can be seen in the leaves surrounding the calyxes and even the larger fan leaves. When the plant is ripe, the leaves will turn yellowish, start curling up and becoming dark and brittle. This drying and curling of the leaves occurs because cannabis consumes less water as it nears its final phase of life.</string>
+       Budometer can be seen in the leaves surrounding the calyxes and even the larger fan leaves. When the plant is ripe the leaves will turn yellowish, start curling up, and become dark and brittle. This drying and curling of the leaves occurs because cannabis consumes less water as it nears its final phase of life.</string>
 
     <!--SpotsDialog messages-->
     <string name="analyzing">Analyzing...</string>

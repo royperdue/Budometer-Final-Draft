@@ -53,15 +53,15 @@
 
             <TextView
                 android:id="@+id/helpDescriptionTextViewMain"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/pad10dp"
                 android:layout_marginTop="@dimen/pad8dp"
                 android:inputType="textMultiLine|text"
                 android:textColor="@color/white"
                 android:textSize="@dimen/txt13sp"
-                app:layout_constraintStart_toEndOf="@+id/helpImageViewMain"
-                app:layout_constraintTop_toBottomOf="@+id/helpTitleTextViewMain" />
+                app:layout_constraintStart_toStartOf="@+id/helpTitleTextViewMain"
+                app:layout_constraintTop_toBottomOf="@+id/helpTitleTextViewMain"
+                app:layout_constraintEnd_toEndOf="parent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
