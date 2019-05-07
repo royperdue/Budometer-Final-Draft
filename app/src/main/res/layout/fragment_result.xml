@@ -270,7 +270,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/pad5dp"
                 android:hint="@string/date"
-                android:imeOptions="actionNext"
+                android:focusable="false"
                 android:inputType="date"
                 android:maxLines="1"
                 android:textColor="@color/primaryText"

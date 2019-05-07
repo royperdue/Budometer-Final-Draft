@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnMa
         } else if (position == 4) {
             title = "Crop";
             fragment = CropFragment.newInstance();
-        }  else if (position == 5) {
+        } else if (position == 5) {
             title = "Camera";
             fragment = CameraFragment.newInstance();
         }
@@ -168,7 +168,7 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnMa
         } else if (index == 2) {
             startActivity(new Intent(MainActivity.this, IntroActivity.class));
             Animatoo.animateSplit(MainActivity.this);
-        }  else if (index == 3) {
+        } else if (index == 3) {
             launchFragment(5);
         }
     }
@@ -229,7 +229,7 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnMa
         } else if (index == 1) {
             startActivity(new Intent(MainActivity.this, IntroActivity.class));
             Animatoo.animateSplit(MainActivity.this);
-        }  else if (index == 2) {
+        } else if (index == 2) {
             launchFragment(5);
         }
     }
@@ -359,6 +359,7 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnMa
                 }
             }
         });
+
     }
 
     private void clearPixelCounters() {
@@ -422,7 +423,7 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnMa
     }
 
     private class BudColorsAsyncTask extends AsyncTask<Bitmap, Void, ResultData> {
-        protected void onPreExecute (){
+        protected void onPreExecute() {
             super.onPreExecute();
 
             classifier = TensorFlowImageClassifier.create(getAssets(),
@@ -447,7 +448,7 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnMa
                         resultData.setTensorFlowConfidenceOrange(results.get(i).getConfidence());
                     } else if (results.get(i).getTitle().contains("purple")) {
                         resultData.setTensorFlowConfidencePurple(results.get(i).getConfidence());
-                    }  else if (results.get(i).getTitle().contains("white")) {
+                    } else if (results.get(i).getTitle().contains("white")) {
                         resultData.setTensorFlowConfidenceWhite(results.get(i).getConfidence());
                     }
 
@@ -474,7 +475,7 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnMa
 
 
     private class GrowingReadyAsyncTask extends AsyncTask<Bitmap, Void, ResultData> {
-        protected void onPreExecute (){
+        protected void onPreExecute() {
             super.onPreExecute();
 
             classifier = TensorFlowImageClassifier.create(getAssets(),
