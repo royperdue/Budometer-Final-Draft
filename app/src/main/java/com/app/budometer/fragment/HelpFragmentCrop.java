@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import com.app.budometer.R;
 import com.app.budometer.util.HtmlBuilder;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 
 /**
@@ -131,6 +133,9 @@ public class HelpFragmentCrop extends BaseFragment {
                 .text(getString(R.string.help_description_crop_8)).close();
         cropSelectTextView1.setText(html.close().build());
 
+        AdView adView = view.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
 
         return view;
     }

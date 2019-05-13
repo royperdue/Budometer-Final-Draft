@@ -37,6 +37,8 @@ import com.app.budometer.util.BudometerUtils;
 import com.app.budometer.util.Palette;
 import com.app.budometer.util.PaletteGraph;
 import com.app.budometer.views.PieChartView;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.otaliastudios.autocomplete.Autocomplete;
 import com.otaliastudios.autocomplete.AutocompleteCallback;
 import com.otaliastudios.autocomplete.AutocompletePresenter;
@@ -182,6 +184,10 @@ public class ResultFragment extends BaseFragment {
         orangeTextView = view.findViewById(R.id.orangeTextView);
         brownTextView = view.findViewById(R.id.brownTextView);
         greyTextView = view.findViewById(R.id.greyTextView);
+
+        AdView adView = view.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
 
         return view;
     }

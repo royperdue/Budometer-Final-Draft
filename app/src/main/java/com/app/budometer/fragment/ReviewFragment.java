@@ -20,6 +20,8 @@ import com.app.budometer.views.listView.TailLayoutManager;
 import com.app.budometer.views.listView.TailRecyclerView;
 import com.app.budometer.views.listView.TailSnapHelper;
 import com.app.budometer.views.listView.header.HeaderTransformer;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -126,6 +128,10 @@ public class ReviewFragment extends BaseFragment {
             public void onButtonLongClickAnimationEnd(@NonNull CircleMenuView view, int index) {
             }
         });
+
+        AdView adView = view.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
 
         return view;
     }

@@ -5,21 +5,33 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/colorPrimaryDark"
-    android:paddingEnd="@dimen/pad30dp"
     android:scrollbars="none">
 
     <LinearLayout
         android:id="@+id/linearLayoutMain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:paddingTop="@dimen/pad20dp"
         android:orientation="vertical">
+
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pad20dp"
+            android:layout_marginBottom="@dimen/pad20dp"
+            ads:adSize="BANNER"
+            ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+        </com.google.android.gms.ads.AdView>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout0"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="@dimen/pad20dp"
+            android:layout_marginEnd="@dimen/pad20dp"
             android:layout_marginBottom="@dimen/pad5dp"
             android:background="@color/white_alpha_10"
             android:paddingStart="@dimen/pad10dp"
@@ -68,6 +80,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="@dimen/pad20dp"
+            android:layout_marginEnd="@dimen/pad20dp"
             android:layout_marginBottom="@dimen/pad5dp"
             android:background="@color/white_alpha_10"
             android:paddingStart="@dimen/pad10dp"
@@ -210,6 +223,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="@dimen/pad20dp"
+            android:layout_marginEnd="@dimen/pad20dp"
             android:layout_marginBottom="5dp"
             android:background="@color/white_alpha_10"
             android:paddingStart="@dimen/pad10dp"
@@ -385,6 +399,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="@dimen/pad20dp"
+            android:layout_marginEnd="@dimen/pad20dp"
             android:layout_marginBottom="5dp"
             android:background="@color/white_alpha_10"
             android:paddingStart="@dimen/pad10dp"
@@ -526,6 +541,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="@dimen/pad20dp"
+            android:layout_marginEnd="@dimen/pad20dp"
             android:layout_marginBottom="5dp"
             android:background="@color/white_alpha_10"
             android:paddingStart="@dimen/pad10dp"
@@ -667,6 +683,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="@dimen/pad20dp"
+            android:layout_marginEnd="@dimen/pad20dp"
             android:layout_marginBottom="5dp"
             android:background="@color/white_alpha_10"
             android:paddingStart="@dimen/pad10dp"

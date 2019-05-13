@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.app.budometer.R;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 
 public class HelpFragmentMain extends BaseFragment {
@@ -43,7 +45,13 @@ public class HelpFragmentMain extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-       return inflater.inflate(R.layout.fragment_help_main, container, false);
+        View view = inflater.inflate(R.layout.fragment_help_main, container, false);
+
+        AdView adView = view.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
+
+       return view;
     }
 
     @Override

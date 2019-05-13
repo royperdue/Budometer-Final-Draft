@@ -2,12 +2,14 @@ package com.app.budometer.activity;
 
 
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
 import android.view.WindowManager;
 
@@ -48,6 +50,7 @@ import com.app.budometer.util.Palette;
 import com.app.budometer.util.PaletteGraph;
 import com.app.budometer.views.SnackBarView;
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
+import com.google.android.gms.ads.MobileAds;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -93,6 +96,8 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnMa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+        MobileAds.initialize(this, "ca-app-pub-2047793645426902~9568454094");
 
         snackBarView = findViewById(R.id.snackBarMainActivity);
 

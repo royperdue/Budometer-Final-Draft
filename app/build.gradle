@@ -43,6 +43,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
+    implementation 'com.google.android.gms:play-services-ads:17.2.0'
+    implementation 'com.google.firebase:firebase-core:16.0.9'
     // Custom
     implementation 'com.jakewharton:disklrucache:2.0.2'
     // Camera
@@ -71,3 +73,5 @@ dependencies {
     implementation 'com.otaliastudios:autocomplete:1.1.0'
     implementation project(path: ':cameraview')
 }
+
+apply plugin: 'com.google.gms.google-services'

@@ -22,6 +22,8 @@ import com.app.budometer.util.BudometerApp;
 import com.app.budometer.util.BudometerConfig;
 import com.app.budometer.util.BudometerUtils;
 import com.app.budometer.views.PieChartView;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -140,7 +142,7 @@ public class DetailsFragment extends BaseFragment {
             }
         });
 
-        LinearLayout linearLayout1 = view.findViewById(R.id.linearLayout1);
+        LinearLayout linearLayout1 = view.findViewById(R.id.closeButton);
         linearLayout1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -149,6 +151,10 @@ public class DetailsFragment extends BaseFragment {
         });
 
         ((ImageView) view.findViewById(R.id.resultImageView)).setImageBitmap(loadImageInternalStorage(analysis.getCombinedImagePath(), analysis.getCombinedImageName()));
+
+        AdView adView = view.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
 
         return view;
     }

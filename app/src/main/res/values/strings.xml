@@ -328,7 +328,7 @@
         <item>@color/button_orange</item>
     </array>
 
-    <string name="answer">ANSWER</string>
+    <string name="answer"></string>
     <string name="connect">CONNECT</string>
 
     <string name="transition_avatar_border" translatable="false">avatar_border</string>

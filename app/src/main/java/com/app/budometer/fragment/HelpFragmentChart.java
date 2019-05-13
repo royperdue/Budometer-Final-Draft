@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import com.app.budometer.R;
 import com.app.budometer.util.HtmlBuilder;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 
 /**
@@ -146,6 +148,10 @@ public class HelpFragmentChart extends BaseFragment {
                 .li().font().color("white")
                 .text(getString(R.string.help_description_chart_notes)).close();
         chartTextView.setText(html.close().build());
+
+        AdView adView = view.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
 
         return view;
     }

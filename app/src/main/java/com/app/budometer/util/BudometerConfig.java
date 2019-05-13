@@ -15,6 +15,8 @@ public final class BudometerConfig {
 
     public static final String GOT_IT = "got_it**";
 
+    public static final String ANALYSES_REMAINING = "analyses_remaining**";
+
     public static final String IMAGE_PATH_1 = "image_path_1**";
     public static final String IMAGE_PATH_2 = "image_path_2**";
     public static final String IMAGE_PATH_3 = "image_path_3**";

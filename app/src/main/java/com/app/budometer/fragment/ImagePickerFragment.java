@@ -27,6 +27,8 @@ import com.app.budometer.model.Image;
 import com.app.budometer.util.BudometerConfig;
 import com.app.budometer.util.BudometerUtils;
 import com.app.budometer.views.CircleMenuView;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -162,6 +164,10 @@ public class ImagePickerFragment extends BaseFragment implements ImagePickerView
             public void onButtonLongClickAnimationEnd(@NonNull CircleMenuView view, int index) {
             }
         });
+
+        AdView adView = view.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
 
         return view;
     }

@@ -7,87 +7,70 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/iv_background"
+            android:id="@+id/imageViewBackground"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@string/content_description_background_image"
             android:scaleType="centerCrop"
             android:src="@drawable/background_1"
             android:transitionName="@string/transition_background"
-            app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <View
+        <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="@dimen/pad8dp"
-            android:background="@drawable/details_image_gradient"
-            app:layout_constraintBottom_toBottomOf="@+id/iv_background"
-            app:layout_constraintLeft_toLeftOf="@+id/iv_background"
-            app:layout_constraintRight_toRightOf="@+id/iv_background"
-            app:layout_constraintTop_toTopOf="@+id/frameLayout" />
-
-        <View
-            android:id="@+id/card"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/pad423dp"
-            android:layout_marginStart="@dimen/pad32dp"
-            android:layout_marginEnd="@dimen/pad32dp"
-            android:layout_marginBottom="@dimen/pad80dp"
-            android:background="@color/light_green_alpha_50"
-            android:transitionName="@string/transition_card"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/iv_background"
-            app:layout_constraintVertical_bias="1.0" />
-
-        <FrameLayout
-            android:id="@+id/frameLayout"
-            android:layout_width="@dimen/pad150dp"
-            android:layout_height="@dimen/pad150dp"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="@dimen/pad8dp"
-            android:layout_marginEnd="@dimen/pad8dp"
-            android:background="@drawable/result_border_details"
-            android:transitionName="@string/transition_avatar_border"
-            app:layout_constraintBottom_toTopOf="@+id/card"
-            app:layout_constraintLeft_toLeftOf="@+id/card"
-            app:layout_constraintRight_toRightOf="@+id/card"
-            app:layout_constraintTop_toTopOf="@+id/card">
-
-            <ImageView
-                android:id="@+id/resultImageView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_margin="@dimen/pad2dp"
-                android:contentDescription="@string/content_description_result_image"
-                android:scaleType="centerCrop"
-                android:src="@drawable/bud_placeholder" />
-        </FrameLayout>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pad20dp"
+            android:layout_marginBottom="@dimen/pad20dp"
+            ads:adSize="BANNER"
+            ads:adUnitId="ca-app-pub-3940256099942544/6300978111"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+        </com.google.android.gms.ads.AdView>
 
         <ScrollView
             android:id="@+id/scrollView"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="@dimen/pad5dp"
-            android:layout_marginTop="@dimen/pad5dp"
-            android:layout_marginEnd="@dimen/pad5dp"
+            android:layout_marginStart="@dimen/pad20dp"
+            android:layout_marginEnd="@dimen/pad20dp"
+            android:layout_marginTop="@dimen/pad20dp"
             android:layout_marginBottom="@dimen/pad5dp"
-            android:background="@color/grey_2"
+            android:background="@color/transparent"
             android:scrollbarThumbVertical="@null"
-            app:layout_constraintBottom_toBottomOf="@+id/card"
-            app:layout_constraintLeft_toLeftOf="@+id/card"
-            app:layout_constraintRight_toRightOf="@+id/card"
-            app:layout_constraintTop_toBottomOf="@+id/frameLayout">
+            app:layout_constraintBottom_toTopOf="@+id/deleteButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/adView">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+
+                <FrameLayout
+                    android:id="@+id/frameLayout"
+                    android:layout_width="@dimen/pad150dp"
+                    android:layout_height="@dimen/pad150dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/result_border_details"
+                    android:transitionName="@string/transition_avatar_border">
+
+                    <ImageView
+                        android:id="@+id/resultImageView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/pad2dp"
+                        android:contentDescription="@string/content_description_result_image"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/bud_placeholder" />
+                </FrameLayout>
 
                 <com.app.budometer.views.PieChartView
                     android:id="@+id/pieChartView"
@@ -205,8 +188,9 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/pad10dp"
+                    android:paddingTop="@dimen/pad10dp"
                     android:orientation="horizontal"
+                    android:background="@color/grey_2"
                     android:weightSum="2">
 
                     <TextView
@@ -239,6 +223,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
+                    android:background="@color/grey_2"
                     android:weightSum="2">
 
                     <TextView
@@ -272,6 +257,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
+                    android:background="@color/grey_2"
                     android:weightSum="2">
 
                     <TextView
@@ -304,6 +290,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
+                    android:background="@color/grey_2"
                     android:weightSum="2">
 
                     <TextView
@@ -336,6 +323,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
+                    android:background="@color/grey_2"
                     android:weightSum="2">
 
                     <TextView
@@ -368,6 +356,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
+                    android:background="@color/grey_2"
                     android:weightSum="2">
 
                     <TextView
@@ -400,13 +389,15 @@
 
         <LinearLayout
             android:id="@+id/deleteButton"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/pad16dp"
+            android:layout_marginBottom="@dimen/pad16dp"
             android:layout_marginTop="@dimen/pad10dp"
             android:orientation="vertical"
-            app:layout_constraintLeft_toLeftOf="@+id/scrollView"
-            app:layout_constraintTop_toBottomOf="@+id/scrollView">
+            app:layout_constraintStart_toStartOf="@+id/scrollView"
+            app:layout_constraintTop_toBottomOf="@+id/scrollView"
+            app:layout_constraintEnd_toStartOf="@+id/closeButton"
+            app:layout_constraintBottom_toBottomOf="parent">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -427,16 +418,18 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linearLayout1"
-            android:layout_width="wrap_content"
+            android:id="@+id/closeButton"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/pad10dp"
-            android:layout_marginEnd="@dimen/pad16dp"
+            android:layout_marginBottom="@dimen/pad16dp"
             android:clickable="true"
             android:focusable="true"
             android:orientation="vertical"
-            app:layout_constraintRight_toRightOf="@+id/scrollView"
-            app:layout_constraintTop_toBottomOf="@+id/scrollView">
+            app:layout_constraintStart_toEndOf="@id/deleteButton"
+            app:layout_constraintTop_toBottomOf="@+id/scrollView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
 
             <ImageView
                 android:layout_width="wrap_content"

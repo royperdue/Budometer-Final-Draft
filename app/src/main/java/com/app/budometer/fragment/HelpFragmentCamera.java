@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import com.app.budometer.R;
 import com.app.budometer.util.HtmlBuilder;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 
 /**
@@ -146,6 +148,10 @@ public class HelpFragmentCamera extends BaseFragment {
                 .p().font().color("red")
                 .text(getString(R.string.help_description_camera_save_image_2)).close();
         cameraCaptureTextView0.setText(html.close().build());
+
+        AdView adView = view.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
 
         return view;
     }

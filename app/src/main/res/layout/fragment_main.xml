@@ -16,17 +16,29 @@
         android:scaleType="centerCrop"
         app:srcCompat="@drawable/background_2" />
 
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/pad20dp"
+        ads:adSize="BANNER"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+    </com.google.android.gms.ads.AdView>
+
     <LinearLayout
         android:id="@+id/firstUseInstructionsLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="top|center_horizontal"
-        android:minHeight="@dimen/pad150dp"
         android:orientation="vertical"
         android:padding="@dimen/pad10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/adView">
 
         <Space
             android:layout_width="match_parent"
@@ -72,14 +84,11 @@
                 style="@style/TextAppearance.AppCompat.Small"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/pad10dp"
-                android:layout_marginTop="@dimen/pad8dp"
                 android:inputType="textMultiLine"
-                android:padding="@dimen/pad5dp"
                 android:text="@string/help_section_description_expand_button"
                 android:textColor="@color/white"
                 android:textSize="@dimen/txt14sp"
-                app:layout_constraintStart_toEndOf="@+id/helpImageViewMain"
+                app:layout_constraintStart_toStartOf="@+id/helpTitleTextViewMain"
                 app:layout_constraintTop_toBottomOf="@+id/helpTitleTextViewMain"
                 app:layout_constraintEnd_toEndOf="@+id/constraintLayout"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -124,15 +133,13 @@
                 style="@style/TextAppearance.AppCompat.Small"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/pad8dp"
                 android:inputType="textMultiLine"
-                android:padding="@dimen/pad5dp"
                 android:text="@string/help_section_description_navigation_menu_first_use"
                 android:textAlignment="viewStart"
                 android:textColor="@color/white"
                 android:textSize="@dimen/txt14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/helpImageViewGroup"
+                app:layout_constraintStart_toStartOf="@+id/helpTitleTextViewGroup"
                 app:layout_constraintTop_toBottomOf="@+id/helpTitleTextViewGroup"
                 app:layout_constraintEnd_toEndOf="@+id/constraintLayout2"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -176,12 +183,11 @@
                 style="@style/TextAppearance.AppCompat.Small"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/pad8dp"
                 android:inputType="textMultiLine|text"
                 android:text="@string/help_section_description_help_button_first_use"
                 android:textColor="@color/white"
                 android:textSize="@dimen/txt14sp"
-                app:layout_constraintStart_toEndOf="@+id/helpImageViewHelpButton"
+                app:layout_constraintStart_toStartOf="@+id/helpTitleTextViewHelpButton"
                 app:layout_constraintTop_toBottomOf="@+id/helpTitleTextViewHelpButton"
                 app:layout_constraintEnd_toEndOf="@+id/constraintLayoutHelpButton"/>
 

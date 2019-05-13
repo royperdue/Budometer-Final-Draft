@@ -1,6 +1,7 @@
 package com.app.budometer.fragment;
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,6 +25,12 @@ import com.app.budometer.model.Image;
 import com.app.budometer.util.BudometerConfig;
 import com.app.budometer.util.BudometerSP;
 import com.app.budometer.views.CircleMenuView;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.rewarded.RewardItem;
+import com.google.android.gms.ads.rewarded.RewardedAd;
+import com.google.android.gms.ads.rewarded.RewardedAdCallback;
+import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +47,7 @@ public class MainFragment extends BaseFragment {
     private static MainFragment fragment = null;
     private OnMainFragmentInteractionListener mListener;
     private LinearLayout firstUseInstructionsLayout;
+    private CircleMenuView circleMenuView;
     private Button gotItButton;
 
     public interface OnMainFragmentInteractionListener {
@@ -71,8 +79,6 @@ public class MainFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
 
-        //System.out.println("MAIN-FRAGMENT-LAUNCHED:");
-
         firstUseInstructionsLayout = view.findViewById(R.id.firstUseInstructionsLayout);
 
         gotItButton = view.findViewById(R.id.gotItButton);
@@ -87,7 +93,7 @@ public class MainFragment extends BaseFragment {
         if (BudometerSP.init(getActivity()).getBoolean(BudometerConfig.GOT_IT))
             firstUseInstructionsLayout.setVisibility(View.GONE);
 
-        CircleMenuView circleMenuView = view.findViewById(R.id.circle_menu);
+        circleMenuView = view.findViewById(R.id.circle_menu);
         circleMenuView.setEventListener(new CircleMenuView.EventListener() {
             @Override
             public void onMenuOpenAnimationStart(@NonNull CircleMenuView view) {
@@ -136,6 +142,9 @@ public class MainFragment extends BaseFragment {
             }
         });
 
+        AdView adView = view.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
 
         return view;
     }
