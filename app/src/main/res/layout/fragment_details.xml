@@ -26,7 +26,7 @@
             android:layout_marginTop="@dimen/pad20dp"
             android:layout_marginBottom="@dimen/pad20dp"
             ads:adSize="BANNER"
-            ads:adUnitId="ca-app-pub-3940256099942544/6300978111"
+            ads:adUnitId="ca-app-pub-2047793645426902/1415466053"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">

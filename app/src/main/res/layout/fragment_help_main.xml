@@ -23,7 +23,7 @@
             android:layout_marginTop="@dimen/pad20dp"
             android:layout_marginBottom="@dimen/pad20dp"
             ads:adSize="BANNER"
-            ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+            ads:adUnitId="ca-app-pub-2047793645426902/1415466053">
         </com.google.android.gms.ads.AdView>
 
         <androidx.constraintlayout.widget.ConstraintLayout
